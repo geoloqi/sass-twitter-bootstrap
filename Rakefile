@@ -9,9 +9,9 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-VERSION = "1.1.1"
-BOOTSTRAP_CSS = "bootstrap-#{VERSION}.css" 
-BOOTSTRAP_MIN_CSS = "bootstrap-#{VERSION}.min.css" 
+VERSION = "1.1.2"
+BOOTSTRAP_CSS = "bootstrap-#{VERSION}.css"
+BOOTSTRAP_MIN_CSS = "bootstrap-#{VERSION}.min.css"
 
 SASS_COMMAND = "sass --load-path lib --style"
 

@@ -7,30 +7,48 @@
 // ---------
 
 // Links
-$linkColor:         #0069d6;
+$linkColor:         #80B441;
 $linkColorHover:    darken($linkColor, 10);
 
 // Grays
-$black:             #000;
-$grayDark:          lighten($black, 25%);
-$gray:              lighten($black, 50%);
-$grayLight:         lighten($black, 75%);
-$grayLighter:       lighten($black, 90%);
-$white:             #fff;
+$black:             #000000;
+$grayDark:          #444444;
+$gray:              #777777;
+$grayLight:         #BFBFBF;
+$grayLighter:       #e6e6e6;
+$whiteOff:          #f2f2f2;
+$white:             #ffffff;
 
 // Accent Colors
 $blue:              #049CDB;
-$blueDark:          #0064CD;
-$green:             #46a546;
-$red:               #9d261d;
+$blueDark:          #3EB6EE;
+$blueLight:         #B1E4FC;
+
+$green:             #D4E7B4;
+$greenLight:        #C0DA93;
+$greenDark:         #80B441;
+
+$red:               #df002a;
+$redLight:          #FACDCD;
+$redDark:           #FF8DA2 ;
+
+$orange:            #efb470;
+$orangeLight:       #ffc994;
+$orangeDark:        #e89252;
+
 $yellow:            #ffc40d;
-$orange:            #f89406;
 $pink:              #c3325f;
 $purple:            #7a43b6;
 
 // Baseline grid
-$basefont:          13px;
+$basefont:          12px;
 $baseline:          18px;
+
+//Background
+$backgroundColor:   $whiteOff;
+
+//Fixed Header
+$fixedHeader:       true;
 
 // Griditude
 $gridColumns:       16;
@@ -38,9 +56,11 @@ $gridColumnWidth:   40px;
 $gridGutterWidth:   20px;
 $extraSpace:        40px;
 $siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+$oneThird:          (($siteWidth+$gridGutterWidth)/3)-$gridGutterWidth;
+$twoThirds:         ($oneThird*2)+$gridGutterWidth;
 
 // Color Scheme
-$baseColor:         $blue;                  // Set a base color
+$baseColor:         $green;                  // Set a base color
 $complement:        complement($baseColor);  // Determine a complementary color
 $split1:            adjust-hue($baseColor, 158);  // Split complements
 $split2:            adjust-hue($baseColor, -158);
@@ -112,9 +132,8 @@ $analog2:           adjust-hue($baseColor, -22);
 // Gradient Bar Colors for buttons and allerts
 @mixin gradientBar($primaryColor, $secondaryColor) {
   @include vertical-gradient($primaryColor, $secondaryColor);
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-  border-color: $secondaryColor $secondaryColor darken($secondaryColor, 15%);
-  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  border-color: $secondaryColor;
 }
 
 // Clearfix for clearing floats like a boss h5bp.com/q
@@ -162,7 +181,7 @@ $analog2:           adjust-hue($baseColor, -22);
   line-height: $lineHeight;
 }
 @mixin sans-serif-font($weight: normal, $size: 14px, $lineHeight: 20px) {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
@@ -241,33 +260,4 @@ $analog2:           adjust-hue($baseColor, -22);
 @mixin translucent-border($color: $white, $alpha: 1) {
   border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
   background-clip: padding-box;
-}
-
-// Shared colors for buttons and alerts
-.btn,
-.alert-message {
-  // Set text color
-  &.danger,
-  &.danger:hover,
-  &.error,
-  &.error:hover,
-  &.success,
-  &.success:hover,
-  &.info,
-  &.info:hover {
-    color: $white
-  }
-  // Danger and error appear as red
-  &.danger,
-  &.error {
-    @include gradientBar(#ee5f5b, #c43c35);
-  }
-  // Success appears as green
-  &.success {
-    @include gradientBar(#62c462, #57a957);
-  }
-  // Info appears as a neutral blue
-  &.info {
-    @include gradientBar(#5bc0de, #339bb9);
-  }
 }

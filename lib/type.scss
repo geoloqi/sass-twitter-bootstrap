@@ -87,7 +87,7 @@ ol {
 }
 li {
   line-height: $baseline;
-  color: $gray;
+  color: $grayDark;
 }
 ul.unstyled {
   list-style: none;
@@ -130,7 +130,7 @@ em {
   line-height: inherit;
 }
 .muted {
-  color: $grayLight;
+  color: $grayLight
 }
 
 // Blockquotes
@@ -142,7 +142,7 @@ blockquote {
     @include shorthand-font(300,14px,$baseline);
     margin-bottom: 0;
   }
-  small {
+  cite {
     display: block;
     @include shorthand-font(300,12px,$baseline);
     color: $grayLight;
@@ -167,7 +167,7 @@ code, pre {
   @include border-radius(3px);
 }
 code {
-  background-color: lighten($orange, 40%);
+  background-color: lighten($orangeLight, 10%);
   color: rgba(0,0,0,.75);
   padding: 1px 3px;
 }
@@ -184,5 +184,32 @@ pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
+  $shadow: inset 0 1px 1px rgba(255,255,255,1), 0 1px 0px rgba(0,0,0,.1);
+  @include box-shadow($shadow)
+}
 
+//Labels
+.label {
+  padding: 3px 4px 2px;
+  background-color: darken($grayLighter, 10%);
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  font-size: 10px;
+  font-weight: bold;
+  color: $grayDark;
+  text-transform: uppercase;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  &.success {
+    background-color: $green;
+  }
+  &.warning {
+    background-color: $orangeLight;
+  }
+  &.important {
+    background-color: $redLight;
+  }
+  &.notice {
+    background-color: $blueLight;
+  }
 }
