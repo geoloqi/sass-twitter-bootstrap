@@ -9,7 +9,7 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-VERSION = "1.2.3"
+VERSION = "1.2.0"
 BOOTSTRAP_CSS = "bootstrap-#{VERSION}.css"
 BOOTSTRAP_MIN_CSS = "bootstrap-#{VERSION}.min.css"
 

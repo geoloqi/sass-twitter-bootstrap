@@ -77,7 +77,7 @@ select,
   padding: 4px;
   font-size: 12px;
   line-height: $baseline;
-  height: $baseline;
+  min-height: $baseline;
   color: $gray;
   border: 1px solid #ccc;
   @include border-radius(3px);

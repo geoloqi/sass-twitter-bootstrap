@@ -11,7 +11,7 @@
  *
  * Branded for Geoloqi by @patrickarlt.
  *
- * Date: Wed Sep 21 15:33:12 PDT 2011
+ * Date: Wed Sep 21 15:44:45 PDT 2011
  */
 /* Reset.scss
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -317,7 +317,7 @@ table {
 }
 
 html, body {
-  background-color: #f2f2f2;
+  background-color: #f8f8f8;
   height: 100%;
 }
 
@@ -700,7 +700,7 @@ select,
   padding: 4px;
   font-size: 12px;
   line-height: 18px;
-  height: 18px;
+  min-height: 18px;
   color: #777777;
   border: 1px solid #ccc;
   -webkit-border-radius: 3px;
