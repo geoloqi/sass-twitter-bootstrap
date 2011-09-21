@@ -142,8 +142,8 @@
       }
       &.active a {
         background-color: #222;
-        border-left:2px solid #111;
-        border-right:2px solid #111;
+        $shadow: inset -1px 0 2px rgba(0,0,0,0.6), inset 1px 0 2px rgba(0,0,0,0.6);
+        @include box-shadow($shadow);
       }
     }
 
@@ -270,11 +270,10 @@
 // ------------
 
 .hero-unit {
-  background-color: #f5f5f5;
+  @include well();
   margin-top: 60px;
   margin-bottom: 30px;
   padding: 60px;
-  @include border-radius(6px);
   h1 {
     margin-bottom: 0;
     font-size: 60px;
