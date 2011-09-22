@@ -9,9 +9,10 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-VERSION = "1.2.1"
+VERSION = "1.2.2"
 BOOTSTRAP_CSS = "bootstrap-#{VERSION}.css"
 BOOTSTRAP_MIN_CSS = "bootstrap-#{VERSION}.min.css"
+BOOTSTRAP_LATEST = "bootstrap-latest.min.css"
 
 SASS_COMMAND = "sass --load-path lib --style"
 
@@ -26,8 +27,12 @@ task BOOTSTRAP_MIN_CSS do |target|
   sh "#{SASS_COMMAND} compressed lib/bootstrap.scss:#{target}"
 end
 
+task BOOTSTRAP_LATEST do |target|
+  sh "#{SASS_COMMAND} compressed lib/bootstrap.scss:#{target}"
+end
+
 desc "build regular and compresed versions of bootstrap"
-task :build => [BOOTSTRAP_CSS, BOOTSTRAP_MIN_CSS]
+task :build => [BOOTSTRAP_CSS, BOOTSTRAP_MIN_CSS, BOOTSTRAP_LATEST]
 
 desc "rebuild regular version of bootstrap when modifications are made"
 task :watch do

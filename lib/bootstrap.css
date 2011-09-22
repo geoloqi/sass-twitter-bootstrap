@@ -352,7 +352,7 @@ body {
   color: #f2f2f2;
   overflow: hidden;
 }
-#footer .inner {
+#footer .inner, #footer .fill {
   height: 40px;
   background: #333;
   background-color: #323232;

@@ -11,7 +11,7 @@
  *
  * Branded for Geoloqi by @patrickarlt.
  *
- * Date: Thu Sep 22 10:29:44 PDT 2011
+ * Date: Thu Sep 22 11:55:06 PDT 2011
  */
 /* Reset.scss
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -350,8 +350,9 @@ body {
   border-bottom: 4px solid #CEE3A4;
   border-top: none;
   color: #f2f2f2;
+  overflow: hidden;
 }
-#footer .inner {
+#footer .inner, #footer .fill {
   height: 40px;
   background: #333;
   background-color: #323232;
