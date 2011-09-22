@@ -350,6 +350,7 @@ body {
   border-bottom: 4px solid #CEE3A4;
   border-top: none;
   color: #f2f2f2;
+  overflow: hidden;
 }
 #footer .inner {
   height: 40px;
