@@ -28,7 +28,6 @@ table {
     font-weight: bold;
     font-size:14px;
     border-bottom: 2px solid $grayLight;
-    text-transform: uppercase;
   }
   &.with-caption {
     margin-bottom:0;
@@ -42,7 +41,6 @@ table {
   font-size: 13px;
   color: $gray;
   font-weight:bold;
-  text-transform: uppercase;
   background:$grayLighter;
   padding:$baseline/2 $baseline/2 1px;
   @include border-radius(0 0 3px 3px);

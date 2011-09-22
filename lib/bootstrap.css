@@ -11,7 +11,7 @@
  *
  * Branded for Geoloqi by @patrickarlt.
  *
- * Date: Wed Sep 21 16:28:15 PDT 2011
+ * Date: @DATE
  */
 /* Reset.scss
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -336,7 +336,7 @@ body {
 }
 
 #main {
-  overflow: hidden;
+  overflow: visible;
   padding-bottom: 80px;
   padding-top: 80px;
 }
@@ -476,8 +476,7 @@ h5 {
 
 h6 {
   font-size: 13px;
-  color: #bfbfbf;
-  text-transform: uppercase;
+  color: #777777;
 }
 
 ul, ol {
@@ -1203,7 +1202,6 @@ table th {
   font-weight: bold;
   font-size: 14px;
   border-bottom: 2px solid #bfbfbf;
-  text-transform: uppercase;
 }
 table.with-caption {
   margin-bottom: 0;
@@ -1218,7 +1216,6 @@ table.with-caption {
   font-size: 13px;
   color: #777777;
   font-weight: bold;
-  text-transform: uppercase;
   background: #e6e6e6;
   padding: 9px 9px 1px;
   -webkit-border-radius: 0 0 3px 3px;
@@ -1406,7 +1403,7 @@ table .headerSortDown.purple:hover {
   right: 0;
   z-index: 500;
 }
-.topbar .topbar-inner {
+.topbar .topbar-inner, .topbar .fill {
   background: #333;
   background-color: #323232;
   background-repeat: repeat-x;
@@ -1663,7 +1660,7 @@ table .headerSortDown.purple:hover {
   -webkit-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
-  margin-top: 60px;
+  margin-top: 0;
   margin-bottom: 30px;
   padding: 60px;
 }
@@ -1750,41 +1747,38 @@ footer {
   font-weight: 700;
   line-height: normal;
   color: #444444;
-  -webkit-transition: 0.1s linear all;
-  -moz-transition: 0.1s linear all;
-  transition: 0.1s linear all;
 }
 .btn:hover {
   color: #444444;
   text-decoration: none;
   background: white;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
-  border-color: #a6a6a6;
+  border-color: #b2b2b2;
 }
 .btn:hover.primary, .btn:hover.success {
   background: #cbe1a6;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
-  border-color: #658f33;
+  border-color: #73a13a;
 }
 .btn:hover.danger {
   background: #fce4e4;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
-  border-color: #ff5a78;
+  border-color: #ff748d;
 }
 .btn:hover.info {
   background: #caecfd;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
-  border-color: #14a2e5;
+  border-color: #27adec;
 }
 .btn:hover.action {
   background: #ffd6ae;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
-  border-color: #e27625;
+  border-color: #e5843b;
 }
 .btn:active {
-  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
 }
 .btn.large {
   font-size: 16px;
@@ -1961,6 +1955,59 @@ input[type=submit].btn::-moz-focus-inner {
   color: #777777;
 }
 
+.pills {
+  margin-bottom: 9px;
+}
+.pills li a {
+  margin: 0 3px 0 0;
+  padding: 0 15px;
+  text-shadow: 0 1px 1px #fff;
+  line-height: 30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+.pills li a:hover {
+  background: #e6e6e6;
+  color: #658f33;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+}
+.pills li.active a {
+  background: #d4e7b4;
+  color: #444444;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.tab-content > .active, .pill-content > .active {
+  display: block;
+  background-color: white;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+  padding: 19px;
+  min-height: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
+}
+.tab-content > *, .pill-content > * {
+  display: none;
+}
+
+.pill-content > .active {
+  border: 1px solid #e6e6e6;
+}
+
+.tab-content > .active {
+  border: 1px solid #e6e6e6;
+  border-top: none;
+}
+
 .media-grid {
   margin-left: -20px;
   margin-bottom: 0;
@@ -2017,59 +2064,6 @@ input[type=submit].btn::-moz-focus-inner {
 }
 .breadcrumb .active a {
   color: #444444;
-}
-
-.pills {
-  margin-bottom: 9px;
-}
-.pills li a {
-  margin: 0 3px 0 0;
-  padding: 0 15px;
-  text-shadow: 0 1px 1px #fff;
-  line-height: 30px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-}
-.pills li a:hover {
-  background: #d4e7b4;
-  color: #444444;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
-  text-decoration: none;
-}
-.pills li.active a {
-  background: #80b441;
-  color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-}
-
-.tab-content > .active, .pill-content > .active {
-  display: block;
-  background-color: white;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  margin-bottom: 20px;
-  padding: 19px;
-  min-height: 20px;
-  background: white;
-  border: 1px solid #ddd;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
-}
-.tab-content > *, .pill-content > * {
-  display: none;
-}
-
-.pill-content > .active {
-  border: 1px solid #e6e6e6;
-}
-
-.tab-content > .active {
-  border: 1px solid #e6e6e6;
-  border-top: none;
 }
 
 .pagination {
@@ -2138,6 +2132,9 @@ input[type=submit].btn::-moz-focus-inner {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+.well.header-footer header .pagination, .well.header-footer footer .pagination {
+  margin: 9px 0;
 }
 .well.header-footer header .pagination ul li a, .well.header-footer footer .pagination ul li a {
   border: none;

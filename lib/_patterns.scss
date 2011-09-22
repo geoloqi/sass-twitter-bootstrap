@@ -23,7 +23,7 @@
   }
 
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
-  .topbar-inner {
+  .topbar-inner, .fill {
     background:#333;
     @include vertical-gradient(#333, #323232);
     $shadow: 0 1px 4px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,.1);
@@ -375,25 +375,25 @@ footer {
 
     &.primary,
     &.success {
-      @include btnColor(lighten($greenLight, 5%), darken($greenDark, 10%))
+      @include btnColor(lighten($greenLight, 5%), darken($greenDark, 5%))
     }
 
     // Danger and error appear as red
     &.danger {
-      @include btnColor(lighten($redLight, 5%), darken($redDark, 10%))
+      @include btnColor(lighten($redLight, 5%), darken($redDark, 5%))
     }
 
     // Info appears as a neutral blue
     &.info {
-      @include btnColor(lighten($blueLight, 5%), darken($blueDark, 10%))
+      @include btnColor(lighten($blueLight, 5%), darken($blueDark, 5%))
     }
 
     //Actions Appear as Oragne
     &.action {
-     @include btnColor(lighten($orangeLight, 5%), darken($orangeDark,10%))
+     @include btnColor(lighten($orangeLight, 5%), darken($orangeDark,5%))
     }
 
-    @include btnColor(lighten($whiteOff, 5%), darken($grayLight, 10%))
+    @include btnColor(lighten($whiteOff, 5%), darken($grayLight, 5%))
 
   }
 
@@ -577,6 +577,59 @@ input[type=submit].btn {
   }
 }
 
+// Basic pill nav
+.pills {
+  margin-bottom:$baseline/2;
+  li {
+    a {
+      margin: 0 3px 0 0;
+      padding: 0 15px;
+      text-shadow: 0 1px 1px #fff;
+      line-height: 30px;
+      @include border-radius(15px);
+      &:hover {
+        background: $grayLighter;
+        color:$linkColorHover;
+        text-shadow: 0 1px 1px rgba(255,255,255,.25);
+        text-decoration: none;
+      }
+    }
+    &.active a {
+      background: $green;
+      color:$grayDark;
+      text-shadow: 0 1px 1px rgba(255,255,255,.25);
+    }
+  }
+}
+
+.tab-content, .pill-content {
+  > .active {
+    display:block;
+    background-color: $white;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    margin-bottom: 20px;
+    padding: 19px;
+    min-height: 20px;
+    @include well();
+  }
+  > * {
+    display:none;
+  }
+}
+
+.pill-content {
+  > .active {
+    border: 1px solid $grayLighter;
+  }
+}
+
+.tab-content {
+  > .active {
+    border: 1px solid $grayLighter;
+    border-top:none;
+  }
+}
+
 // MEDIA GRIDS
 // -----------
 
@@ -623,59 +676,6 @@ input[type=submit].btn {
   }
   .active a {
     color: $grayDark;
-  }
-}
-
-// Basic pill nav
-.pills {
-  margin-bottom:$baseline/2;
-  li {
-    a {
-      margin: 0 3px 0 0;
-      padding: 0 15px;
-      text-shadow: 0 1px 1px #fff;
-      line-height: 30px;
-      @include border-radius(15px);
-      &:hover {
-        background: $green;
-        color:$grayDark;
-        text-shadow: 0 1px 1px rgba(255,255,255,.25);
-        text-decoration: none;
-      }
-    }
-    &.active a {
-      background: $greenDark;
-      color:$white;
-      text-shadow: 0 1px 1px rgba(000,000,000,.25);
-    }
-  }
-}
-
-.tab-content, .pill-content {
-  > .active {
-    display:block;
-    background-color: $white;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
-    margin-bottom: 20px;
-    padding: 19px;
-    min-height: 20px;
-    @include well();
-  }
-  > * {
-    display:none;
-  }
-}
-
-.pill-content {
-  > .active {
-    border: 1px solid $grayLighter;
-  }
-}
-
-.tab-content {
-  > .active {
-    border: 1px solid $grayLighter;
-    border-top:none;
   }
 }
 
@@ -740,9 +740,11 @@ input[type=submit].btn {
         padding: 0;
         @include box-shadow(none);
       }
-
-      .pagination ul li a {
-        border: none;
+      .pagination {
+        margin:$baseline/2 0;
+        ul li a {
+          border: none;
+        }
       }
     }
 

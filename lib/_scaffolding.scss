@@ -94,7 +94,7 @@ body {
 }
 
 #main {
-  overflow:hidden;
+  overflow:visible;
   padding-bottom: 80px;
   @if $fixedHeader == true {
     padding-top:80px;
