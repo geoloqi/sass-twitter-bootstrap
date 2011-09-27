@@ -21,7 +21,6 @@
   } @else {
     margin-bottom:3em;
   }
-
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
   .topbar-inner, .fill {
     background:#333;
@@ -884,9 +883,8 @@ input[type=submit].btn {
   display: block;
   position: absolute;
   visibility: visible;
-  padding: 5px;
+  padding: 6px 5px 5px;
   z-index: 1000;
-  @include opacity(90);
   &.above .twipsy-arrow   { @include popover-arrow-above(); }
   &.left .twipsy-arrow    { @include popover-arrow-left(); }
   &.below .twipsy-arrow   { @include popover-arrow-below(); }
@@ -918,7 +916,7 @@ input[type=submit].btn {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 5px;
+  padding: 6px 5px 5px;
   display: none;
   &.above .arrow { @include popover-arrow-above(); }
   &.right .arrow { @include popover-arrow-right(); }
@@ -929,6 +927,7 @@ input[type=submit].btn {
     width: 0;
     height: 0;
   }
+
   .inner {
     background-color: $gray;
     *background-color: $gray; /* IE 6-7 */
@@ -962,4 +961,35 @@ input[type=submit].btn {
   margin-top: $baseline;
   margin-bottom: $baseline;
   background: $grayLighter;
+}
+
+
+// Map Infoboxes
+// -------------
+
+.geoloqi-infobox {
+  padding: 5px;
+  width:270px;
+  background-color: $grayLighter;
+  @include border-radius(3px);
+  $shadow: 0 2px 14px rgba(0,0,0,0.4), 0 1px 0px rgba(0,0,0,.05);
+  @include box-shadow($shadow);
+  .arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    margin-left: 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $grayLighter;
+    bottom:-5px;
+  }
+  .content {
+    background-color: $white;
+    padding: 9px;
+    @include border-radius(3px);
+    @include background-clip(padding-box);
+  }
+
 }

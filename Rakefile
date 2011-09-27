@@ -36,7 +36,7 @@ task :build => [BOOTSTRAP_CSS, BOOTSTRAP_MIN_CSS, BOOTSTRAP_LATEST]
 
 desc "rebuild regular version of bootstrap when modifications are made"
 task :watch do
-  sh "expanded --watch lib/bootstrap.scss:#{BOOTSTRAP_CSS}"
+  sh "#{SASS_COMMAND} expanded --watch lib"
 end
 
 task :default => :build
