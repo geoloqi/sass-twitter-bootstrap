@@ -2,12 +2,8 @@
  * Variables and mixins to pre-ignite any new web development project
  * ------------------------------------------------------------------ */
 
-// VARIABLES
-// ---------
-
-// Links
-$linkColor:         #80B441;
-$linkColorHover:    darken($linkColor, 10);
+// THEME
+// -----
 
 // Grays
 $black:             #000000;
@@ -36,20 +32,46 @@ $orangeLight:       #ffc994;
 $orangeDark:        #e89252;
 
 $yellow:            #ffc40d;
+$yellowLight:       #ffc40d;
+$yellowDark:        #ffc40d;
+
 $pink:              #c3325f;
+$pinkLight:         #c3325f;
+$pinkDark:          #c3325f;
+
 $purple:            #7a43b6;
+$purpleLight:       #7a43b6;
+$purpleDark:        #7a43b6;
+
+// Links
+$linkColor:         $greenDark;
+$linkColorHover:    darken($linkColor, 10);
+$linkUnderline:     false;
+
+//Forms
+$focusColor:        #D4E7B4;
+$errorBgColor:      lighten($redLight, 5%);
+$errorTextColor:    $red;
+
+//Pills
+$pillActive: $green;
 
 // Baseline grid
 $basefont:          12px;
 $baseline:          18px;
 
-//Background
+//Background Color
 $backgroundColor:   #f8f8f8;
 
-//Fixed Header
-$fixedHeader:       true;
+//Header and Footer Accent Colors
+$barAccent: $greenLight;
 
-// Griditude
+//Layout
+$fixedHeader:       false;
+$fixedFooter:       false;
+
+// Grid
+
 $gridColumns:       16;
 $gridColumnWidth:   40px;
 $gridGutterWidth:   20px;
@@ -58,17 +80,39 @@ $siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gr
 $oneThird:          (($siteWidth+$gridGutterWidth)/3)-$gridGutterWidth;
 $twoThirds:         ($oneThird*2)+$gridGutterWidth;
 
-// Color Scheme
-$baseColor:         $green;                  // Set a base color
-$complement:        complement($baseColor);  // Determine a complementary color
-$split1:            adjust-hue($baseColor, 158);  // Split complements
-$split2:            adjust-hue($baseColor, -158);
-$triad1:            adjust-hue($baseColor, 135);  // Triads colors
-$triad2:            adjust-hue($baseColor, -135);
-$tetra1:            adjust-hue($baseColor, 90);   // Tetra colors
-$tetra2:            adjust-hue($baseColor, -90);
-$analog1:           adjust-hue($baseColor, 22);   // Analogs colors
-$analog2:           adjust-hue($baseColor, -22);
+//Buttons and Notifications
+$primaryLight: $greenLight;
+$primaryDark: $greenDark;
+
+$defaultLight: $whiteOff;
+$defaultDark: $grayLight;
+
+$infoLight: $blueLight;
+$infoDark: $blueDark;
+
+$successLight: $greenLight;
+$successDark: $greenDark;
+
+$dangerLight: $redLight;
+$dangerDark: $redDark;
+
+$actionLight: $orangeLight;
+$actionDark: $orangeDark;
+
+//Type
+$codeBackground: $orangeLight;
+
+//Labels
+
+$defaultLabel: darken($grayLighter, 10%); 
+$warningLabel: $orangeLight;
+$newLabel: $green;
+$importantLabel: $redLight;
+$noticeLabel: $blueLight;
+$successLabel: $green;
+
+// ---------
+// END THEME
 
 
 // MIXINS

@@ -102,32 +102,21 @@ body {
 }
 
 #footer {
-  position: relative;
-  margin-top: -44px; /* negative value of footer height */
   height: 40px;
   clear:both;
-  border-bottom:4px solid #CEE3A4;
-  border-top:none;
-  color:$whiteOff;
   overflow: hidden;
+
+  @if $fixedFooter == false {
+    position: relative;
+    margin-top: -44px; /* negative value of footer height */
+  }
 
   .inner, .fill {
     height: 40px;
     background:#333;
     @include vertical-gradient(#333, #323232);
-    $shadow: 0 1px 4px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,.1);
+    $shadow: 0 -1px 4px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,.1);
     @include box-shadow($shadow);
-  }
-
-  p {
-    line-height:40px;
-  }
-
-  a{
-    color: $green;
-    &:hover {
-      color: $greenLight;
-    }
   }
 }
 

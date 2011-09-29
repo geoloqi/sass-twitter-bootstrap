@@ -166,7 +166,7 @@ code, pre {
   @include border-radius(3px);
 }
 code {
-  background-color: lighten($orangeLight, 10%);
+  background-color: lighten($codeBackground, 10%);
   color: rgba(0,0,0,.75);
   padding: 1px 3px;
 }
@@ -190,7 +190,7 @@ pre {
 //Labels
 .label {
   padding: 3px 4px 2px;
-  background-color: darken($grayLighter, 10%);
+  background-color: $defaultLabel;
   text-shadow: 0 1px 0 rgba(255,255,255,.5);
   font-size: 10px;
   font-weight: bold;
@@ -200,15 +200,18 @@ pre {
   -moz-border-radius: 3px;
   border-radius: 3px;
   &.success {
-    background-color: $green;
+    background-color: $successLabel;
+  }
+  &.new {
+    background-color: $newLabel;
   }
   &.warning {
-    background-color: $orangeLight;
+    background-color: $warningLabel;
   }
   &.important {
-    background-color: $redLight;
+    background-color: $importantLabel;
   }
   &.notice {
-    background-color: $blueLight;
+    background-color: $noticeLabel;
   }
 }

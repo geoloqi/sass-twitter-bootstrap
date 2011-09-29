@@ -7,26 +7,44 @@
 // ------
 
 // Topbar for Branding and Nav
-.topbar {
+.topbar, .bar {
   height: 40px;
   overflow: visible;
-  border-top:4px solid #CEE3A4;
-
-  @if $fixedHeader == true {
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:500;
-  } @else {
-    margin-bottom:3em;
-  }
+  
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
-  .topbar-inner, .fill {
+  .topbar-inner, .fill, .inner {
     background:#333;
-    @include vertical-gradient(#333, #323232);
-    $shadow: 0 1px 4px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,.1);
-    @include box-shadow($shadow);
+    @include vertical-gradient(#333, #323232);  
+  }
+
+  &.top {
+    border-top:4px solid $barAccent; 
+    @if $fixedHeader == true {
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:500;
+    } @else {
+      margin-bottom:3em;
+    }
+    .inner {
+      $shadow: 0 1px 4px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,.1);
+      @include box-shadow($shadow);  
+    }
+  }
+
+  &.bottom {
+    border-bottom:4px solid $barAccent;
+    @if $fixedFooter == true {
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      z-index:500;
+    } @else {
+      margin-bottom:3em;
+    }
   }
 
   // Links get text shadow
@@ -70,7 +88,7 @@
       background-color: rgba(255,255,255,.2);
       @include sans-serif-font(13px, normal, 1);
       width: 220px;
-      padding: 3px 9px 2px;
+      padding: 3px 5px 2px;
       margin-top:3px;
       color: #fff;
       color: rgba(255,255,255,.75);
@@ -99,12 +117,12 @@
         outline: none;
         background-color: rgba(255,255,255,.35);
         text-shadow: 0 1px 0 #111;
-        padding: 3px 9px 2px;
+        padding: 3px 5px 2px;
         margin-top:3px;
         border-color:#111;
         color:$whiteOff;
-        $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25), 0 0 3px rgba(0,0,0,.15);
-        @include box-shadow();
+        $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
+        @include box-shadow($shadow);
       }
     }
   }
@@ -285,11 +303,6 @@
     line-height: $baseline * 1.5;
   }
 }
-footer {
-  margin-top: $baseline - 1;
-  padding-top: $baseline - 1;
-  border-top: 1px solid #eee;
-}
 
 // PAGE HEADERS
 // ------------
@@ -301,6 +314,12 @@ footer {
   h1 {
     margin-bottom: ($baseline / 2) - 1px;
   }
+}
+
+section footer {
+  margin-top: $baseline - 1;
+  padding-top: $baseline - 1;
+  border-top: 1px solid #eee;
 }
 
 // PATTERN ANIMATIONS
@@ -334,32 +353,35 @@ footer {
   $shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 0px rgba(0,0,0,.1);
   @include box-shadow($shadow);
 
-  &.primary,
+  &.primary, {
+    @include btnColor($primaryLight, $primaryDark)
+  }
+
   &.success {
-    @include btnColor($greenLight, $greenDark)
+    @include btnColor($successLight, $successDark)
   }
 
   // Danger and error appear as red
   &.danger,
   &.error,
   &.warning {
-   @include btnColor($redLight, $redDark)
+   @include btnColor($dangerLight, $dangerDark)
   }
 
   // Info appears as a neutral blue
   &.info {
-   @include btnColor($blueLight, $blueDark)
+   @include btnColor($infoLight, $infoDark)
   }
 
   //Actions Appear as Oragne
   &.action {
-   @include btnColor($orangeLight, $orangeDark)
+   @include btnColor($actionLight, $actionDark)
   }
 }
 
 // Base .btn styles
 .btn {
-  // Button Base
+  //  Base
   cursor: pointer;
   display: inline-block;
   padding:.65em 1em;
@@ -372,27 +394,30 @@ footer {
 
     text-decoration: none;
 
-    &.primary,
-    &.success {
-      @include btnColor(lighten($greenLight, 5%), darken($greenDark, 5%))
+    &.primary {
+      @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%))
+    }
+
+    &.primary {
+      @include btnColor(lighten($successLight, 5%), darken($successDark, 5%))
     }
 
     // Danger and error appear as red
     &.danger {
-      @include btnColor(lighten($redLight, 5%), darken($redDark, 5%))
+      @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%))
     }
 
     // Info appears as a neutral blue
     &.info {
-      @include btnColor(lighten($blueLight, 5%), darken($blueDark, 5%))
+      @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%))
     }
 
     //Actions Appear as Oragne
     &.action {
-     @include btnColor(lighten($orangeLight, 5%), darken($orangeDark,5%))
+     @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%))
     }
 
-    @include btnColor(lighten($whiteOff, 5%), darken($grayLight, 5%))
+    @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%))
 
   }
 
@@ -405,7 +430,7 @@ footer {
   //@include transition(.1s linear all);
 
 
-  // Button Sizes
+  //  Sizes
   &.large {
     font-size: 16px;
   }
@@ -419,25 +444,28 @@ footer {
     cursor: default;
     @include opacity(65);
     &:hover, &:active {
-      @include btnColor($whiteOff, $grayLight);
-      &.primary,
+      @include btnColor($defaultLight, $defaultDark);
+      &.primary {
+        @include btnColor($primaryLight, $primaryDark)
+      }
+
       &.success {
-        @include btnColor($greenLight, $greenDark)
+        @include btnColor($successLight, $successDark)
       }
 
       // Danger and error appear as red
       &.danger {
-        @include btnColor($redLight, $redDark)
+        @include btnColor($dangerLight, $dangerDark)
       }
 
       // Info appears as a neutral blue
       &.info {
-        @include btnColor($blueLight, $blueDark)
+        @include btnColor($infoLight, $infoDark)
       }
 
       //Actions Appear as Oragne
       &.action {
-       @include btnColor($orangeLight, $orangeDark)
+       @include btnColor($actionLight, $actionDark)
       }
     }
   }
@@ -449,25 +477,28 @@ footer {
     background-image: none;
     @include opacity(65);
     &:hover, &:active {
-      @include btnColor($whiteOff, $grayLight);
-      &.primary,
+      @include btnColor($defaultLight, $defaultDark);
+      &.primary {
+        @include btnColor($primaryLight, $primaryDark)
+      }
+
       &.success {
-        @include btnColor($greenLight, $greenDark)
+        @include btnColor($successLight, $successDark)
       }
 
       // Danger and error appear as red
       &.danger {
-        @include btnColor($redLight, $redDark)
+        @include btnColor($dangerLight, $dangerDark)
       }
 
       // Info appears as a neutral blue
       &.info {
-        @include btnColor($blueLight, $blueDark)
+        @include btnColor($infoLight, $infoDark)
       }
 
       //Actions Appear as Oragne
       &.action {
-       @include btnColor($orangeLight, $orangeDark)
+       @include btnColor($actionLight, $actionDark)
       }
     }
   }
@@ -594,7 +625,7 @@ input[type=submit].btn {
       }
     }
     &.active a {
-      background: $green;
+      background: $pillActive;
       color:$grayDark;
       text-shadow: 0 1px 1px rgba(255,255,255,.25);
     }
