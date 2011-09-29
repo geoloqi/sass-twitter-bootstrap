@@ -25,23 +25,23 @@ $greenDark:         #80B441;
 
 $red:               #df002a;
 $redLight:          #FACDCD;
-$redDark:           #FF8DA2 ;
+$redDark:           #FF8DA2;
 
 $orange:            #efb470;
 $orangeLight:       #ffc994;
 $orangeDark:        #e89252;
 
 $yellow:            #ffc40d;
-$yellowLight:       #ffc40d;
-$yellowDark:        #ffc40d;
+$yellowLight:       darken($yellow, 10);
+$yellowDark:        lighten($yellow, 10);
 
 $pink:              #c3325f;
-$pinkLight:         #c3325f;
-$pinkDark:          #c3325f;
+$pinkLight:         darken($pink, 10);
+$pinkDark:          lighten($pink, 10);
 
 $purple:            #7a43b6;
-$purpleLight:       #7a43b6;
-$purpleDark:        #7a43b6;
+$purpleLight:       darken($purple, 10);
+$purpleDark:        lighten($purple, 10);
 
 // Links
 $linkColor:         $greenDark;

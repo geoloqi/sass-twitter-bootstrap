@@ -1760,7 +1760,7 @@ section footer {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #73a13a;
 }
-.btn:hover.primary {
+.btn:hover.success {
   background: #cbe1a6;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #73a13a;

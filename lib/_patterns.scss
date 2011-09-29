@@ -398,7 +398,7 @@ section footer {
       @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%))
     }
 
-    &.primary {
+    &.success {
       @include btnColor(lighten($successLight, 5%), darken($successDark, 5%))
     }
 
