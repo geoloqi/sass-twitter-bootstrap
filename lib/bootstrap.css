@@ -392,15 +392,13 @@ body {
 #main {
   overflow: visible;
   padding-bottom: 80px;
+  padding-top: 80px;
 }
 
 #footer {
   height: 40px;
   clear: both;
   overflow: hidden;
-  position: relative;
-  margin-top: -44px;
-  /* negative value of footer height */
 }
 #footer .inner, #footer .fill {
   height: 40px;
@@ -437,12 +435,13 @@ body {
 }
 .container-fluid .sidebar {
   float: left;
-  width: 220px;
+  width: 360px;
 }
 .container-fluid .content {
-  min-width: 700px;
-  max-width: 1180px;
-  margin-left: 240px;
+  min-width: 520px;
+  max-width: 100%;
+  margin-left: 420px;
+  background: red;
 }
 
 a {
@@ -1462,7 +1461,11 @@ table .headerSortDown.purple:hover {
 }
 .topbar.top, .bar.top {
   border-top: 4px solid #c0da93;
-  margin-bottom: 3em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
 }
 .topbar.top .inner, .bar.top .inner {
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
@@ -1471,7 +1474,11 @@ table .headerSortDown.purple:hover {
 }
 .topbar.bottom, .bar.bottom {
   border-bottom: 4px solid #c0da93;
-  margin-bottom: 3em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
 }
 .topbar a, .bar a {
   color: #bfbfbf;

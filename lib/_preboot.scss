@@ -67,10 +67,14 @@ $backgroundColor:   #f8f8f8;
 $barAccent: $greenLight;
 
 //Layout
-$fixedHeader:       false;
-$fixedFooter:       false;
+$fixedHeader:       true;
+$fixedFooter:       true;
 
 // Grid
+
+$fluidSidebarWidth: 400px;
+$fluidSidebarPadding: 40px;
+$fluidMaxWidth : 100%;
 
 $gridColumns:       16;
 $gridColumnWidth:   40px;

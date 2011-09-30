@@ -153,12 +153,13 @@ body {
   @include clearfix();
   .sidebar {
     float: left;
-    width: 220px;
+    width: $fluidSidebarWidth - $fluidSidebarPadding;
   }
   .content {
-    min-width: 700px;
-    max-width: 1180px;
-    margin-left: 240px;
+    min-width: $siteWidth - 20 - $fluidSidebarWidth;
+    max-width: $fluidMaxWidth;
+    margin-left: $fluidSidebarWidth + 20;
+    background:red;
   }
 }
 

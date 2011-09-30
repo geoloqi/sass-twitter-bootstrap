@@ -1,0 +1,131 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Example Landing Page</title>
+  <link rel="stylesheet" href="../lib/bootstrap.css">
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=geometry,places&amp;sensor=false"></script>
+  <script src="../js/libs/modernizr-2.0.6-everything.min.js"></script>
+ <script type="text/javascript">
+
+    console.log("Start");
+
+    var map;
+    var pinWithRadius;
+    var pinWithInfobox;
+    var pinWithInfoboxAndRadius;
+    var pin;
+    var pin2;
+    var pinWithRadius2;
+    var pinWithInfobox2;
+    var pinWithInfoboxAndRadius2;
+
+    function initialize() {
+
+      map = new google.maps.Map(document.getElementById('map'),{
+        zoom: 14,
+        center: new google.maps.LatLng(46.5246, -122.6834),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+    }//End init function
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main">
+    <header class="bar top" data-dropdown="dropdown">
+      <div class="topbar-inner">
+        <div class="container">
+          <h3><a href="#">Our Great New Product</a></h3>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Secondary link</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Another link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="pull-left" action="">
+            <input type="text" placeholder="Search">
+          </form>
+          <ul class="nav secondary-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Secondary link</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Another link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div><!-- /topbar-inner -->
+    </header><!-- /topbar -->
+    
+      <div class="container-fluid">
+                <nav class="sidebar well">
+            <h3>content</h3>
+            <ul>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+              <li><a href="">Link</a></li>
+            </ul>
+
+          </nav>
+          <div class="content">
+            <div id="map">
+          </div>
+           </div>
+  
+      </div><!-- /container -->
+        
+    </div><!-- /main -->
+
+    
+  </div><!-- /wrapper -->
+  <footer id="footer" class="bar bottom">
+    <div class="fill">
+      <div class="container">
+        <nav class="small">
+          <a href="">Test</a>
+          <a href="">Test</a>
+          <a href="">Test</a>
+          <a href="">Test</a>
+          <a href="">Test</a>
+        </nav>
+        <p><small class="right">Copyright</small></p>
+      </div>
+    </div>
+  </footer>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="../js/libs/ICanHaz.min.js"></script>
+<script src="../js/libs/bootstrap/bootstrap-dropdown.js"></script>
+<script src="../js/libs/bootstrap/bootstrap-twipsy.js"></script>
+<script src="../js/libs/bootstrap/bootstrap-popover.js"></script>
+<script src="../js/libs/bootstrap/bootstrap-tabs.js"></script>
+<script src="../js/libs/bootstrap/jquery.reveal.js"></script>
+<script src="../js/libs/bootstrap/jquery.tablesorter.min.js"></script>
+<script src="../js/libs/bootstrap/bootstrap-tablesorter.js"></script>
+<script src="../js/libs/bootstrap/bootstrap-equal-columns.js"></script>
+<script src="../js/libs/bootstrap/bootstrap-map-sizer.js"></script>
+<script src="../js/core.js"></script>
+
+</body>
+</html>

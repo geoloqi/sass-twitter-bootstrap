@@ -28,3 +28,9 @@ $("a[rel='popup']").popover({
 });
 
 $('.row[data-equal]').equalColumns();
+
+$(document).ready(function(){
+  $('#map').mapSizer({
+    offBottom:160
+  });
+});
