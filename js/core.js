@@ -1,7 +1,10 @@
 //Polyfill Placeholders in Non-Supported Browsers
 Modernizr.load({
   test: Modernizr.input.placeholder,
-  nope: '/polyfill/jquery.placeholder.min.js'
+  nope: 'polyfill/jquery.placeholder.min.js',
+  complete : function () {
+    $('input[placeholder], textarea[placeholder]').placeholder();
+  }
 });
 
 //Close Function for Alert Messages
@@ -25,13 +28,4 @@ $("a[rel='popup']").popover({
   delayOut: 500,
   animate:true,
   placement: "above"
-});
-
-$('.row[data-equal]').equalColumns();
-
-$(document).ready(function(){
-  $('#map').mapSizer({
-    offBottom:180,
-    offLeft:20
-  });
 });

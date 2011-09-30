@@ -377,7 +377,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
+  font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 18px;
@@ -620,7 +620,7 @@ address {
 
 code, pre {
   padding: 0 3px 2px;
-  font-family: Monaco, Andale Mono, Courier New, monospace;
+  font-family: "Monaco", Courier New, monospace;
   font-size: 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -712,7 +712,7 @@ label,
 input,
 select,
 textarea {
-  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
+  font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: normal;
@@ -1527,7 +1527,7 @@ table .headerSortDown.purple:hover {
 .topbar form input, .bar form input {
   background-color: #444;
   background-color: rgba(255, 255, 255, 0.2);
-  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
+  font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
   font-size: normal;
   font-weight: 13px;
   line-height: 1;

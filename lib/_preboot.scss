@@ -79,10 +79,6 @@ $fluidMaxWidth : 100%;
 $gridColumns:       16;
 $gridColumnWidth:   40px;
 $gridGutterWidth:   20px;
-$extraSpace:        40px;
-$siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
-$oneThird:          (($siteWidth+$gridGutterWidth)/3)-$gridGutterWidth;
-$twoThirds:         ($oneThird*2)+$gridGutterWidth;
 
 //Buttons and Notifications
 $primaryLight: $greenLight;
@@ -106,6 +102,11 @@ $actionDark: $orangeDark;
 //Type
 $codeBackground: $orangeLight;
 
+//Fonts
+$sansSerif: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif ;
+$serif: "Georgia", Times New Roman, Times, serif ;
+$mono: "Monaco", Courier New, monospace;
+
 //Labels
 
 $defaultLabel: darken($grayLighter, 10%); 
@@ -118,6 +119,10 @@ $successLabel: $green;
 // ---------
 // END THEME
 
+$extraSpace:        $gridGutterWidth*2;
+$siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+$oneThird:          (($siteWidth+$gridGutterWidth)/3)-$gridGutterWidth;
+$twoThirds:         ($oneThird*2)+$gridGutterWidth;
 
 // MIXINS
 // ------
@@ -228,19 +233,19 @@ $successLabel: $green;
   line-height: $lineHeight;
 }
 @mixin sans-serif-font($weight: normal, $size: 14px, $lineHeight: 20px) {
-  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
+  font-family: $sansSerif;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
 @mixin serif-font($weight: normal, $size: 14px, $lineHeight: 20px) {
-  font-family: "Georgia", Times New Roman, Times, serif;
+  font-family: $serif;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
 @mixin monospace-font($weight: normal, $size: 12px, $lineHeight: 20px) {
-  font-family: "Monaco", Courier New, monospace;
+  font-family: $mono;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;

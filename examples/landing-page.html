@@ -92,7 +92,7 @@
               </ul>
           
           </article>
-        </div>
+        </section>
       </div>
     </div><!-- /main -->
 
@@ -125,6 +125,11 @@
 <script src="../js/libs/bootstrap/bootstrap-tablesorter.js"></script>
 <script src="../js/libs/bootstrap/bootstrap-equal-columns.js"></script>
 <script src="../js/core.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.row[data-equal]').equalColumns();
+});
+</script>
 
 </body>
 </html>
