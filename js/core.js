@@ -31,6 +31,7 @@ $('.row[data-equal]').equalColumns();
 
 $(document).ready(function(){
   $('#map').mapSizer({
-    offBottom:160
+    offBottom:180,
+    offLeft:20
   });
 });

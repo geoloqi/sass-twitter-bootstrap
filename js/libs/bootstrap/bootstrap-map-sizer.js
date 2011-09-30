@@ -2,7 +2,8 @@
     
     var defaults = {
       width: '100%',
-      offBottom: 0
+      offBottom: 0,
+      offWidth: 0
     }
 
     var settings = {}
@@ -25,7 +26,9 @@
         return $(this).each(function(){
           $(this).height(function(){
             return ($('html').height() - settings.offBottom);
-          }).width(settings.width);
+          }).width(function(){
+            return (settings.width - settings.offWidth)
+          });
         });
       }
     }
