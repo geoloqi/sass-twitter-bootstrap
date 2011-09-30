@@ -71,6 +71,15 @@ h6 {
 // Unordered and Ordered lists
 ul, ol {
   margin: 0 0 $baseline 25px;
+  &.spaced {
+    li {
+      margin-top:0;
+    }
+
+    li+li {
+      margin-top:$baseline;
+    }
+  }
 }
 ul ul,
 ul ol,

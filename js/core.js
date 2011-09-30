@@ -26,3 +26,5 @@ $("a[rel='popup']").popover({
   animate:true,
   placement: "above"
 });
+
+$('.row[data-equal]').equalColumns();

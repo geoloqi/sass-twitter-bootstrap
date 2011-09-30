@@ -11,7 +11,7 @@
  *
  * Branded for Geoloqi by @patrickarlt.
  *
- * Date: Tue Sep 27 12:16:26 PDT 2011
+ * Date: Fri Sep 30 11:02:44 PDT 2011
  */
 /* Reset.scss
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -267,11 +267,65 @@ table {
 .row .span16 {
   width: 940px;
 }
+.row .span1.well {
+  width: 0px;
+}
+.row .span2.well {
+  width: 60px;
+}
+.row .span3.well {
+  width: 120px;
+}
+.row .span4.well {
+  width: 180px;
+}
+.row .span5.well {
+  width: 240px;
+}
+.row .span6.well {
+  width: 300px;
+}
+.row .span7.well {
+  width: 360px;
+}
+.row .span8.well {
+  width: 420px;
+}
+.row .span9.well {
+  width: 480px;
+}
+.row .span10.well {
+  width: 540px;
+}
+.row .span11.well {
+  width: 600px;
+}
+.row .span12.well {
+  width: 660px;
+}
+.row .span13.well {
+  width: 720px;
+}
+.row .span14.well {
+  width: 780px;
+}
+.row .span15.well {
+  width: 840px;
+}
+.row .span16.well {
+  width: 900px;
+}
 .row .span-one-third {
   width: 300px;
 }
 .row .span-two-thirds {
   width: 620px;
+}
+.row .span-one-third.well {
+  width: 260px;
+}
+.row .span-two-thirds.well {
+  width: 580px;
 }
 .row .offset1 {
   margin-left: 80px;
@@ -331,26 +385,22 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-#wrap {
+#wrap, #wrapper {
   min-height: 100%;
 }
 
 #main {
   overflow: visible;
   padding-bottom: 80px;
-  padding-top: 80px;
 }
 
 #footer {
+  height: 40px;
+  clear: both;
+  overflow: hidden;
   position: relative;
   margin-top: -44px;
   /* negative value of footer height */
-  height: 40px;
-  clear: both;
-  border-bottom: 4px solid #CEE3A4;
-  border-top: none;
-  color: #f2f2f2;
-  overflow: hidden;
 }
 #footer .inner, #footer .fill {
   height: 40px;
@@ -364,18 +414,9 @@ body {
   background-image: -webkit-linear-gradient(top, #333333, #323232);
   background-image: -o-linear-gradient(top, #333333, #323232);
   background-image: linear-gradient(top, #333333, #323232);
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-#footer p {
-  line-height: 40px;
-}
-#footer a {
-  color: #d4e7b4;
-}
-#footer a:hover {
-  color: #c0da93;
+  -webkit-box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -482,6 +523,12 @@ h6 {
 
 ul, ol {
   margin: 0 0 18px 25px;
+}
+ul.spaced li, ol.spaced li {
+  margin-top: 0;
+}
+ul.spaced li + li, ol.spaced li + li {
+  margin-top: 18px;
 }
 
 ul ul,
@@ -620,6 +667,9 @@ pre {
   border-radius: 3px;
 }
 .label.success {
+  background-color: #d4e7b4;
+}
+.label.new {
   background-color: #d4e7b4;
 }
 .label.warning {
@@ -773,10 +823,10 @@ input[type=url]:focus,
 input[type=tel]:focus,
 textarea:focus {
   outline: none;
-  border-color: #80b441;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px #80b441;
-  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px #80b441;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px #80b441;
+  border-color: #d4e7b4;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 4px #d4e7b4;
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 4px #d4e7b4;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 4px #d4e7b4;
 }
 
 form div.error {
@@ -799,7 +849,7 @@ form div.error input[type=email],
 form div.error input[type=url],
 form div.error input[type=tel],
 form div.error textarea {
-  border-color: #eb738a;
+  border-color: #df002a;
   -webkit-box-shadow: 0 0 3px rgba(171, 41, 32, 0.25);
   -moz-box-shadow: 0 0 3px rgba(171, 41, 32, 0.25);
   box-shadow: 0 0 3px rgba(171, 41, 32, 0.25);
@@ -811,16 +861,16 @@ form div.error input[type=email]:focus,
 form div.error input[type=url]:focus,
 form div.error input[type=tel]:focus,
 form div.error textarea:focus {
-  border-color: #e54765;
+  border-color: #ac0020;
   -webkit-box-shadow: 0 0 6px rgba(171, 41, 32, 0.5);
   -moz-box-shadow: 0 0 6px rgba(171, 41, 32, 0.5);
   box-shadow: 0 0 6px rgba(171, 41, 32, 0.5);
 }
 form div.error .input-prepend span.add-on,
 form div.error .input-append span.add-on {
-  background: #ffdfe5;
-  border-color: #eb738a;
-  color: #e54765;
+  background: white;
+  border-color: #df002a;
+  color: #ac0020;
 }
 
 .input-mini, input.mini, textarea.mini, select.mini {
@@ -1394,17 +1444,11 @@ table .headerSortDown.purple:hover {
 /* Patterns.scss
  * Repeatable UI elements outside the base styles provided from the scaffolding
  * ---------------------------------------------------------------------------- */
-.topbar {
+.topbar, .bar {
   height: 40px;
   overflow: visible;
-  border-top: 4px solid #CEE3A4;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 500;
 }
-.topbar .topbar-inner, .topbar .fill {
+.topbar .topbar-inner, .topbar .fill, .topbar .inner, .bar .topbar-inner, .bar .fill, .bar .inner {
   background: #333;
   background-color: #323232;
   background-repeat: repeat-x;
@@ -1415,25 +1459,35 @@ table .headerSortDown.purple:hover {
   background-image: -webkit-linear-gradient(top, #333333, #323232);
   background-image: -o-linear-gradient(top, #333333, #323232);
   background-image: linear-gradient(top, #333333, #323232);
+}
+.topbar.top, .bar.top {
+  border-top: 4px solid #c0da93;
+  margin-bottom: 3em;
+}
+.topbar.top .inner, .bar.top .inner {
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
-.topbar a {
+.topbar.bottom, .bar.bottom {
+  border-bottom: 4px solid #c0da93;
+  margin-bottom: 3em;
+}
+.topbar a, .bar a {
   color: #bfbfbf;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 .topbar a:hover,
-.topbar ul li.active a {
+.topbar ul li.active a, .bar a:hover, .bar ul li.active a {
   background-color: #333;
   background-color: rgba(255, 255, 255, 0.05);
   color: white;
   text-decoration: none;
 }
-.topbar h3 {
+.topbar h3, .bar h3 {
   position: relative;
 }
-.topbar h3 a {
+.topbar h3 a, .bar h3 a {
   float: left;
   display: block;
   padding: 8px 20px 12px;
@@ -1443,7 +1497,18 @@ table .headerSortDown.purple:hover {
   font-weight: 200;
   line-height: 1;
 }
-.topbar form {
+.topbar nav.small.right a, .bar nav.small.right a {
+  float: right;
+  padding-left: 2em;
+}
+.topbar nav.small a, .bar nav.small a {
+  line-height: 40px;
+  font-size: 11px;
+  display: block;
+  float: left;
+  padding-right: 2em;
+}
+.topbar form, .bar form {
   float: left;
   margin: 5px 0 0 0;
   position: relative;
@@ -1452,7 +1517,7 @@ table .headerSortDown.purple:hover {
   -moz-opacity: 1;
   opacity: 1;
 }
-.topbar form input {
+.topbar form input, .bar form input {
   background-color: #444;
   background-color: rgba(255, 255, 255, 0.2);
   font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
@@ -1460,7 +1525,7 @@ table .headerSortDown.purple:hover {
   font-weight: 13px;
   line-height: 1;
   width: 220px;
-  padding: 3px 9px 2px;
+  padding: 3px 5px 2px;
   margin-top: 3px;
   color: #fff;
   color: rgba(255, 255, 255, 0.75);
@@ -1475,77 +1540,77 @@ table .headerSortDown.purple:hover {
   -moz-transition: none;
   transition: none;
 }
-.topbar form input:-moz-placeholder {
+.topbar form input:-moz-placeholder, .bar form input:-moz-placeholder {
   color: #bfbfbf;
 }
-.topbar form input::-webkit-input-placeholder {
+.topbar form input::-webkit-input-placeholder, .bar form input::-webkit-input-placeholder {
   color: #bfbfbf;
 }
-.topbar form input:hover {
+.topbar form input:hover, .bar form input:hover {
   color: #fff;
   padding: 3px 9px 2px;
   margin-top: 3px;
 }
-.topbar form input:focus, .topbar form input.focused {
+.topbar form input:focus, .topbar form input.focused, .bar form input:focus, .bar form input.focused {
   outline: none;
   background-color: rgba(255, 255, 255, 0.35);
   text-shadow: 0 1px 0 #111;
-  padding: 3px 9px 2px;
+  padding: 3px 5px 2px;
   margin-top: 3px;
   border-color: #111;
   color: #f2f2f2;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25);
 }
-.topbar > ul li {
+.topbar > ul li, .bar > ul li {
   border-right: 1px solid #676767;
 }
-.topbar ul {
+.topbar ul, .bar ul {
   display: block;
   float: left;
   margin: 0 10px 0 0;
   position: relative;
   border-left: 1px solid #676767;
 }
-.topbar ul.secondary-nav {
+.topbar ul.secondary-nav, .bar ul.secondary-nav {
   float: right;
   margin-left: 10px;
   margin-right: -1px;
 }
-.topbar ul li {
+.topbar ul li, .bar ul li {
   display: block;
   float: left;
   font-size: 13px;
   border-right: 1px solid #676767;
 }
-.topbar ul li a {
+.topbar ul li a, .bar ul li a {
   display: block;
   float: none;
   padding: 11px 20px 10px;
   line-height: 19px;
   text-decoration: none;
 }
-.topbar ul li a:hover {
+.topbar ul li a:hover, .bar ul li a:hover {
   color: #fff;
   text-decoration: none;
 }
-.topbar ul li.active a {
+.topbar ul li.active a, .bar ul li.active a {
   background-color: #222;
   -webkit-box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.6), inset 1px 0 2px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.6), inset 1px 0 2px rgba(0, 0, 0, 0.6);
   box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.6), inset 1px 0 2px rgba(0, 0, 0, 0.6);
 }
-.topbar ul.primary-nav li ul {
+.topbar ul.primary-nav li ul, .bar ul.primary-nav li ul {
   left: 0;
 }
-.topbar ul.secondary-nav li ul {
+.topbar ul.secondary-nav li ul, .bar ul.secondary-nav li ul {
   right: 0;
 }
-.topbar ul li.dropdown {
+.topbar ul li.dropdown, .bar ul li.dropdown {
   position: relative;
 }
-.topbar ul li.dropdown a.dropdown-toggle:after {
+.topbar ul li.dropdown a.dropdown-toggle:after, .bar ul li.dropdown a.dropdown-toggle:after {
   width: 0px;
   height: 0px;
   display: inline-block;
@@ -1562,35 +1627,35 @@ table .headerSortDown.purple:hover {
   -moz-opacity: 0.5;
   opacity: 0.5;
 }
-.topbar ul li.dropdown.open {
+.topbar ul li.dropdown.open, .bar ul li.dropdown.open {
   background-color: #222;
 }
 .topbar ul li.dropdown.open a.menu,
-.topbar ul li.dropdown.open a:hover {
+.topbar ul li.dropdown.open a:hover, .bar ul li.dropdown.open a.menu, .bar ul li.dropdown.open a:hover {
   background-color: #444;
   background-color: rgba(255, 255, 255, 0.1);
   *background-color: #444;
   /* IE6-7 */
   color: #fff;
 }
-.topbar ul li.dropdown.open ul {
+.topbar ul li.dropdown.open ul, .bar ul li.dropdown.open ul {
   display: block;
 }
-.topbar ul li.dropdown.open ul li a {
+.topbar ul li.dropdown.open ul li a, .bar ul li.dropdown.open ul li a {
   background-color: transparent;
   font-weight: normal;
 }
-.topbar ul li.dropdown.open ul li a:hover {
+.topbar ul li.dropdown.open ul li a:hover, .bar ul li.dropdown.open ul li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
   *background-color: #444;
   /* IE6-7 */
   color: #fff;
 }
-.topbar ul li.dropdown.open ul li.active a {
+.topbar ul li.dropdown.open ul li.active a, .bar ul li.dropdown.open ul li.active a {
   background-color: rgba(255, 255, 255, 0.1);
   font-weight: bold;
 }
-.topbar ul li ul {
+.topbar ul li ul, .bar ul li ul {
   background-color: #222;
   float: left;
   display: none;
@@ -1613,7 +1678,7 @@ table .headerSortDown.purple:hover {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
-.topbar ul li ul li {
+.topbar ul li ul li, .bar ul li ul li {
   float: none;
   clear: both;
   display: block;
@@ -1621,7 +1686,7 @@ table .headerSortDown.purple:hover {
   font-size: 12px;
   border-bottom: 1px solid #676767;
 }
-.topbar ul li ul li a {
+.topbar ul li ul li a, .bar ul li ul li a {
   display: block;
   padding: 12px 20px;
   clear: both;
@@ -1629,12 +1694,12 @@ table .headerSortDown.purple:hover {
   line-height: 19px;
   color: #bbb;
 }
-.topbar ul li ul li a:hover {
+.topbar ul li ul li a:hover, .bar ul li ul li a:hover {
   background-color: #333;
   background-color: rgba(255, 255, 255, 0.25);
   color: #fff;
 }
-.topbar ul li ul li.divider {
+.topbar ul li ul li.divider, .bar ul li ul li.divider {
   height: 1px;
   overflow: hidden;
   background: #444;
@@ -1642,7 +1707,7 @@ table .headerSortDown.purple:hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin: 10px 0;
 }
-.topbar ul li ul li span {
+.topbar ul li ul li span, .bar ul li ul li span {
   clear: both;
   display: block;
   background: rgba(0, 0, 0, 0.2);
@@ -1652,7 +1717,7 @@ table .headerSortDown.purple:hover {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.hero-unit {
+.hero-unit, .landing {
   background: white;
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
@@ -1665,22 +1730,16 @@ table .headerSortDown.purple:hover {
   margin-bottom: 30px;
   padding: 60px;
 }
-.hero-unit h1 {
+.hero-unit h1, .landing h1 {
   margin-bottom: 0;
   font-size: 60px;
   line-height: 1;
   letter-spacing: -1px;
 }
-.hero-unit p {
+.hero-unit p, .landing p {
   font-size: 18px;
   font-weight: 200;
   line-height: 27px;
-}
-
-footer {
-  margin-top: 17px;
-  padding-top: 17px;
-  border-top: 1px solid #eee;
 }
 
 .page-header, section header {
@@ -1692,6 +1751,12 @@ footer {
 }
 .page-header h1, section header h1 {
   margin-bottom: 8px;
+}
+
+section footer {
+  margin-top: 17px;
+  padding-top: 17px;
+  border-top: 1px solid #eee;
 }
 
 .fade {
@@ -1719,7 +1784,12 @@ footer {
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0px rgba(0, 0, 0, 0.1);
 }
-.btn.primary, .btn.success, .alert-message.primary, .alert-message.success {
+.btn.primary, .alert-message.primary {
+  background: #c0da93;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: #80b441;
+}
+.btn.success, .alert-message.success {
   background: #c0da93;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #80b441;
@@ -1756,7 +1826,12 @@ footer {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #b2b2b2;
 }
-.btn:hover.primary, .btn:hover.success {
+.btn:hover.primary {
+  background: #cbe1a6;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: #73a13a;
+}
+.btn:hover.success {
   background: #cbe1a6;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #73a13a;
@@ -1799,7 +1874,12 @@ footer {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #bfbfbf;
 }
-.btn.disabled:hover.primary, .btn.disabled:hover.success, .btn.disabled:active.primary, .btn.disabled:active.success {
+.btn.disabled:hover.primary, .btn.disabled:active.primary {
+  background: #c0da93;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: #80b441;
+}
+.btn.disabled:hover.success, .btn.disabled:active.success {
   background: #c0da93;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #80b441;
@@ -1832,7 +1912,12 @@ footer {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #bfbfbf;
 }
-.btn:disabled:hover.primary, .btn:disabled:hover.success, .btn:disabled:active.primary, .btn:disabled:active.success {
+.btn:disabled:hover.primary, .btn:disabled:active.primary {
+  background: #c0da93;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: #80b441;
+}
+.btn:disabled:hover.success, .btn:disabled:active.success {
   background: #c0da93;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
   border-color: #80b441;
@@ -2434,4 +2519,57 @@ input[type=submit].btn::-moz-focus-inner {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+}
+
+/** Floats **/
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+/** Hiders **/
+.ir {
+  display: block;
+  text-indent: -9999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none !important;
+  visibility: hidden;
+}
+
+.visually-hide {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/** Clearfix **/
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+.clearfix {
+  display: block;
 }

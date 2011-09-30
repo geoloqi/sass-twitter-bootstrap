@@ -52,9 +52,30 @@
   .span15    { @include columns(15); }
   .span16    { @include columns(16); }
 
+   // Default columns
+  .span1.well     { @include well-columns(1); }
+  .span2.well    { @include well-columns(2); }
+  .span3.well    { @include well-columns(3); }
+  .span4.well    { @include well-columns(4); }
+  .span5.well    { @include well-columns(5); }
+  .span6.well    { @include well-columns(6); }
+  .span7.well    { @include well-columns(7); }
+  .span8.well    { @include well-columns(8); }
+  .span9.well    { @include well-columns(9); }
+  .span10.well    { @include well-columns(10); }
+  .span11.well    { @include well-columns(11); }
+  .span12.well    { @include well-columns(12); }
+  .span13.well    { @include well-columns(13); }
+  .span14.well    { @include well-columns(14); }
+  .span15.well    { @include well-columns(15); }
+  .span16.well    { @include well-columns(16); }
+
   // 1/3 2/3 Columns
   .span-one-third {width: $oneThird;}
   .span-two-thirds {width: $twoThirds;}
+
+  .span-one-third.well {width: $oneThird - 40;}
+  .span-two-thirds.well {width: $twoThirds - 40;}
 
   // Offset column options
   .offset1   { @include offset(1); }
@@ -89,7 +110,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-#wrap {
+#wrap, #wrapper {
   min-height:100%;
 }
 

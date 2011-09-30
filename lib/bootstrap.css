@@ -267,11 +267,65 @@ table {
 .row .span16 {
   width: 940px;
 }
+.row .span1.well {
+  width: 0px;
+}
+.row .span2.well {
+  width: 60px;
+}
+.row .span3.well {
+  width: 120px;
+}
+.row .span4.well {
+  width: 180px;
+}
+.row .span5.well {
+  width: 240px;
+}
+.row .span6.well {
+  width: 300px;
+}
+.row .span7.well {
+  width: 360px;
+}
+.row .span8.well {
+  width: 420px;
+}
+.row .span9.well {
+  width: 480px;
+}
+.row .span10.well {
+  width: 540px;
+}
+.row .span11.well {
+  width: 600px;
+}
+.row .span12.well {
+  width: 660px;
+}
+.row .span13.well {
+  width: 720px;
+}
+.row .span14.well {
+  width: 780px;
+}
+.row .span15.well {
+  width: 840px;
+}
+.row .span16.well {
+  width: 900px;
+}
 .row .span-one-third {
   width: 300px;
 }
 .row .span-two-thirds {
   width: 620px;
+}
+.row .span-one-third.well {
+  width: 260px;
+}
+.row .span-two-thirds.well {
+  width: 580px;
 }
 .row .offset1 {
   margin-left: 80px;
@@ -331,7 +385,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-#wrap {
+#wrap, #wrapper {
   min-height: 100%;
 }
 
@@ -469,6 +523,12 @@ h6 {
 
 ul, ol {
   margin: 0 0 18px 25px;
+}
+ul.spaced li, ol.spaced li {
+  margin-top: 0;
+}
+ul.spaced li + li, ol.spaced li + li {
+  margin-top: 18px;
 }
 
 ul ul,
@@ -1437,6 +1497,17 @@ table .headerSortDown.purple:hover {
   font-weight: 200;
   line-height: 1;
 }
+.topbar nav.small.right a, .bar nav.small.right a {
+  float: right;
+  padding-left: 2em;
+}
+.topbar nav.small a, .bar nav.small a {
+  line-height: 40px;
+  font-size: 11px;
+  display: block;
+  float: left;
+  padding-right: 2em;
+}
 .topbar form, .bar form {
   float: left;
   margin: 5px 0 0 0;
@@ -1646,7 +1717,7 @@ table .headerSortDown.purple:hover {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.hero-unit {
+.hero-unit, .landing {
   background: white;
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
@@ -1659,13 +1730,13 @@ table .headerSortDown.purple:hover {
   margin-bottom: 30px;
   padding: 60px;
 }
-.hero-unit h1 {
+.hero-unit h1, .landing h1 {
   margin-bottom: 0;
   font-size: 60px;
   line-height: 1;
   letter-spacing: -1px;
 }
-.hero-unit p {
+.hero-unit p, .landing p {
   font-size: 18px;
   font-weight: 200;
   line-height: 27px;
@@ -2448,4 +2519,57 @@ input[type=submit].btn::-moz-focus-inner {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+}
+
+/** Floats **/
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+/** Hiders **/
+.ir {
+  display: block;
+  text-indent: -9999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none !important;
+  visibility: hidden;
+}
+
+.visually-hide {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/** Clearfix **/
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+.clearfix {
+  display: block;
 }

@@ -77,6 +77,22 @@
     }
   }
 
+  nav.small {
+    &.right{
+      a {
+        float:right;
+        padding-left:2em;
+      }
+    }
+    a {
+      line-height:40px;
+      font-size:11px;
+      display:block;
+      float:left;
+        padding-right:2em;
+    }
+  }
+
   // Search Form
   form {
     float: left;
@@ -286,7 +302,7 @@
 // PAGE HEADERS
 // ------------
 
-.hero-unit {
+.hero-unit, .landing {
   @include well();
   margin-top: 0;
   margin-bottom: 30px;
@@ -1024,3 +1040,33 @@ input[type=submit].btn {
   }
 
 }
+
+// Helper Classes
+// --------------
+
+  /** Floats **/
+  .left{ float: left; }
+
+  .right{ float: right; }
+
+  .clear{ clear: both; }
+
+  /** Hiders **/
+  .ir { display:block; text-indent:-9999em; overflow:hidden; background-repeat: no-repeat; }
+
+  .hide { display:none !important; visibility:hidden; } 
+
+  .visually-hide {
+  position:absolute !important;    
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  .invisible { visibility: hidden; }
+
+  /** Clearfix **/
+  .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+  .clearfix { display: inline-block; }
+
+  .clearfix { display: block; }
