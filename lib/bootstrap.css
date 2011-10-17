@@ -1448,16 +1448,7 @@ table .headerSortDown.purple:hover {
   overflow: visible;
 }
 .topbar .topbar-inner, .topbar .fill, .topbar .inner, .bar .topbar-inner, .bar .fill, .bar .inner {
-  background: #333;
-  background-color: #323232;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#333333), to(#323232));
-  background-image: -moz-linear-gradient(top, #333333, #323232);
-  background-image: -ms-linear-gradient(top, #333333, #323232);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #323232));
-  background-image: -webkit-linear-gradient(top, #333333, #323232);
-  background-image: -o-linear-gradient(top, #333333, #323232);
-  background-image: linear-gradient(top, #333333, #323232);
+  background: #333333;
 }
 .topbar.top, .bar.top {
   border-top: 4px solid #c0da93;
@@ -1486,7 +1477,7 @@ table .headerSortDown.purple:hover {
 }
 .topbar a:hover,
 .topbar ul li.active a, .bar a:hover, .bar ul li.active a {
-  background-color: #333;
+  background-color: #333333;
   background-color: rgba(255, 255, 255, 0.05);
   color: white;
   text-decoration: none;
@@ -1525,8 +1516,6 @@ table .headerSortDown.purple:hover {
   opacity: 1;
 }
 .topbar form input, .bar form input {
-  background-color: #444;
-  background-color: rgba(255, 255, 255, 0.2);
   font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
   font-size: normal;
   font-weight: 13px;
@@ -1534,6 +1523,8 @@ table .headerSortDown.purple:hover {
   width: 220px;
   padding: 3px 5px 2px;
   margin-top: 3px;
+  background-color: #444;
+  background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
   color: rgba(255, 255, 255, 0.75);
   border: 1px solid #111;
@@ -1560,10 +1551,10 @@ table .headerSortDown.purple:hover {
 }
 .topbar form input:focus, .topbar form input.focused, .bar form input:focus, .bar form input.focused {
   outline: none;
-  background-color: rgba(255, 255, 255, 0.35);
-  text-shadow: 0 1px 0 #111;
   padding: 3px 5px 2px;
   margin-top: 3px;
+  background-color: rgba(255, 255, 255, 0.35);
+  text-shadow: 0 1px 0 #111;
   border-color: #111;
   color: #f2f2f2;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25);
@@ -1599,11 +1590,11 @@ table .headerSortDown.purple:hover {
   text-decoration: none;
 }
 .topbar ul li a:hover, .bar ul li a:hover {
-  color: #fff;
+  color: white;
   text-decoration: none;
 }
 .topbar ul li.active a, .bar ul li.active a {
-  background-color: #222;
+  background-color: #222222;
   -webkit-box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.6), inset 1px 0 2px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.6), inset 1px 0 2px rgba(0, 0, 0, 0.6);
   box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.6), inset 1px 0 2px rgba(0, 0, 0, 0.6);
@@ -1628,22 +1619,22 @@ table .headerSortDown.purple:hover {
   margin-left: 4px;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid #fff;
+  border-top: 4px solid white;
   filter: alpha(opacity=50);
   -khtml-opacity: 0.5;
   -moz-opacity: 0.5;
   opacity: 0.5;
 }
 .topbar ul li.dropdown.open, .bar ul li.dropdown.open {
-  background-color: #222;
+  background-color: #333333;
 }
 .topbar ul li.dropdown.open a.menu,
 .topbar ul li.dropdown.open a:hover, .bar ul li.dropdown.open a.menu, .bar ul li.dropdown.open a:hover {
-  background-color: #444;
+  background-color: #444444;
   background-color: rgba(255, 255, 255, 0.1);
-  *background-color: #444;
+  *background-color: #444444;
   /* IE6-7 */
-  color: #fff;
+  color: white;
 }
 .topbar ul li.dropdown.open ul, .bar ul li.dropdown.open ul {
   display: block;
@@ -1654,16 +1645,16 @@ table .headerSortDown.purple:hover {
 }
 .topbar ul li.dropdown.open ul li a:hover, .bar ul li.dropdown.open ul li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  *background-color: #444;
+  *background-color: #333333;
   /* IE6-7 */
-  color: #fff;
+  color: white;
 }
 .topbar ul li.dropdown.open ul li.active a, .bar ul li.dropdown.open ul li.active a {
   background-color: rgba(255, 255, 255, 0.1);
   font-weight: bold;
 }
 .topbar ul li ul, .bar ul li ul {
-  background-color: #222;
+  background-color: #222222;
   float: left;
   display: none;
   position: absolute;
@@ -1699,17 +1690,17 @@ table .headerSortDown.purple:hover {
   clear: both;
   font-weight: normal;
   line-height: 19px;
-  color: #bbb;
+  color: #bfbfbf;
 }
 .topbar ul li ul li a:hover, .bar ul li ul li a:hover {
-  background-color: #333;
+  background-color: #333333;
   background-color: rgba(255, 255, 255, 0.25);
-  color: #fff;
+  color: white;
 }
 .topbar ul li ul li.divider, .bar ul li ul li.divider {
   height: 1px;
   overflow: hidden;
-  background: #444;
+  background: #444444;
   background: rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin: 10px 0;

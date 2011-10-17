@@ -13,8 +13,7 @@
   
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
   .topbar-inner, .fill, .inner {
-    background:#333;
-    @include vertical-gradient(#333, #323232);  
+    background:$barBackground;
   }
 
   &.top {
@@ -49,16 +48,16 @@
 
   // Links get text shadow
   a {
-    color: $grayLight;
+    color: $barLinkTextColor;
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   }
 
   // Hover and active states
   a:hover,
   ul li.active a {
-    background-color: #333;
+    background-color: $barBackground;
     background-color: rgba(255,255,255,.05);
-    color: $white;
+    color: $barLinkTextColorHover;
     text-decoration: none;
   }
 
@@ -100,30 +99,35 @@
     position: relative;
     @include opacity(100);
     input {
-      background-color: #444;
-      background-color: rgba(255,255,255,.2);
       @include sans-serif-font(13px, normal, 1);
       width: 220px;
       padding: 3px 5px 2px;
       margin-top:3px;
-      color: #fff;
-      color: rgba(255,255,255,.75);
-      border: 1px solid #111;
-      @include border-radius(3px);
-      $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
-      @include box-shadow($shadow);
-      @include transition(none);
+      @if $barFormDark == true {
+        background-color: #444;
+        background-color: rgba(255,255,255,.2);
+        color: #fff;
+        color: rgba(255,255,255,.75);
+        border: 1px solid #111;
+        @include border-radius(3px);
+        $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
+        @include box-shadow($shadow);
+        @include transition(none);
+      
+        // Placeholder text gets special styles; can't be bundled together though for some reason
+        &:-moz-placeholder {
+          color: $grayLight;
+        }
+        &::-webkit-input-placeholder {
+          color: $grayLight;
+        }
+      }
 
-      // Placeholder text gets special styles; can't be bundled together though for some reason
-      &:-moz-placeholder {
-        color: $grayLight;
-      }
-      &::-webkit-input-placeholder {
-        color: $grayLight;
-      }
       //Hover states
       &:hover {
-        color: #fff;
+        @if $barFormDark == true {
+          color: #fff;
+        }
         padding: 3px 9px 2px;
         margin-top:3px;
       }
@@ -131,19 +135,21 @@
       &:focus,
       &.focused {
         outline: none;
-        background-color: rgba(255,255,255,.35);
-        text-shadow: 0 1px 0 #111;
         padding: 3px 5px 2px;
         margin-top:3px;
-        border-color:#111;
-        color:$whiteOff;
-        $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
-        @include box-shadow($shadow);
+        @if $barFormDark == true {
+          background-color: rgba(255,255,255,.35);
+          text-shadow: 0 1px 0 #111;
+          border-color:#111;
+          color:$whiteOff;
+          $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
+          @include box-shadow($shadow);
+        }
       }
     }
   }
   > ul li{
-    border-right:1px solid #676767;
+    border-right:1px solid $barDivider;
   }
   // Navigation
   ul {
@@ -151,7 +157,7 @@
     float: left;
     margin: 0 10px 0 0;
     position: relative;
-    border-left:1px solid #676767;
+    border-left:1px solid $barDivider;
     &.secondary-nav {
       float: right;
       margin-left: 10px;
@@ -161,7 +167,7 @@
       display: block;
       float: left;
       font-size: 13px;
-      border-right:1px solid #676767;
+      border-right:1px solid $barDivider;
       a {
         display: block;
         float: none;
@@ -169,12 +175,12 @@
         line-height: 19px;
         text-decoration: none;
         &:hover {
-          color: #fff;
+          color: $barLinkTextColorHover;
           text-decoration: none;
         }
       }
       &.active a {
-        background-color: #222;
+        background-color: $barLinkBackgroundCurrent;
         $shadow: inset -1px 0 2px rgba(0,0,0,0.6), inset 1px 0 2px rgba(0,0,0,0.6);
         @include box-shadow($shadow);
       }
@@ -201,18 +207,18 @@
           margin-left: 4px;
           border-left: 4px solid transparent;
           border-right: 4px solid transparent;
-          border-top: 4px solid #fff;
+          border-top: 4px solid $barLinkTextColorHover;
           @include opacity(50);
         }
       }
       &.open {
-        background-color: #222;
+        background-color: $barBackground;
         a.menu,
         a:hover {
-          background-color: #444;
+          background-color: $barLinkBackgroundHover;
           background-color: rgba(255,255,255,.1);
-          *background-color: #444; /* IE6-7 */
-          color: #fff;
+          *background-color: $barLinkBackgroundHover; /* IE6-7 */
+          color: $barLinkTextColorHover;
         }
         ul {
           display: block;
@@ -222,8 +228,8 @@
               font-weight: normal;
               &:hover {
                 background-color: rgba(255,255,255,.1);
-                *background-color: #444; /* IE6-7 */
-                color: #fff;
+                *background-color: $barBackground; /* IE6-7 */
+                color: $barLinkTextColorHover;
               }
             }
             &.active a {
@@ -235,7 +241,7 @@
       }
     }
     li ul {
-      background-color: #222;
+      background-color: $barLinkBackgroundCurrent;
       float: left;
       display: none;
       position: absolute;
@@ -247,8 +253,8 @@
       margin-right: 0;
       padding: 0;
       text-align: left;
-      border-right:1px solid #676767;
-      border-left:1px solid #676767;
+      border-right:1px solid $barDivider;
+      border-left:1px solid $barDivider;
       zoom: 1;
       @include border-radius(0 0 3px 3px);
       @include box-shadow(0 1px 2px rgba(0,0,0,0.6));
@@ -258,18 +264,18 @@
         display: block;
         background: none;
         font-size: 12px;
-        border-bottom:1px solid #676767;
+        border-bottom:1px solid $barDivider;
         a {
           display: block;
           padding: 12px 20px;
           clear: both;
           font-weight: normal;
           line-height: 19px;
-          color: #bbb;
+          color: $barLinkTextColor;
           &:hover {
-            background-color: #333;
+            background-color: $barBackground;
             background-color: rgba(255,255,255,.25);
-            color: #fff;
+            color: $white;
           }
         }
 
@@ -277,7 +283,7 @@
         &.divider {
           height: 1px;
           overflow: hidden;
-          background: #444;
+          background: $barLinkBackgroundHover;
           background: rgba(0,0,0,.1);
           border-bottom: 1px solid rgba(255,255,255,.1);
           margin: 10px 0;

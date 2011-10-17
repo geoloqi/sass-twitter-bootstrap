@@ -63,15 +63,21 @@ $baseline:          18px;
 //Background Color
 $backgroundColor:   #f8f8f8;
 
-//Header and Footer Accent Colors
+// Header and Footer Bars
+$barBackground: #333333;
+$barDivider: #676767;
 $barAccent: $greenLight;
+$barLinkTextColor: $grayLight;
+$barLinkBackgroundCurrent: #222222;
+$barLinkBackgroundHover: #444444;
+$barLinkTextColorHover: $white;
+$barFormDark: true;
 
 //Layout
 $fixedHeader:       true;
 $fixedFooter:       true;
 
 // Grid
-
 $fluidSidebarWidth: 400px;
 $fluidSidebarPadding: 40px;
 $fluidMaxWidth : 100%;
