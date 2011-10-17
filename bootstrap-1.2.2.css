@@ -11,7 +11,7 @@
  *
  * Branded for Geoloqi by @patrickarlt.
  *
- * Date: Fri Sep 30 11:02:44 PDT 2011
+ * Date: Fri Sep 30 15:10:53 PDT 2011
  */
 /* Reset.scss
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -377,7 +377,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
+  font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 18px;
@@ -392,15 +392,13 @@ body {
 #main {
   overflow: visible;
   padding-bottom: 80px;
+  padding-top: 80px;
 }
 
 #footer {
   height: 40px;
   clear: both;
   overflow: hidden;
-  position: relative;
-  margin-top: -44px;
-  /* negative value of footer height */
 }
 #footer .inner, #footer .fill {
   height: 40px;
@@ -437,12 +435,13 @@ body {
 }
 .container-fluid .sidebar {
   float: left;
-  width: 220px;
+  width: 360px;
 }
 .container-fluid .content {
-  min-width: 700px;
-  max-width: 1180px;
-  margin-left: 240px;
+  min-width: 520px;
+  max-width: 100%;
+  margin-left: 420px;
+  background: red;
 }
 
 a {
@@ -621,7 +620,7 @@ address {
 
 code, pre {
   padding: 0 3px 2px;
-  font-family: Monaco, Andale Mono, Courier New, monospace;
+  font-family: "Monaco", Courier New, monospace;
   font-size: 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -713,7 +712,7 @@ label,
 input,
 select,
 textarea {
-  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
+  font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: normal;
@@ -1462,7 +1461,11 @@ table .headerSortDown.purple:hover {
 }
 .topbar.top, .bar.top {
   border-top: 4px solid #c0da93;
-  margin-bottom: 3em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
 }
 .topbar.top .inner, .bar.top .inner {
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
@@ -1471,7 +1474,11 @@ table .headerSortDown.purple:hover {
 }
 .topbar.bottom, .bar.bottom {
   border-bottom: 4px solid #c0da93;
-  margin-bottom: 3em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
 }
 .topbar a, .bar a {
   color: #bfbfbf;
@@ -1520,7 +1527,7 @@ table .headerSortDown.purple:hover {
 .topbar form input, .bar form input {
   background-color: #444;
   background-color: rgba(255, 255, 255, 0.2);
-  font-family: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif;
+  font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
   font-size: normal;
   font-weight: 13px;
   line-height: 1;
