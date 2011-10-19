@@ -1,4 +1,5 @@
 //Polyfill Placeholders in Non-Supported Browsers
+/*
 Modernizr.load({
   test: Modernizr.input.placeholder,
   nope: 'polyfill/jquery.placeholder.min.js',
@@ -6,6 +7,7 @@ Modernizr.load({
     $('input[placeholder], textarea[placeholder]').placeholder();
   }
 });
+*/
 
 //Close Function for Alert Messages
 $('.alert-message .close').live("click",function(){
