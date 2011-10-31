@@ -11,7 +11,7 @@
  *
  * Branded for Geoloqi by @patrickarlt.
  *
- * Date: Mon Oct 17 14:34:44 PDT 2011
+ * Date: Wed Oct 19 15:21:39 PDT 2011
  */
 /* Reset.scss
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -2508,7 +2508,7 @@ input[type=submit].btn::-moz-focus-inner {
   border-top: 5px solid #e6e6e6;
   bottom: -5px;
 }
-.geoloqi-infobox .content {
+.geoloqi-infobox > .infobox-content {
   background-color: white;
   padding: 9px;
   -webkit-border-radius: 3px;

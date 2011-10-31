@@ -437,7 +437,7 @@ body {
   float: left;
   width: 360px;
 }
-.container-fluid .content {
+.container-fluid > .content {
   min-width: 520px;
   max-width: 100%;
   margin-left: 420px;
@@ -687,6 +687,9 @@ pre {
 form {
   margin-bottom: 18px;
 }
+form .clearfix {
+  margin-bottom: 18px;
+}
 
 fieldset {
   margin-bottom: 18px;
@@ -702,10 +705,6 @@ fieldset legend {
   *line-height: 1.5;
   /* IE6-7 */
   color: #444444;
-}
-
-.clearfix {
-  margin-bottom: 18px;
 }
 
 label,
@@ -2361,7 +2360,7 @@ input[type=submit].btn::-moz-focus-inner {
   border-left: 5px solid #777777;
 }
 .twipsy.below .twipsy-arrow {
-  top: 0;
+  top: 1px;
   left: 50%;
   margin-left: -5px;
   border-left: 5px solid transparent;
@@ -2422,7 +2421,7 @@ input[type=submit].btn::-moz-focus-inner {
   border-right: 5px solid #777777;
 }
 .popover.below .arrow {
-  top: 0;
+  top: 1px;
   left: 50%;
   margin-left: -5px;
   border-left: 5px solid transparent;
@@ -2456,16 +2455,7 @@ input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3), 0 1px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3), 0 1px 0px rgba(0, 0, 0, 0.25);
 }
-.popover .title {
-  background-color: #f5f5f5;
-  padding: 9px 15px;
-  line-height: 1;
-  -webkit-border-radius: 3px 3px 0 0;
-  -moz-border-radius: 3px 3px 0 0;
-  border-radius: 3px 3px 0 0;
-  border-bottom: 1px solid #eee;
-}
-.popover .content {
+.popover .inner .content {
   background-color: white;
   padding: 14px;
   -webkit-border-radius: 0 0 3px 3px;
@@ -2475,8 +2465,20 @@ input[type=submit].btn::-moz-focus-inner {
   -moz-background-clip: padding-box;
   background-clip: padding-box;
 }
-.popover .content p, .popover .content ul, .popover .content ol {
+.popover .inner .content p, .popover .inner .content ul, .popover .inner .content ol {
   margin-bottom: 0;
+}
+.popover .inner .content.no-padding {
+  padding: 0;
+}
+.popover .title {
+  background-color: #f5f5f5;
+  padding: 9px 15px;
+  line-height: 1;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  border-bottom: 1px solid #eee;
 }
 
 .show-grid div {
@@ -2497,7 +2499,7 @@ input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4), 0 1px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4), 0 1px 0px rgba(0, 0, 0, 0.05);
 }
-.geoloqi-infobox .arrow {
+.geoloqi-infobox > .arrow {
   position: absolute;
   width: 0;
   height: 0;
@@ -2508,7 +2510,7 @@ input[type=submit].btn::-moz-focus-inner {
   border-top: 5px solid #e6e6e6;
   bottom: -5px;
 }
-.geoloqi-infobox .content {
+.geoloqi-infobox > .infobox-content {
   background-color: white;
   padding: 9px;
   -webkit-border-radius: 3px;
@@ -2517,6 +2519,62 @@ input[type=submit].btn::-moz-focus-inner {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+}
+.geoloqi-infobox > .infobox-content.with-header-footer {
+  border: 1px solid #bfbfbf;
+  padding: 0;
+}
+.geoloqi-infobox > .infobox-content.with-header-footer > .infobox-content {
+  padding: 8px;
+}
+.geoloqi-infobox > .infobox-content.with-header-footer header, .geoloqi-infobox > .infobox-content.with-header-footer footer {
+  padding: 0 8px;
+  background: #f2f2f2;
+}
+.geoloqi-infobox > .infobox-content.with-header-footer > header {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  border-bottom: 1px solid #bfbfbf;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.geoloqi-infobox > .infobox-content.with-header-footer > footer {
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  border-top: 1px solid #bfbfbf;
+  -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+ul.items {
+  list-style: none;
+  margin: 0;
+}
+ul.items li {
+  border: none;
+  padding: 1em;
+}
+ul.items li + li {
+  border-top: 1px solid #bfbfbf;
+}
+
+ul.action-menu li {
+  padding: 0;
+}
+ul.action-menu li a {
+  display: block;
+  width: 100%;
+  padding: 1em;
 }
 
 /** Floats **/

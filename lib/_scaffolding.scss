@@ -155,7 +155,7 @@ body {
     float: left;
     width: $fluidSidebarWidth - $fluidSidebarPadding;
   }
-  .content {
+  > .content {
     min-width: $siteWidth - 20 - $fluidSidebarWidth;
     max-width: $fluidMaxWidth;
     margin-left: $fluidSidebarWidth + 20;
