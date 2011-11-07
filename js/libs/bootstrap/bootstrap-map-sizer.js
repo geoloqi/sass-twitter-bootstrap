@@ -15,7 +15,7 @@
         var $this = $(this),
             self = $this; 
 
-        $(window).bind('resize.mapSizer', function(){
+        $(window).bind('resize', function(){
           self.mapSizer("resize");
         });
        
@@ -23,9 +23,11 @@
       },
 
       resize: function() {
+        console.log("Resizing");
         return $(this).each(function(){
           $(this).height(function(){
-            return ($('html').height() - settings.offBottom);
+            console.log(($(window).height() - settings.offBottom));
+            return ($(window).height() - $(this).offset().top - settings.offBottom);
           }).width(function(){
             return (settings.width - settings.offWidth)
           });

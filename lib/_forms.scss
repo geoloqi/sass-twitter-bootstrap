@@ -226,7 +226,6 @@ textarea {
   }
 }
 
-
 // Turn off focus for disabled (read-only) form elements
 input[readonly]:focus,
 textarea[readonly]:focus,
@@ -375,7 +374,6 @@ input.disabled {
 
 // Stacked forms
 .form-stacked {
-  padding-left: 20px;
   fieldset {
     padding-top: $baseline / 2;
   }
