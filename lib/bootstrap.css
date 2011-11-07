@@ -751,6 +751,10 @@ input[type=search],
 input[type=email],
 input[type=url],
 input[type=tel],
+input[type=date],
+input[type=time],
+input[type=datetime],
+input[type=num],
 textarea,
 select,
 .uneditable-input {
@@ -804,6 +808,10 @@ input[type=search],
 input[type=email],
 input[type=url],
 input[type=tel],
+input[type=date],
+input[type=time],
+input[type=datetime],
+input[type=num],
 select, textarea {
   -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
   -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
@@ -819,6 +827,10 @@ input[type=search]:focus,
 input[type=email]:focus,
 input[type=url]:focus,
 input[type=tel]:focus,
+input[type=date]:focus,
+input[type=time]:focus,
+input[type=datetime]:focus,
+input[type=num]:focus,
 textarea:focus {
   outline: none;
   border-color: #d4e7b4;
@@ -846,6 +858,10 @@ form div.error input[type=search],
 form div.error input[type=email],
 form div.error input[type=url],
 form div.error input[type=tel],
+form div.error input[type=date],
+form div.error input[type=time],
+form div.error input[type=datetime],
+form div.error input[type=num],
 form div.error textarea {
   border-color: #df002a;
   -webkit-box-shadow: 0 0 3px rgba(171, 41, 32, 0.25);
@@ -858,6 +874,10 @@ form div.error input[type=search]:focus,
 form div.error input[type=email]:focus,
 form div.error input[type=url]:focus,
 form div.error input[type=tel]:focus,
+form div.error input[type=date]:focus,
+form div.error input[type=time]:focus,
+form div.error input[type=datetime]:focus,
+form div.error input[type=num]:focus,
 form div.error textarea:focus {
   border-color: #ac0020;
   -webkit-box-shadow: 0 0 6px rgba(171, 41, 32, 0.5);
@@ -871,27 +891,27 @@ form div.error .input-append span.add-on {
   color: #ac0020;
 }
 
-.input-mini, input.mini, textarea.mini, select.mini {
+.input-mini {
   width: 60px;
 }
 
-.input-small, input.small, textarea.small, select.small {
+.input-small {
   width: 90px;
 }
 
-.input-medium, input.medium, textarea.medium, select.medium {
+.input-medium {
   width: 150px;
 }
 
-.input-large, input.large, textarea.large, select.large {
+.input-large {
   width: 210px;
 }
 
-.input-xlarge, input.xlarge, textarea.xlarge, select.xlarge {
+.input-xlarge {
   width: 270px;
 }
 
-.input-xxlarge, input.xxlarge, textarea.xxlarge, select.xxlarge {
+.input-xxlarge {
   width: 530px;
 }
 
@@ -990,6 +1010,78 @@ input[type=tel].span15,
 input[type=tel].span16,
 input[type=tel].span-one-third,
 input[type=tel].span-two-thirds,
+input[type=date].span1,
+input[type=date].span2,
+input[type=date].span3,
+input[type=date].span4,
+input[type=date].span5,
+input[type=date].span6,
+input[type=date].span7,
+input[type=date].span8,
+input[type=date].span9,
+input[type=date].span10,
+input[type=date].span11,
+input[type=date].span12,
+input[type=date].span13,
+input[type=date].span14,
+input[type=date].span15,
+input[type=date].span16,
+input[type=date].span-one-third,
+input[type=date].span-two-thirds,
+input[type=time].span1,
+input[type=time].span2,
+input[type=time].span3,
+input[type=time].span4,
+input[type=time].span5,
+input[type=time].span6,
+input[type=time].span7,
+input[type=time].span8,
+input[type=time].span9,
+input[type=time].span10,
+input[type=time].span11,
+input[type=time].span12,
+input[type=time].span13,
+input[type=time].span14,
+input[type=time].span15,
+input[type=time].span16,
+input[type=time].span-one-third,
+input[type=time].span-two-thirds,
+input[type=datetime].span1,
+input[type=datetime].span2,
+input[type=datetime].span3,
+input[type=datetime].span4,
+input[type=datetime].span5,
+input[type=datetime].span6,
+input[type=datetime].span7,
+input[type=datetime].span8,
+input[type=datetime].span9,
+input[type=datetime].span10,
+input[type=datetime].span11,
+input[type=datetime].span12,
+input[type=datetime].span13,
+input[type=datetime].span14,
+input[type=datetime].span15,
+input[type=datetime].span16,
+input[type=datetime].span-one-third,
+input[type=datetime].span-two-thirds,
+input[type=num].span1,
+input[type=num].span2,
+input[type=num].span3,
+input[type=num].span4,
+input[type=num].span5,
+input[type=num].span6,
+input[type=num].span7,
+input[type=num].span8,
+input[type=num].span9,
+input[type=num].span10,
+input[type=num].span11,
+input[type=num].span12,
+input[type=num].span13,
+input[type=num].span14,
+input[type=num].span15,
+input[type=num].span16,
+input[type=num].span-one-third,
+input[type=num].span-two-thirds,
 select.span1,
 select.span2,
 select.span3,
@@ -1029,6 +1121,263 @@ textarea.span-two-thirds {
   display: inline-block;
   float: none;
   margin-left: 0;
+}
+input[type=text].span1,
+input[type=password].span1,
+input[type=search].span1,
+input[type=email].span1,
+input[type=url].span1,
+input[type=tel].span1,
+input[type=date].span1,
+input[type=time].span1,
+input[type=datetime].span1,
+input[type=num].span1,
+select.span1,
+textarea.span1 {
+  width: 40px;
+}
+input[type=text].span2,
+input[type=password].span2,
+input[type=search].span2,
+input[type=email].span2,
+input[type=url].span2,
+input[type=tel].span2,
+input[type=date].span2,
+input[type=time].span2,
+input[type=datetime].span2,
+input[type=num].span2,
+select.span2,
+textarea.span2 {
+  width: 100px;
+}
+input[type=text].span3,
+input[type=password].span3,
+input[type=search].span3,
+input[type=email].span3,
+input[type=url].span3,
+input[type=tel].span3,
+input[type=date].span3,
+input[type=time].span3,
+input[type=datetime].span3,
+input[type=num].span3,
+select.span3,
+textarea.span3 {
+  width: 160px;
+}
+input[type=text].span4,
+input[type=password].span4,
+input[type=search].span4,
+input[type=email].span4,
+input[type=url].span4,
+input[type=tel].span4,
+input[type=date].span4,
+input[type=time].span4,
+input[type=datetime].span4,
+input[type=num].span4,
+select.span4,
+textarea.span4 {
+  width: 220px;
+}
+input[type=text].span5,
+input[type=password].span5,
+input[type=search].span5,
+input[type=email].span5,
+input[type=url].span5,
+input[type=tel].span5,
+input[type=date].span5,
+input[type=time].span5,
+input[type=datetime].span5,
+input[type=num].span5,
+select.span5,
+textarea.span5 {
+  width: 280px;
+}
+input[type=text].span6,
+input[type=password].span6,
+input[type=search].span6,
+input[type=email].span6,
+input[type=url].span6,
+input[type=tel].span6,
+input[type=date].span6,
+input[type=time].span6,
+input[type=datetime].span6,
+input[type=num].span6,
+select.span6,
+textarea.span6 {
+  width: 340px;
+}
+input[type=text].span7,
+input[type=password].span7,
+input[type=search].span7,
+input[type=email].span7,
+input[type=url].span7,
+input[type=tel].span7,
+input[type=date].span7,
+input[type=time].span7,
+input[type=datetime].span7,
+input[type=num].span7,
+select.span7,
+textarea.span7 {
+  width: 400px;
+}
+input[type=text].span8,
+input[type=password].span8,
+input[type=search].span8,
+input[type=email].span8,
+input[type=url].span8,
+input[type=tel].span8,
+input[type=date].span8,
+input[type=time].span8,
+input[type=datetime].span8,
+input[type=num].span8,
+select.span8,
+textarea.span8 {
+  width: 460px;
+}
+input[type=text].span9,
+input[type=password].span9,
+input[type=search].span9,
+input[type=email].span9,
+input[type=url].span9,
+input[type=tel].span9,
+input[type=date].span9,
+input[type=time].span9,
+input[type=datetime].span9,
+input[type=num].span9,
+select.span9,
+textarea.span9 {
+  width: 520px;
+}
+input[type=text].span10,
+input[type=password].span10,
+input[type=search].span10,
+input[type=email].span10,
+input[type=url].span10,
+input[type=tel].span10,
+input[type=date].span10,
+input[type=time].span10,
+input[type=datetime].span10,
+input[type=num].span10,
+select.span10,
+textarea.span10 {
+  width: 580px;
+}
+input[type=text].span11,
+input[type=password].span11,
+input[type=search].span11,
+input[type=email].span11,
+input[type=url].span11,
+input[type=tel].span11,
+input[type=date].span11,
+input[type=time].span11,
+input[type=datetime].span11,
+input[type=num].span11,
+select.span11,
+textarea.span11 {
+  width: 640px;
+}
+input[type=text].span12,
+input[type=password].span12,
+input[type=search].span12,
+input[type=email].span12,
+input[type=url].span12,
+input[type=tel].span12,
+input[type=date].span12,
+input[type=time].span12,
+input[type=datetime].span12,
+input[type=num].span12,
+select.span12,
+textarea.span12 {
+  width: 700px;
+}
+input[type=text].span13,
+input[type=password].span13,
+input[type=search].span13,
+input[type=email].span13,
+input[type=url].span13,
+input[type=tel].span13,
+input[type=date].span13,
+input[type=time].span13,
+input[type=datetime].span13,
+input[type=num].span13,
+select.span13,
+textarea.span13 {
+  width: 760px;
+}
+input[type=text].span14,
+input[type=password].span14,
+input[type=search].span14,
+input[type=email].span14,
+input[type=url].span14,
+input[type=tel].span14,
+input[type=date].span14,
+input[type=time].span14,
+input[type=datetime].span14,
+input[type=num].span14,
+select.span14,
+textarea.span14 {
+  width: 820px;
+}
+input[type=text].span15,
+input[type=password].span15,
+input[type=search].span15,
+input[type=email].span15,
+input[type=url].span15,
+input[type=tel].span15,
+input[type=date].span15,
+input[type=time].span15,
+input[type=datetime].span15,
+input[type=num].span15,
+select.span15,
+textarea.span15 {
+  width: 880px;
+}
+input[type=text].span16,
+input[type=password].span16,
+input[type=search].span16,
+input[type=email].span16,
+input[type=url].span16,
+input[type=tel].span16,
+input[type=date].span16,
+input[type=time].span16,
+input[type=datetime].span16,
+input[type=num].span16,
+select.span16,
+textarea.span16 {
+  width: 940px;
+}
+input[type=text].span-full,
+input[type=password].span-full,
+input[type=search].span-full,
+input[type=email].span-full,
+input[type=url].span-full,
+input[type=tel].span-full,
+input[type=date].span-full,
+input[type=time].span-full,
+input[type=datetime].span-full,
+input[type=num].span-full,
+select.span-full,
+textarea.span-full {
+  width: 100%;
+}
+
+textarea.height2 {
+  height: 36px;
+}
+textarea.height3 {
+  height: 54px;
+}
+textarea.height4 {
+  height: 72px;
+}
+textarea.height6 {
+  height: 108px;
+}
+textarea.height7 {
+  height: 126px;
+}
+textarea.height8 {
+  height: 144px;
 }
 
 input[readonly]:focus,
@@ -2126,16 +2475,15 @@ input[type=submit].btn::-moz-focus-inner {
 }
 
 .breadcrumb {
-  margin: 0 0 18px;
-  padding: 7px 14px;
-  background: white;
-  border: 1px solid #ddd;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 1px white, 0 1px 0px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  zoom: 1;
+}
+.breadcrumb:before, .breadcrumb:after {
+  display: table;
+  content: "";
+}
+.breadcrumb:after {
+  clear: both;
 }
 .breadcrumb li {
   display: inline;
@@ -2528,7 +2876,7 @@ input[type=submit].btn::-moz-focus-inner {
   padding: 8px;
 }
 .geoloqi-infobox > .infobox-content.with-header-footer header, .geoloqi-infobox > .infobox-content.with-header-footer footer {
-  padding: 0 8px;
+  padding: 4px 8px;
   background: #f2f2f2;
 }
 .geoloqi-infobox > .infobox-content.with-header-footer > header {
@@ -2575,6 +2923,103 @@ ul.action-menu li a {
   display: block;
   width: 100%;
   padding: 1em;
+}
+
+/** Push Pull **/
+.push-up-double {
+  margin-top: 18px;
+}
+
+.push-down {
+  margin-bottom: 18px;
+}
+
+.push-left {
+  margin-left: 18px;
+}
+
+.push-right {
+  margin-right: 18px;
+}
+
+.pull-up {
+  margin-top: -18px;
+}
+
+.pull-down {
+  margin-bottom: -18px;
+}
+
+.pull-left {
+  margin-left: -18px;
+}
+
+.pull-right {
+  margin-right: -18px;
+}
+
+.push-up-double {
+  margin-top: 9px;
+}
+
+.push-down-double {
+  margin-bottom: 36px;
+}
+
+.push-left-double {
+  margin-left: 36px;
+}
+
+.push-right-double {
+  margin-right: 36px;
+}
+
+.pull-up-double {
+  margin-top: -36px;
+}
+
+.pull-down-double {
+  margin-bottom: -36px;
+}
+
+.pull-left-double {
+  margin-left: -36px;
+}
+
+.pull-right-double {
+  margin-right: -36px;
+}
+
+.push-up-half {
+  margin-top: 9px;
+}
+
+.push-down-half {
+  margin-bottom: 9px;
+}
+
+.push-left-half {
+  margin-left: 9px;
+}
+
+.push-right-half {
+  margin-right: 9px;
+}
+
+.pull-up-half {
+  margin-top: -9px;
+}
+
+.pull-down-half {
+  margin-bottom: -9px;
+}
+
+.pull-left-half {
+  margin-left: -9px;
+}
+
+.pull-right-half {
+  margin-right: -9px;
 }
 
 /** Floats **/

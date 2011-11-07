@@ -712,10 +712,8 @@ input[type=submit].btn {
 // -----------
 
 .breadcrumb {
-  margin: 0 0 $baseline;
-  padding: 7px 14px;
-  @include well();
-
+  margin: 0;
+  @include clearfix;
   li {
     display: inline;
     text-shadow: 0 1px 0 $white;
@@ -1055,7 +1053,7 @@ input[type=submit].btn {
       }
       
       header, footer {
-        padding:0 8px;
+        padding:4px 8px;
         background: $whiteOff;
       }
 
@@ -1105,6 +1103,82 @@ ul.action-menu li {
 
 // Helper Classes
 // --------------
+  /** Push Pull **/
+  .push-up-double { 
+    margin-top:$baseline;
+   }
+  .push-down { 
+    margin-bottom:$baseline;
+   }
+  .push-left { 
+    margin-left:$baseline;
+   }
+  .push-right { 
+    margin-right:$baseline;
+   }
+  .pull-up { 
+    margin-top:-($baseline);
+   }
+  .pull-down { 
+    margin-bottom:-($baseline);
+   }
+  .pull-left { 
+    margin-left:-($baseline);
+   }
+  .pull-right { 
+    margin-right:-($baseline);
+   }
+
+  .push-up-double { 
+    margin-top:$baseline/2;
+   }
+  .push-down-double { 
+    margin-bottom:$baseline*2;
+   }
+  .push-left-double { 
+    margin-left:$baseline*2;
+   }
+  .push-right-double { 
+    margin-right:$baseline*2;
+   }
+  .pull-up-double { 
+    margin-top:-($baseline*2);
+   }
+  .pull-down-double { 
+    margin-bottom:-($baseline*2);
+   }
+  .pull-left-double { 
+    margin-left:-($baseline*2);
+   }
+  .pull-right-double { 
+    margin-right:-($baseline*2);
+   }
+
+  .push-up-half { 
+    margin-top:$baseline/2;
+   }
+  .push-down-half { 
+    margin-bottom:$baseline/2;
+   }
+  .push-left-half { 
+    margin-left:$baseline/2;
+   }
+  .push-right-half { 
+    margin-right:$baseline/2;
+   }
+  .pull-up-half { 
+    margin-top:-($baseline/2);
+   }
+  .pull-down-half { 
+    margin-bottom:-($baseline/2);
+   }
+  .pull-left-half { 
+    margin-left:-($baseline/2);
+   }
+  .pull-right-half { 
+    margin-right:-($baseline/2);
+   }
+
 
   /** Floats **/
   .left{ float: left; }
