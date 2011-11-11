@@ -9,6 +9,9 @@
 p {
   @include shorthand-font(normal,$basefont,$baseline);
   margin-bottom: $baseline / 2;
+  &.special {
+    margin-bottom:0; 
+  }
   small {
     font-size: $basefont - 2;
     color: $grayLight;
@@ -28,32 +31,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
   margin-bottom: $baseline;
-  font-size: 30px;
+  font-size: 24px;
   line-height: $baseline * 2;
   small {
-    font-size: 18px;
+    font-size: 13px;
   }
 }
 h2 {
   font-size: 24px;
   line-height: $baseline * 2;
   small {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 h3, h4, h5, h6 {
-  line-height: $baseline * 2;
+  line-height: $baseline * 1.5;
+  &.compress {
+    line-height:$baseline;
+  }
 }
 h3 {
   font-size: 18px;
   small {
-    font-size: 14px;
+    font-size: 11px;
   }
 }
 h4 {
   font-size: 16px;
   small {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 h5 {
@@ -70,7 +76,7 @@ h6 {
 
 // Unordered and Ordered lists
 ul, ol {
-  margin: 0 0 $baseline 25px;
+  margin: 0 0 $baseline 20px;
   &.spaced {
     li {
       margin-top:0;
@@ -136,6 +142,9 @@ em {
   font-style: italic;
   font-weight: inherit;
   line-height: inherit;
+}
+small {
+  font-size:.8em;
 }
 .muted {
   color: $grayLight

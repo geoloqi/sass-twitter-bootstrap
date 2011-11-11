@@ -13,7 +13,7 @@
         settings = $.extend({}, defaults, options);
 
         var $this = $(this),
-            self = $this; 
+            self = $this;
 
         $(window).bind('resize', function(){
           self.mapSizer("resize");
@@ -22,11 +22,14 @@
         $this.mapSizer('resize');
       },
 
-      resize: function() {
-        console.log("Resizing");
+      resize: function(options) {
+        console.log("RESIZE!");
+        options = (typeof options == "undefined") ? {} : options;
+        console.log(options);
+        settings = $.extend({}, settings, options);
+        console.log(settings);
         return $(this).each(function(){
           $(this).height(function(){
-            console.log(($(window).height() - settings.offBottom));
             return ($(window).height() - $(this).offset().top - settings.offBottom);
           }).width(function(){
             return (settings.width - settings.offWidth)

@@ -99,11 +99,11 @@
 // -----------------
 
 html, body {
-  background-color: $backgroundColor;
   height: 100%;
 }
 
 body {
+  background: #F5F3EE url("/img/bg/soft_wallpaper_2.png");
   margin: 0;
   @include sans-serif-font(normal,$basefont,$baseline);
   color: $grayDark;
@@ -115,10 +115,10 @@ body {
 }
 
 #main {
-  overflow:visible;
-  padding-bottom: 80px;
+  overflow:hidden;
+  padding-bottom: 60px;
   @if $fixedHeader == true {
-    padding-top:80px;
+    padding-top:60px;
   }
 }
 
@@ -129,7 +129,7 @@ body {
 
   @if $fixedFooter == false {
     position: relative;
-    margin-top: -44px; /* negative value of footer height */
+    margin-top: -40px; /* negative value of footer height */
   }
 
   .inner, .fill {
@@ -153,13 +153,41 @@ body {
   @include clearfix();
   .sidebar {
     float: left;
-    width: $fluidSidebarWidth - $fluidSidebarPadding;
+    &.span1     { @include columns(1); }
+    &.span2     { @include columns(2); }
+    &.span3     { @include columns(3); }
+    &.span4     { @include columns(4); }
+    &.span5     { @include columns(5); }
+    &.span6     { @include columns(6); }
+    &.span7     { @include columns(7); }
+    &.span8     { @include columns(8); }
+    &.span9     { @include columns(9); }
+    &.span10    { @include columns(10); }
+    &.span11    { @include columns(11); }
+    &.span12    { @include columns(12); }
+    &.span13    { @include columns(13); }
+    &.span14    { @include columns(14); }
+    &.span15    { @include columns(15); }
+    &.span16    { @include columns(16); }
   }
   > .content {
-    min-width: $siteWidth - 20 - $fluidSidebarWidth;
     max-width: $fluidMaxWidth;
-    margin-left: $fluidSidebarWidth + 20;
-    background:red;
+    &.offset1     { @include offset(1); }
+    &.offset2     { @include offset(2); }
+    &.offset3     { @include offset(3); }
+    &.offset4     { @include offset(4); }
+    &.offset5     { @include offset(5); }
+    &.offset6     { @include offset(6); }
+    &.offset7     { @include offset(7); }
+    &.offset8     { @include offset(8); }
+    &.offset9     { @include offset(9); }
+    &.offset10    { @include offset(10); }
+    &.offset11    { @include offset(11); }
+    &.offset12    { @include offset(12); }
+    &.offset13    { @include offset(13); }
+    &.offset14    { @include offset(14); }
+    &.offset15    { @include offset(15); }
+    &.offset16    { @include offset(16); }
   }
 }
 
@@ -186,6 +214,6 @@ a {
   background: $white;
   border: 1px solid #ddd;
   @include border-radius(3px);
-  $shadow: inset 0 1px 1px rgba(255,255,255,1), 0 1px 0px rgba(0,0,0,.1);
+  $shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 3px rgba(0, 0, 0, 0.1);
   @include box-shadow($shadow);
 }
