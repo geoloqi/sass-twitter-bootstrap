@@ -8,8 +8,9 @@
 
 .row {
   @include clearfix();
-  margin-left: -20px;
-
+  .row {
+    margin-left: -20px;
+  }
   // Default columns
   .span1,
   .span2,
@@ -143,7 +144,7 @@ body {
 
 // Container (centered, fixed-width layouts)
 .container {
-  width: 940px;
+  width: 960px;
   margin: 0 auto;
 }
 

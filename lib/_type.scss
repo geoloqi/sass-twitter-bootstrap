@@ -29,15 +29,7 @@ h1, h2, h3, h4, h5, h6 {
     color: $grayLight;
   }
 }
-h1 {
-  margin-bottom: $baseline;
-  font-size: 24px;
-  line-height: $baseline * 2;
-  small {
-    font-size: 13px;
-  }
-}
-h2 {
+h1, h2 {
   font-size: 24px;
   line-height: $baseline * 2;
   small {
@@ -231,5 +223,11 @@ pre {
   }
   &.notice {
     background-color: $noticeLabel;
+  }
+}
+
+a {
+  &:focus {
+    outline:none;
   }
 }

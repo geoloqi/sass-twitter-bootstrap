@@ -8,7 +8,6 @@ Modernizr.load({
   }
 });
 */
-
 //Close Function for Alert Messages
 $('.alert-message .close').live("click",function(){
   $(this).parent().slideUp("fast", function(){ $(this).remove() });
@@ -16,13 +15,16 @@ $('.alert-message .close').live("click",function(){
 });
 
 //Setup Tooltips
+/*
 $("a[rel='twipsy']").twipsy({
   live: true,
   animate:true,
   offset: 3
 });
+*/
 
 //Setup Popover
+/*
 $("a[rel='popup']").popover({
   live: true,
   html: true,
@@ -31,3 +33,4 @@ $("a[rel='popup']").popover({
   animate:true,
   placement: "above"
 });
+*/

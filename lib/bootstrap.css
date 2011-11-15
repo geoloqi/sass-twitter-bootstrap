@@ -264,7 +264,6 @@ table {
  * ------------------------------------------------------------------------------------------- */
 .row {
   zoom: 1;
-  margin-left: -20px;
 }
 .row:before, .row:after {
   display: table;
@@ -497,7 +496,7 @@ body {
 }
 
 .container {
-  width: 940px;
+  width: 960px;
   margin: 0 auto;
 }
 
@@ -2001,7 +2000,7 @@ table .headerSortDown.purple:hover {
   background-image: linear-gradient(top, #444444, black);
 }
 .topbar.top, .bar.top {
-  border-top: 2px solid #c0da93;
+  border-top: 3px solid #c0da93;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -2284,15 +2283,6 @@ table .headerSortDown.purple:hover {
   font-size: 18px;
   font-weight: 200;
   line-height: 27px;
-}
-
-.page-header, section header {
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-.page-header h1, section header h1 {
-  margin-bottom: 8px;
 }
 
 section footer {
@@ -2582,6 +2572,28 @@ input[type=submit].btn::-moz-focus-inner {
   border: 0;
 }
 
+.close {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  float: right;
+  margin-top: -1px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 1px 0 white;
+  filter: alpha(opacity=20);
+  -khtml-opacity: 0.2;
+  -moz-opacity: 0.2;
+  opacity: 0.2;
+}
+.close:hover {
+  color: black;
+  text-decoration: none;
+  filter: alpha(opacity=40);
+  -khtml-opacity: 0.4;
+  -moz-opacity: 0.4;
+  opacity: 0.4;
+}
+
 .alert-message {
   margin-bottom: 18px;
   padding: 7px 14px;
@@ -2598,27 +2610,6 @@ input[type=submit].btn::-moz-focus-inner {
   margin-top: 5px;
   margin-bottom: 2px;
   line-height: 28px;
-}
-.alert-message .close {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  float: right;
-  margin-top: -1px;
-  color: black;
-  font-size: 18px;
-  font-weight: bold;
-  text-shadow: 0 1px 0 white;
-  filter: alpha(opacity=20);
-  -khtml-opacity: 0.2;
-  -moz-opacity: 0.2;
-  opacity: 0.2;
-}
-.alert-message .close:hover {
-  color: black;
-  text-decoration: none;
-  filter: alpha(opacity=40);
-  -khtml-opacity: 0.4;
-  -moz-opacity: 0.4;
-  opacity: 0.4;
 }
 .alert-message.block-message {
   padding: 14px;
@@ -2940,6 +2931,7 @@ input[type=submit].btn::-moz-focus-inner {
   margin-left: -300px;
   width: 520px;
   z-index: 2000;
+  padding: 1em 0 .45em;
   background-color: white;
   border: 1px solid #e6e6e6;
   -webkit-border-radius: 3px;
@@ -3165,7 +3157,7 @@ input[type=submit].btn::-moz-focus-inner {
 
 .geoloqi-infobox {
   padding: 5px;
-  width: 270px;
+  width: 310px;
   background-color: #e6e6e6;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

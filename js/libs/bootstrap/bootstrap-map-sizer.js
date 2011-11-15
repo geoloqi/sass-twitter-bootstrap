@@ -23,11 +23,8 @@
       },
 
       resize: function(options) {
-        console.log("RESIZE!");
         options = (typeof options == "undefined") ? {} : options;
-        console.log(options);
         settings = $.extend({}, settings, options);
-        console.log(settings);
         return $(this).each(function(){
           $(this).height(function(){
             return ($(window).height() - $(this).offset().top - settings.offBottom);
