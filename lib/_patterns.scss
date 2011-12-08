@@ -13,11 +13,12 @@
   
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
   .topbar-inner, .fill, .inner {
-    background:$barBackground;
+    @include vertical-gradient(#444, #000);
   }
 
   &.top {
-    border-top:4px solid $barAccent; 
+    border-top:3px solid $barAccent; 
+    @include box-shadow(0 1px 3px rgba(0,0,0,0.2));
     @if $fixedHeader == true {
       position:fixed;
       top:0;
@@ -34,15 +35,13 @@
   }
 
   &.bottom {
-    border-bottom:4px solid $barAccent;
+    @include box-shadow(0 -1px 3px rgba(0,0,0,0.1));
     @if $fixedFooter == true {
       position:fixed;
       bottom:0;
       left:0;
       right:0;
       z-index:500;
-    } @else {
-      margin-bottom:3em;
     }
   }
 
@@ -53,7 +52,6 @@
   }
 
   // Hover and active states
-  a:hover,
   ul li.active a {
     background-color: $barBackground;
     background-color: rgba(255,255,255,.05);
@@ -212,7 +210,9 @@
         }
       }
       &.open {
-        background-color: $barBackground;
+        background-color: $barLinkBackgroundCurrent;
+        a.dropdown-toggle {
+          
         a.menu,
         a:hover {
           background-color: $barLinkBackgroundHover;
@@ -246,8 +246,7 @@
       display: none;
       position: absolute;
       top: 40px;
-      min-width: 180px;
-      max-width: 240px;
+      width:153px;
       _width: 180px;
       margin-left: -1px;
       margin-right: 0;
@@ -256,14 +255,14 @@
       border-right:1px solid $barDivider;
       border-left:1px solid $barDivider;
       zoom: 1;
-      @include border-radius(0 0 3px 3px);
-      @include box-shadow(0 1px 2px rgba(0,0,0,0.6));
+      @include box-shadow(0 1px 3px rgba(0,0,0,0.25));
       li {
         float: none;
         clear: both;
         display: block;
         background: none;
         font-size: 12px;
+        border:none;
         border-bottom:1px solid $barDivider;
         a {
           display: block;
