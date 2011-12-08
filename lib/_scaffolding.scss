@@ -100,11 +100,11 @@
 // -----------------
 
 html, body {
-  background-color: $backgroundColor;
   height: 100%;
 }
 
 body {
+  background: #F5F3EE url("/img/bg/soft_wallpaper_2.png");
   margin: 0;
   @include sans-serif-font(normal,$basefont,$baseline);
   color: $grayDark;
