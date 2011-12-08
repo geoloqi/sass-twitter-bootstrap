@@ -12,24 +12,24 @@
     margin-left: -20px;
   }
   // Default columns
-  .span1,
-  .span2,
-  .span3,
-  .span4,
-  .span5,
-  .span6,
-  .span7,
-  .span8,
-  .span9,
-  .span10,
-  .span11,
-  .span12,
-  .span13,
-  .span14,
-  .span15,
-  .span16,
-  .span-one-third,
-  .span-two-thirds {
+  > .span1,
+  > .span2,
+  > .span3,
+  > .span4,
+  > .span5,
+  > .span6,
+  > .span7,
+  > .span8,
+  > .span9,
+  > .span10,
+  > .span11,
+  > .span12,
+  > .span13,
+  > .span14,
+  > .span15,
+  > .span16,
+  > .span-one-third,
+  > .span-two-thirds {
     display: inline;
     float: left;
     margin-left: 20px;

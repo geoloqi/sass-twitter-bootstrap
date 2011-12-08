@@ -152,10 +152,6 @@ textarea:focus {
 
 // Error styles
 form div.error {
-  background: $errorBgColor;
-  padding: 10px 0;
-  margin: -10px 0 10px;
-  @include border-radius(4px);
   > label,
   span.help-inline,
   span.help-block {
