@@ -116,10 +116,8 @@ body {
 }
 
 #main {
-  overflow:visible;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
   @if $fixedHeader == true {
-    padding-top:80px;
   }
 }
 
@@ -130,7 +128,7 @@ body {
 
   @if $fixedFooter == false {
     position: relative;
-    margin-top: -44px; /* negative value of footer height */
+    margin-top: -40px; /* negative value of footer height */
   }
 
   .inner, .fill {
