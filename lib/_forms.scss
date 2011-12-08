@@ -7,7 +7,12 @@
 // -----------
 
 form {
-  margin-bottom: $baseline;
+
+  // Parent element that clears floats and wraps labels and fields together
+  .clearfix {
+    margin-bottom: $baseline;
+  }
+
 }
 
 // Groups of fields with labels on top (legends)
@@ -23,11 +28,6 @@ fieldset {
     *line-height: 1.5; /* IE6-7 */
     color: $grayDark;
   }
-}
-
-// Parent element that clears floats and wraps labels and fields together
-.clearfix {
-  margin-bottom: $baseline;
 }
 
 // Set font for forms
