@@ -349,7 +349,7 @@ section footer {
 
 @mixin btnColor($background, $border) {
   background:$background;
-  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+  text-shadow: 0 1px 0 rgba(255,255,255,.75);
   border-color: $border;
 }
 
@@ -363,36 +363,44 @@ section footer {
   @include btnColor($whiteOff, $grayLight);
   $shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 0px rgba(0,0,0,.1);
   @include box-shadow($shadow);
+  @include box-sizing(border)
+}
 
+.alert-message{
   &.primary, {
-    @include btnColor($primaryLight, $primaryDark)
+    @include btnColor(lighten($primaryLight, 20%), $primaryLight);
   }
 
   &.success {
-    @include btnColor($successLight, $successDark)
+    @include btnColor(lighten($successLight, 20%), $successLight)
   }
 
   // Danger and error appear as red
   &.danger,
   &.error,
   &.warning {
-   @include btnColor($dangerLight, $dangerDark)
+   @include btnColor(lighten($dangerLight, 5%), $dangerLight);
+   a{
+     color:$grayDark;
+     text-decoration:underline;
+   }
   }
 
   // Info appears as a neutral blue
   &.info {
-   @include btnColor($infoLight, $infoDark)
+   @include btnColor(lighten($infoLight, 10%), $infoLight)
   }
 
   //Actions Appear as Oragne
   &.action {
-   @include btnColor($actionLight, $actionDark)
+   @include btnColor(lighten($actionLight, 10%), $actionLight)
   }
 }
 
 // Base .btn styles
 .btn {
   //  Base
+  outline:none;
   cursor: pointer;
   display: inline-block;
   padding:.65em 1em;
@@ -400,36 +408,72 @@ section footer {
   font-weight:700;
   line-height: normal;
   color: $grayDark;
+  text-shadow:0 1px 0 $whiteOff;
+  &.full-width {
+    width:100%;
+    text-align: center;
+    padding-left:0;
+    padding-right:0;
+    @include box-sizing(border-box);
+  }
+  @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%));
+  @include vertical-gradient(lighten($defaultLight,8%),$defaultLight);
+
+  &.primary {
+    @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%));
+    @include vertical-gradient(lighten($primaryLight,8%),$primaryLight);
+  }
+
+  &.success {
+    @include btnColor(lighten($successLight, 5%), darken($successDark, 5%));
+    @include vertical-gradient(lighten($successLight,8%),$successLight);
+  }
+
+  // Danger and error appear as red
+  &.danger {
+    @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%));
+    @include vertical-gradient(lighten($dangerLight,4%),$dangerLight);
+  }
+
+  // Info appears as a neutral blue
+  &.info {
+    @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%));
+    @include vertical-gradient(lighten($infoLight,8%),$infoDark);
+  }
+
+  //Actions Appear as Oragne
+  &.action {
+   @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%));
+   @include vertical-gradient(lighten($actionLight,8%),$actionLight);
+  }
+
   &:hover {
     color: $grayDark;
-
     text-decoration: none;
+    @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%));
 
     &.primary {
-      @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%))
+      @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%));
     }
 
     &.success {
-      @include btnColor(lighten($successLight, 5%), darken($successDark, 5%))
+      @include btnColor(lighten($successLight, 5%), darken($successDark, 5%));
     }
 
     // Danger and error appear as red
     &.danger {
-      @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%))
+      @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%));
     }
 
     // Info appears as a neutral blue
     &.info {
-      @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%))
+      @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%));
     }
 
     //Actions Appear as Oragne
     &.action {
-     @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%))
+     @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%));
     }
-
-    @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%))
-
   }
 
   &:active {
@@ -450,7 +494,11 @@ section footer {
     font-size: 11px;
   }
 
+  &.x-small {
+    font-size: 10px;
     padding:.5em .75em;
+  }
+
     // Active and Disabled states
   &.disabled {
     cursor: default;
@@ -535,19 +583,27 @@ input[type=submit].btn {
   float: right;
   margin-top: -1px;
   color: $black;
+  font-size: 18px;
   font-weight: bold;
   text-shadow: 0 1px 0 rgba(255,255,255,1);
+  @include opacity(20);
+  &:hover {
+    color: $black;
     text-decoration: none;
+    @include opacity(40);
+  }
 }
 
 // Base alert styles
 .alert-message {
   margin-bottom: $baseline;
   padding: 7px 14px;
+  text-align:center;
 
   // Remove extra margin from content
   h5 {
     line-height: $baseline;
+    margin-top:4px;
   }
   p {
     margin-bottom: 0;
@@ -557,22 +613,7 @@ input[type=submit].btn {
     margin-bottom: 2px;
     line-height: 28px;
   }
-  .close {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    float: right;
-    margin-top: -1px;
-    color: $black;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 0 1px 0 rgba(255,255,255,1);
-    @include opacity(20);
-    &:hover {
-      color: $black;
-      text-decoration: none;
-      @include opacity(40);
-    }
-  }
-
+  
   &.block-message {
     padding: 14px;
 
@@ -657,12 +698,14 @@ input[type=submit].btn {
 .tab-content, .pill-content {
   > .active {
     display:block;
-    background-color: $white;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
-    margin-bottom: 20px;
-    padding: 19px;
+    //background-color: $white;
+    //text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    //margin-bottom: 20px;
+    padding: 12px 0;
     min-height: 20px;
-    @include well();
+    //@include well();
+    //@include border-radius(0 0 3px 3px);
+
   }
   > * {
     display:none;
@@ -677,7 +720,7 @@ input[type=submit].btn {
 
 .tab-content {
   > .active {
-    border: 1px solid $grayLighter;
+    //border: 1px solid $grayLighter;
     border-top:none;
   }
 }
@@ -712,10 +755,8 @@ input[type=submit].btn {
 // -----------
 
 .breadcrumb {
-  margin: 0 0 $baseline;
-  padding: 7px 14px;
-  @include well();
-
+  margin: 0;
+  @include clearfix;
   li {
     display: inline;
     text-shadow: 0 1px 0 $white;
@@ -771,16 +812,46 @@ input[type=submit].btn {
 // -----
 
 .well {
-  margin-bottom: 20px;
-  padding: 19px;
+  margin-bottom: 16px;
+  padding: 16px;
   min-height: 20px;
   @include well();
+  
+  &.form {
+    padding:16px 0 0 0;
+    .form-stacked {
+      .clearfix {
+        padding-left:16px;
+        padding-right:16px;
+      }
+      .actions {
+        margin-left:0;
+      }
+    }
+    .actions {
+      margin-bottom:0;
+    }
+  }
+  &.footer{
+    .content {
+      padding:0 16px 0;
+    }
+    padding:16px 0 0 0;
+    > footer {
+      padding: 8px 16px;
+      @include border-radius(0 0 3px 3px);
+      @include background-clip(padding-box);
+      border-top: 1px solid #ddd;
+      @include box-shadow(0 -1px 0 rgba(255,255,255,.5));
+      background: lighten($grayLighter, 5%);
+    }
+  }
   &.header-footer {
-
     padding:0;
+    margin:0;
 
     header, footer, .content {
-      padding: 8px 19px;
+      padding: 8px 16px;
     }
 
     header, footer {
@@ -815,6 +886,7 @@ input[type=submit].btn {
     }
 
   }
+  
 }
 
 // MODALS
@@ -837,6 +909,7 @@ input[type=submit].btn {
   margin-left: -300px;
   width: 520px;
   z-index: 2000;
+  padding:1em 0 .45em;
   background-color: $white;
   border: 1px solid $grayLighter;
   @include border-radius(3px);
@@ -912,7 +985,7 @@ input[type=submit].btn {
 }
 
 @mixin popover-arrow-below($arrowWidth: 5px) {
-  top: 0;
+  top: 1px;
   left: 50%;
   margin-left: -$arrowWidth;
   border-left: $arrowWidth solid transparent;
@@ -990,6 +1063,18 @@ input[type=submit].btn {
     @include border-radius(3px);
     $shadow: 0 3px 7px rgba(0,0,0,0.3), 0 1px 0px rgba(0,0,0,.25);
     @include box-shadow($shadow);
+    .content {
+      background-color: $white;
+      padding: 14px;
+      @include border-radius(0 0 3px 3px);
+      @include background-clip(padding-box);
+      p, ul, ol {
+        margin-bottom: 0;
+      }
+      &.no-padding {
+      padding:0;
+    }
+    }
   }
   .title {
     background-color: #f5f5f5;
@@ -997,15 +1082,6 @@ input[type=submit].btn {
     line-height: 1;
     @include border-radius(3px 3px 0 0);
     border-bottom:1px solid #eee;
-  }
-  .content {
-    background-color: $white;
-    padding: 14px;
-    @include border-radius(0 0 3px 3px);
-    @include background-clip(padding-box);
-    p, ul, ol {
-      margin-bottom: 0;
-    }
   }
 }
 
@@ -1020,14 +1096,14 @@ input[type=submit].btn {
 // Map Infoboxes
 // -------------
 
-.geoloqi-infobox {
+.geoloqi-infobox, .geoloqi-infobox-large {
   padding: 5px;
-  width:270px;
+  width:310px;
   background-color: $grayLighter;
   @include border-radius(3px);
   $shadow: 0 2px 14px rgba(0,0,0,0.4), 0 1px 0px rgba(0,0,0,.05);
   @include box-shadow($shadow);
-  .arrow {
+  > .arrow {
     position: absolute;
     width: 0;
     height: 0;
@@ -1038,41 +1114,172 @@ input[type=submit].btn {
     border-top: 5px solid $grayLighter;
     bottom:-5px;
   }
-  .content {
+  > .infobox-content {
     background-color: $white;
     padding: 9px;
     @include border-radius(3px);
     @include background-clip(padding-box);
+    &.with-header-footer {
+      border:1px solid $grayLight;
+      padding:0;
+      
+      > .infobox-content{
+        padding:8px;
+      }
+      
+      header, footer {
+        padding:4px 8px;
+        background: $whiteOff;
+      }
+
+      > header {
+          @include border-radius(3px 3px 0 0);
+          @include background-clip(padding-box);
+          border-bottom: 1px solid $grayLight;
+          @include box-shadow(0 1px 0 rgba(255,255,255,.5));
+      }
+
+      > footer {
+        @include border-radius(0 0 3px 3px);
+        @include background-clip(padding-box);
+        border-top: 1px solid $grayLight;
+        @include box-shadow(0 -1px 0 rgba(255,255,255,.5));
+      }
+    } 
+  }
+}
+
+.geoloqi-infobox-large {
+  width:580px;
+}
+
+// Itemized Lists
+// --------------
+ul.items {
+  list-style:none;
+  margin:0;
+
+  li {
+    border:none;
+    padding:1em;
   }
 
+  li + li {
+    border-top:1px solid $grayLight;
+  }
+}
+
+
+ul.action-menu li {
+  padding:0;
+  a {
+    display: block;
+    width:100%;
+    padding:1em;
+  }
 }
 
 // Helper Classes
 // --------------
+/** Push Pull **/
+.push-up-double { 
+  margin-top:$baseline;
+ }
+.push-down { 
+  margin-bottom:$baseline;
+ }
+.push-left { 
+  margin-left:$baseline;
+ }
+.push-right { 
+  margin-right:$baseline;
+ }
+.pull-up { 
+  margin-top:-($baseline);
+ }
+.pull-down { 
+  margin-bottom:-($baseline);
+ }
+.pull-left { 
+  margin-left:-($baseline);
+ }
+.pull-right { 
+  margin-right:-($baseline);
+ }
 
-  /** Floats **/
-  .left{ float: left; }
+.push-up-double { 
+  margin-top:$baseline/2;
+ }
+.push-down-double { 
+  margin-bottom:$baseline*2;
+ }
+.push-left-double { 
+  margin-left:$baseline*2;
+ }
+.push-right-double { 
+  margin-right:$baseline*2;
+ }
+.pull-up-double { 
+  margin-top:-($baseline*2);
+ }
+.pull-down-double { 
+  margin-bottom:-($baseline*2);
+ }
+.pull-left-double { 
+  margin-left:-($baseline*2);
+ }
+.pull-right-double { 
+  margin-right:-($baseline*2);
+ }
 
-  .right{ float: right; }
+.push-up-half { 
+  margin-top:$baseline/2;
+ }
+.push-down-half { 
+  margin-bottom:$baseline/2;
+ }
+.push-left-half { 
+  margin-left:$baseline/2;
+ }
+.push-right-half { 
+  margin-right:$baseline/2;
+ }
+.pull-up-half { 
+  margin-top:-($baseline/2);
+ }
+.pull-down-half { 
+  margin-bottom:-($baseline/2);
+ }
+.pull-left-half { 
+  margin-left:-($baseline/2);
+ }
+.pull-right-half { 
+  margin-right:-($baseline/2);
+ }
 
-  .clear{ clear: both; }
+/** Floats **/
+.left{ float: left; }
 
-  /** Hiders **/
-  .ir { display:block; text-indent:-9999em; overflow:hidden; background-repeat: no-repeat; }
+.right{ float: right; }
 
-  .hide { display:none !important; visibility:hidden; } 
+.clear{ clear: both; }
 
-  .visually-hide {
-  position:absolute !important;    
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  }
+/** Hiders **/
+.ir { display:block; text-indent:-9999em; overflow:hidden; background-repeat: no-repeat; }
 
-  .invisible { visibility: hidden; }
+.hide { display:none !important; visibility:hidden; } 
 
-  /** Clearfix **/
-  .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.visually-hide {
+position:absolute !important;    
+clip: rect(1px 1px 1px 1px);
+clip: rect(1px, 1px, 1px, 1px);
+}
 
-  .clearfix { display: inline-block; }
+.invisible { visibility: hidden; }
 
-  .clearfix { display: block; }
+/** Clearfix **/
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+.clearfix { display: inline-block; }
+
+.clearfix { display: block; }
