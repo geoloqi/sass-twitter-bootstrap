@@ -21,7 +21,7 @@ $greenDark:         #80B441;
 
 $red:               #df002a;
 $redLight:          #FACDCD;
-$redDark:           #FF8DA2;
+$redDark:           #E46464;
 
 $orange:            #efb470;
 $orangeLight:       #ffc994;
@@ -45,7 +45,7 @@ $linkColorHover:    darken($linkColor, 10);
 $linkUnderline:     false;
 
 //Forms
-$focusColor:        #D4E7B4;
+$focusColor:        #80B441;
 $errorBgColor:      lighten($redLight, 5%);
 $errorTextColor:    $red;
 
@@ -71,7 +71,7 @@ $barFormDark: true;
 
 //Layout
 $fixedHeader:       true;
-$fixedFooter:       true;
+$fixedFooter:       false;
 
 // Grid
 $fluidSidebarWidth: 400px;
@@ -105,7 +105,7 @@ $actionDark: $orangeDark;
 $codeBackground: $orangeLight;
 
 //Fonts
-$sansSerif: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif ;
+$sansSerif: 'Lucida Grande', 'Seoge UI', Arial, Tahoma, Verdana, sans-serif ;
 $serif: "Georgia", Times New Roman, Times, serif ;
 $mono: "Monaco", Courier New, monospace;
 
@@ -299,6 +299,13 @@ $twoThirds:         ($oneThird*2)+$gridGutterWidth;
   -webkit-background-clip: $clip;
      -moz-background-clip: $clip;
           background-clip: $clip;
+}
+
+// Background clipping
+@mixin box-sizing($size) {
+  -webkit-box-sizing: $size;
+     -moz-box-sizing: $size;
+          box-sizing: $size;
 }
 
 // CSS3 Content Columns
