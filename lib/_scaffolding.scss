@@ -8,8 +8,9 @@
 
 .row {
   @include clearfix();
-  margin-left: -20px;
-
+  .row {
+    margin-left: -20px;
+  }
   // Default columns
   .span1,
   .span2,
