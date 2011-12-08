@@ -72,6 +72,10 @@ input[type=search],
 input[type=email],
 input[type=url],
 input[type=tel],
+input[type=date],
+input[type=time],
+input[type=datetime],
+input[type=num],
 textarea,
 select,
 .uneditable-input {
@@ -119,6 +123,10 @@ input[type=search],
 input[type=email],
 input[type=url],
 input[type=tel],
+input[type=date],
+input[type=time],
+input[type=datetime],
+input[type=num],
 select, textarea {
   $transition: border linear .2s, box-shadow linear .2s;
   @include transition($transition);
@@ -131,6 +139,10 @@ input[type=search]:focus,
 input[type=email]:focus,
 input[type=url]:focus,
 input[type=tel]:focus,
+input[type=date]:focus,
+input[type=time]:focus,
+input[type=datetime]:focus,
+input[type=num]:focus,
 textarea:focus {
   outline: none;
   border-color: $focusColor;
@@ -155,6 +167,10 @@ form div.error {
   input[type=email],
   input[type=url],
   input[type=tel],
+  input[type=date],
+  input[type=time],
+  input[type=datetime],
+  input[type=num],
   textarea {
     border-color: $errorTextColor;
     @include box-shadow(0 0 3px rgba(171,41,32,.25));
