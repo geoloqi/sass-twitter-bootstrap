@@ -59,10 +59,10 @@ table {
 .zebra-striped {
   tbody {
     tr:nth-child(odd) td {
-      background-color: $whiteOff;
+      background-color: $grayLighter;
     }
     tr:hover td {
-      background-color: $grayLighter;
+      background-color: lighten($grayLight, 10%);
     }
   }
 

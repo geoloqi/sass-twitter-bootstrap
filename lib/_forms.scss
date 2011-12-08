@@ -7,12 +7,7 @@
 // -----------
 
 form {
-
-  // Parent element that clears floats and wraps labels and fields together
-  .clearfix {
-    margin-bottom: $baseline;
-  }
-
+  margin-bottom: $baseline;
 }
 
 // Groups of fields with labels on top (legends)
@@ -30,6 +25,11 @@ fieldset {
   }
 }
 
+// Parent element that clears floats and wraps labels and fields together
+.clearfix {
+  margin-bottom: $baseline;
+}
+
 // Set font for forms
 label,
 input,
@@ -39,7 +39,7 @@ textarea {
 }
 
 // Float labels left
-label, .input-label {
+label {
   padding-top: 4px;
   font-size: 13px;
   line-height: 18px;
@@ -53,10 +53,7 @@ label, .input-label {
 // Shift over the inside div to align all label's relevant content
 div.input {
   margin-left: 150px;
-  @include clearfix();
-  p {
-    margin-top:5px;
-  }
+  @include clearfix()
 }
 
 // Checkboxs and radio buttons
@@ -72,20 +69,16 @@ input[type=search],
 input[type=email],
 input[type=url],
 input[type=tel],
-input[type=date],
-input[type=time],
-input[type=datetime],
-input[type=num],
 textarea,
 select,
 .uneditable-input {
   display: inline-block;
   width: 210px;
-  padding: 5px 4px 4px;
+  padding: 4px;
   font-size: 12px;
   line-height: $baseline;
   min-height: $baseline;
-  color: $grayDark;
+  color: $gray;
   border: 1px solid #ccc;
   @include border-radius(3px);
 }
@@ -123,10 +116,6 @@ input[type=search],
 input[type=email],
 input[type=url],
 input[type=tel],
-input[type=date],
-input[type=time],
-input[type=datetime],
-input[type=num],
 select, textarea {
   $transition: border linear .2s, box-shadow linear .2s;
   @include transition($transition);
@@ -139,14 +128,10 @@ input[type=search]:focus,
 input[type=email]:focus,
 input[type=url]:focus,
 input[type=tel]:focus,
-input[type=date]:focus,
-input[type=time]:focus,
-input[type=datetime]:focus,
-input[type=num]:focus,
 textarea:focus {
   outline: none;
   border-color: $focusColor;
-  $shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 0px $green;
+  $shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 4px opacify($focusColor, .25);
   @include box-shadow($shadow);
 }
 
@@ -167,10 +152,6 @@ form div.error {
   input[type=email],
   input[type=url],
   input[type=tel],
-  input[type=date],
-  input[type=time],
-  input[type=datetime],
-  input[type=num],
   textarea {
     border-color: $errorTextColor;
     @include box-shadow(0 0 3px rgba(171,41,32,.25));
@@ -190,22 +171,22 @@ form div.error {
 }
 
 // Form element sizes
-.input-mini {
+.input-mini, input.mini, textarea.mini, select.mini {
   width: 60px;
 }
-.input-small {
+.input-small, input.small, textarea.small, select.small {
   width: 90px;
 }
-.input-medium {
+.input-medium, input.medium, textarea.medium, select.medium {
   width: 150px;
 }
-.input-large {
+.input-large, input.large, textarea.large, select.large {
   width: 210px;
 }
-.input-xlarge {
+.input-xlarge, input.xlarge, textarea.xlarge, select.xlarge {
   width: 270px;
 }
-.input-xxlarge {
+.input-xxlarge, input.xxlarge, textarea.xxlarge, select.xxlarge {
   width: 530px;
 }
 textarea.xxlarge {
@@ -218,12 +199,8 @@ input[type=search],
 input[type=email],
 input[type=url],
 input[type=tel],
-input[type=date],
-input[type=time],
-input[type=datetime],
-input[type=num],
 select,
-.input textarea {
+textarea {
   &.span1,
   &.span2,
   &.span3,
@@ -246,33 +223,8 @@ select,
     float: none;
     margin-left: 0;
   }
-  &.span1 { @include columns(1) }
-  &.span2 { @include columns(2) }
-  &.span3 { @include columns(3) }
-  &.span4 { @include columns(4) }
-  &.span5 { @include columns(5) }
-  &.span6 { @include columns(6) }
-  &.span7 { @include columns(7) }
-  &.span8 { @include columns(8) }
-  &.span9 { @include columns(9) }
-  &.span10 { @include columns(10) }
-  &.span11 { @include columns(11) }
-  &.span12 { @include columns(12) }
-  &.span13 { @include columns(13) }
-  &.span14 { @include columns(14) }
-  &.span15 { @include columns(15) }
-  &.span16 { @include columns(16) }
-  &.span-full { width:100%; }
 }
 
-textarea {
-  &.height2{ height: $baseline * 2; }
-  &.height3{ height: $baseline * 3; }
-  &.height4{ height: $baseline * 4; }
-  &.height6{ height: $baseline * 6; }
-  &.height7{ height: $baseline * 7; }
-  &.height8{ height: $baseline * 8; }
-}
 
 // Turn off focus for disabled (read-only) form elements
 input[readonly]:focus,
@@ -293,11 +245,6 @@ input.disabled {
     a {
       line-height: 35px;
     }
-  }
-  .submit {
-    @include clearfix;
-    margin:0;
-    padding:0;
   }
 }
 
@@ -427,6 +374,7 @@ input.disabled {
 
 // Stacked forms
 .form-stacked {
+  padding-left: 20px;
   fieldset {
     padding-top: $baseline / 2;
   }
@@ -465,11 +413,7 @@ input.disabled {
     margin-left: -10px;
   }
   .actions {
-    margin-left: -16px;
-    padding-left: 16px;
-    .clearfix {
-      margin:0;
-      padding:0;
-    }
+    margin-left: -20px;
+    padding-left: 20px;
   }
 }

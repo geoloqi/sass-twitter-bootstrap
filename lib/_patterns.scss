@@ -13,12 +13,12 @@
   
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
   .topbar-inner, .fill, .inner {
-    @include vertical-gradient(#444, #000);
+    background:#333;
+    @include vertical-gradient(#333, #323232);  
   }
 
   &.top {
-    border-top:3px solid $barAccent; 
-    @include box-shadow(0 1px 3px rgba(0,0,0,0.2));
+    border-top:4px solid $barAccent; 
     @if $fixedHeader == true {
       position:fixed;
       top:0;
@@ -35,30 +35,33 @@
   }
 
   &.bottom {
-    @include box-shadow(0 -1px 3px rgba(0,0,0,0.1));
+    border-bottom:4px solid $barAccent;
     @if $fixedFooter == true {
       position:fixed;
       bottom:0;
       left:0;
       right:0;
       z-index:500;
+    } @else {
+      margin-bottom:3em;
     }
   }
 
   // Links get text shadow
   a {
-    color: $barLinkTextColor;
+    color: $grayLight;
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   }
 
   // Hover and active states
+  a:hover,
   ul li.active a {
-    background-color: $barBackground;
+    background-color: #333;
     background-color: rgba(255,255,255,.05);
-    color: $barLinkTextColorHover;
+    color: $white;
     text-decoration: none;
   }
-  
+
   // Website name
   h3 {
     position:relative;
@@ -97,35 +100,30 @@
     position: relative;
     @include opacity(100);
     input {
+      background-color: #444;
+      background-color: rgba(255,255,255,.2);
       @include sans-serif-font(13px, normal, 1);
       width: 220px;
       padding: 3px 5px 2px;
       margin-top:3px;
-      @if $barFormDark == true {
-        background-color: #444;
-        background-color: rgba(255,255,255,.2);
-        color: #fff;
-        color: rgba(255,255,255,.75);
-        border: 1px solid #111;
-        @include border-radius(3px);
-        $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
-        @include box-shadow($shadow);
-        @include transition(none);
-      
-        // Placeholder text gets special styles; can't be bundled together though for some reason
-        &:-moz-placeholder {
-          color: $grayLight;
-        }
-        &::-webkit-input-placeholder {
-          color: $grayLight;
-        }
-      }
+      color: #fff;
+      color: rgba(255,255,255,.75);
+      border: 1px solid #111;
+      @include border-radius(3px);
+      $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
+      @include box-shadow($shadow);
+      @include transition(none);
 
+      // Placeholder text gets special styles; can't be bundled together though for some reason
+      &:-moz-placeholder {
+        color: $grayLight;
+      }
+      &::-webkit-input-placeholder {
+        color: $grayLight;
+      }
       //Hover states
       &:hover {
-        @if $barFormDark == true {
-          color: #fff;
-        }
+        color: #fff;
         padding: 3px 9px 2px;
         margin-top:3px;
       }
@@ -133,21 +131,19 @@
       &:focus,
       &.focused {
         outline: none;
+        background-color: rgba(255,255,255,.35);
+        text-shadow: 0 1px 0 #111;
         padding: 3px 5px 2px;
         margin-top:3px;
-        @if $barFormDark == true {
-          background-color: rgba(255,255,255,.35);
-          text-shadow: 0 1px 0 #111;
-          border-color:#111;
-          color:$whiteOff;
-          $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
-          @include box-shadow($shadow);
-        }
+        border-color:#111;
+        color:$whiteOff;
+        $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
+        @include box-shadow($shadow);
       }
     }
   }
   > ul li{
-    border-right:1px solid $barDivider;
+    border-right:1px solid #676767;
   }
   // Navigation
   ul {
@@ -155,7 +151,7 @@
     float: left;
     margin: 0 10px 0 0;
     position: relative;
-    border-left:1px solid $barDivider;
+    border-left:1px solid #676767;
     &.secondary-nav {
       float: right;
       margin-left: 10px;
@@ -165,7 +161,7 @@
       display: block;
       float: left;
       font-size: 13px;
-      border-right:1px solid $barDivider;
+      border-right:1px solid #676767;
       a {
         display: block;
         float: none;
@@ -173,12 +169,12 @@
         line-height: 19px;
         text-decoration: none;
         &:hover {
-          color: $barLinkTextColorHover;
+          color: #fff;
           text-decoration: none;
         }
       }
       &.active a {
-        background-color: $barLinkBackgroundCurrent;
+        background-color: #222;
         $shadow: inset -1px 0 2px rgba(0,0,0,0.6), inset 1px 0 2px rgba(0,0,0,0.6);
         @include box-shadow($shadow);
       }
@@ -205,21 +201,18 @@
           margin-left: 4px;
           border-left: 4px solid transparent;
           border-right: 4px solid transparent;
-          border-top: 4px solid $barLinkTextColorHover;
+          border-top: 4px solid #fff;
           @include opacity(50);
         }
       }
       &.open {
-        background-color: $barLinkBackgroundCurrent;
-        a.dropdown-toggle {
-          
-        }
+        background-color: #222;
         a.menu,
         a:hover {
-          background-color: $barLinkBackgroundHover;
+          background-color: #444;
           background-color: rgba(255,255,255,.1);
-          *background-color: $barLinkBackgroundHover; /* IE6-7 */
-          color: $barLinkTextColorHover;
+          *background-color: #444; /* IE6-7 */
+          color: #fff;
         }
         ul {
           display: block;
@@ -229,8 +222,8 @@
               font-weight: normal;
               &:hover {
                 background-color: rgba(255,255,255,.1);
-                *background-color: $barBackground; /* IE6-7 */
-                color: $barLinkTextColorHover;
+                *background-color: #444; /* IE6-7 */
+                color: #fff;
               }
             }
             &.active a {
@@ -242,40 +235,41 @@
       }
     }
     li ul {
-      background-color: $barLinkBackgroundCurrent;
+      background-color: #222;
       float: left;
       display: none;
       position: absolute;
       top: 40px;
-      width:153px;
+      min-width: 180px;
+      max-width: 240px;
       _width: 180px;
       margin-left: -1px;
       margin-right: 0;
       padding: 0;
       text-align: left;
-      border-right:1px solid $barDivider;
-      border-left:1px solid $barDivider;
+      border-right:1px solid #676767;
+      border-left:1px solid #676767;
       zoom: 1;
-      @include box-shadow(0 1px 3px rgba(0,0,0,0.25));
+      @include border-radius(0 0 3px 3px);
+      @include box-shadow(0 1px 2px rgba(0,0,0,0.6));
       li {
         float: none;
         clear: both;
         display: block;
         background: none;
         font-size: 12px;
-        border:none;
-        border-bottom:1px solid $barDivider;
+        border-bottom:1px solid #676767;
         a {
           display: block;
           padding: 12px 20px;
           clear: both;
           font-weight: normal;
           line-height: 19px;
-          color: $barLinkTextColor;
+          color: #bbb;
           &:hover {
-            background-color: $barBackground;
+            background-color: #333;
             background-color: rgba(255,255,255,.25);
-            color: $white;
+            color: #fff;
           }
         }
 
@@ -283,7 +277,7 @@
         &.divider {
           height: 1px;
           overflow: hidden;
-          background: $barLinkBackgroundHover;
+          background: #444;
           background: rgba(0,0,0,.1);
           border-bottom: 1px solid rgba(255,255,255,.1);
           margin: 10px 0;
@@ -326,6 +320,17 @@
   }
 }
 
+// PAGE HEADERS
+// ------------
+
+.page-header, section header {
+  margin-bottom: $baseline - 1;
+  border-bottom: 1px solid #ddd;
+  @include box-shadow(0 1px 0 rgba(255,255,255,.5));
+  h1 {
+    margin-bottom: ($baseline / 2) - 1px;
+  }
+}
 
 section footer {
   margin-top: $baseline - 1;
@@ -349,7 +354,7 @@ section footer {
 
 @mixin btnColor($background, $border) {
   background:$background;
-  text-shadow: 0 1px 0 rgba(255,255,255,.75);
+  text-shadow: 0 1px 0 rgba(255,255,255,.25);
   border-color: $border;
 }
 
@@ -363,44 +368,36 @@ section footer {
   @include btnColor($whiteOff, $grayLight);
   $shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 0px rgba(0,0,0,.1);
   @include box-shadow($shadow);
-  @include box-sizing(border)
-}
 
-.alert-message{
   &.primary, {
-    @include btnColor(lighten($primaryLight, 20%), $primaryLight);
+    @include btnColor($primaryLight, $primaryDark)
   }
 
   &.success {
-    @include btnColor(lighten($successLight, 20%), $successLight)
+    @include btnColor($successLight, $successDark)
   }
 
   // Danger and error appear as red
   &.danger,
   &.error,
   &.warning {
-   @include btnColor(lighten($dangerLight, 5%), $dangerLight);
-   a{
-     color:$grayDark;
-     text-decoration:underline;
-   }
+   @include btnColor($dangerLight, $dangerDark)
   }
 
   // Info appears as a neutral blue
   &.info {
-   @include btnColor(lighten($infoLight, 10%), $infoLight)
+   @include btnColor($infoLight, $infoDark)
   }
 
   //Actions Appear as Oragne
   &.action {
-   @include btnColor(lighten($actionLight, 10%), $actionLight)
+   @include btnColor($actionLight, $actionDark)
   }
 }
 
 // Base .btn styles
 .btn {
   //  Base
-  outline:none;
   cursor: pointer;
   display: inline-block;
   padding:.65em 1em;
@@ -408,72 +405,36 @@ section footer {
   font-weight:700;
   line-height: normal;
   color: $grayDark;
-  text-shadow:0 1px 0 $whiteOff;
-  &.full-width {
-    width:100%;
-    text-align: center;
-    padding-left:0;
-    padding-right:0;
-    @include box-sizing(border-box);
-  }
-  @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%));
-  @include vertical-gradient(lighten($defaultLight,8%),$defaultLight);
-
-  &.primary {
-    @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%));
-    @include vertical-gradient(lighten($primaryLight,8%),$primaryLight);
-  }
-
-  &.success {
-    @include btnColor(lighten($successLight, 5%), darken($successDark, 5%));
-    @include vertical-gradient(lighten($successLight,8%),$successLight);
-  }
-
-  // Danger and error appear as red
-  &.danger {
-    @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%));
-    @include vertical-gradient(lighten($dangerLight,4%),$dangerLight);
-  }
-
-  // Info appears as a neutral blue
-  &.info {
-    @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%));
-    @include vertical-gradient(lighten($infoLight,8%),$infoDark);
-  }
-
-  //Actions Appear as Oragne
-  &.action {
-   @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%));
-   @include vertical-gradient(lighten($actionLight,8%),$actionLight);
-  }
-
   &:hover {
     color: $grayDark;
+
     text-decoration: none;
-    @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%));
 
     &.primary {
-      @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%));
+      @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%))
     }
 
     &.success {
-      @include btnColor(lighten($successLight, 5%), darken($successDark, 5%));
+      @include btnColor(lighten($successLight, 5%), darken($successDark, 5%))
     }
 
     // Danger and error appear as red
     &.danger {
-      @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%));
+      @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%))
     }
 
     // Info appears as a neutral blue
     &.info {
-      @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%));
+      @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%))
     }
 
     //Actions Appear as Oragne
     &.action {
-     @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%));
+     @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%))
     }
+
+    @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%))
+
   }
 
   &:active {
@@ -492,11 +453,6 @@ section footer {
 
   &.small {
     font-size: 11px;
-  }
-
-  &.x-small {
-    font-size: 10px;
-    padding:.5em .75em;
   }
 
     // Active and Disabled states
@@ -578,32 +534,14 @@ input[type=submit].btn {
 // ERROR STYLES
 // ------------
 
-.close {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  float: right;
-  margin-top: -1px;
-  color: $black;
-  font-size: 18px;
-  font-weight: bold;
-  text-shadow: 0 1px 0 rgba(255,255,255,1);
-  @include opacity(20);
-  &:hover {
-    color: $black;
-    text-decoration: none;
-    @include opacity(40);
-  }
-}
-
 // Base alert styles
 .alert-message {
   margin-bottom: $baseline;
   padding: 7px 14px;
-  text-align:center;
 
   // Remove extra margin from content
   h5 {
     line-height: $baseline;
-    margin-top:4px;
   }
   p {
     margin-bottom: 0;
@@ -613,7 +551,22 @@ input[type=submit].btn {
     margin-bottom: 2px;
     line-height: 28px;
   }
-  
+  .close {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    float: right;
+    margin-top: -1px;
+    color: $black;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,1);
+    @include opacity(20);
+    &:hover {
+      color: $black;
+      text-decoration: none;
+      @include opacity(40);
+    }
+  }
+
   &.block-message {
     padding: 14px;
 
@@ -698,14 +651,12 @@ input[type=submit].btn {
 .tab-content, .pill-content {
   > .active {
     display:block;
-    //background-color: $white;
-    //text-shadow: 0 1px 0 rgba(255,255,255,.5);
-    //margin-bottom: 20px;
-    padding: 12px 0;
+    background-color: $white;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    margin-bottom: 20px;
+    padding: 19px;
     min-height: 20px;
-    //@include well();
-    //@include border-radius(0 0 3px 3px);
-
+    @include well();
   }
   > * {
     display:none;
@@ -720,7 +671,7 @@ input[type=submit].btn {
 
 .tab-content {
   > .active {
-    //border: 1px solid $grayLighter;
+    border: 1px solid $grayLighter;
     border-top:none;
   }
 }
@@ -755,8 +706,10 @@ input[type=submit].btn {
 // -----------
 
 .breadcrumb {
-  margin: 0;
-  @include clearfix;
+  margin: 0 0 $baseline;
+  padding: 7px 14px;
+  @include well();
+
   li {
     display: inline;
     text-shadow: 0 1px 0 $white;
@@ -812,46 +765,16 @@ input[type=submit].btn {
 // -----
 
 .well {
-  margin-bottom: 16px;
-  padding: 16px;
+  margin-bottom: 20px;
+  padding: 19px;
   min-height: 20px;
   @include well();
-  
-  &.form {
-    padding:16px 0 0 0;
-    .form-stacked {
-      .clearfix {
-        padding-left:16px;
-        padding-right:16px;
-      }
-      .actions {
-        margin-left:0;
-      }
-    }
-    .actions {
-      margin-bottom:0;
-    }
-  }
-  &.footer{
-    .content {
-      padding:0 16px 0;
-    }
-    padding:16px 0 0 0;
-    > footer {
-      padding: 8px 16px;
-      @include border-radius(0 0 3px 3px);
-      @include background-clip(padding-box);
-      border-top: 1px solid #ddd;
-      @include box-shadow(0 -1px 0 rgba(255,255,255,.5));
-      background: lighten($grayLighter, 5%);
-    }
-  }
   &.header-footer {
+
     padding:0;
-    margin:0;
 
     header, footer, .content {
-      padding: 8px 16px;
+      padding: 8px 19px;
     }
 
     header, footer {
@@ -886,7 +809,6 @@ input[type=submit].btn {
     }
 
   }
-  
 }
 
 // MODALS
@@ -909,7 +831,6 @@ input[type=submit].btn {
   margin-left: -300px;
   width: 520px;
   z-index: 2000;
-  padding:1em 0 .45em;
   background-color: $white;
   border: 1px solid $grayLighter;
   @include border-radius(3px);
@@ -985,7 +906,7 @@ input[type=submit].btn {
 }
 
 @mixin popover-arrow-below($arrowWidth: 5px) {
-  top: 1px;
+  top: 0;
   left: 50%;
   margin-left: -$arrowWidth;
   border-left: $arrowWidth solid transparent;
@@ -1063,18 +984,6 @@ input[type=submit].btn {
     @include border-radius(3px);
     $shadow: 0 3px 7px rgba(0,0,0,0.3), 0 1px 0px rgba(0,0,0,.25);
     @include box-shadow($shadow);
-    .content {
-      background-color: $white;
-      padding: 14px;
-      @include border-radius(0 0 3px 3px);
-      @include background-clip(padding-box);
-      p, ul, ol {
-        margin-bottom: 0;
-      }
-      &.no-padding {
-      padding:0;
-    }
-    }
   }
   .title {
     background-color: #f5f5f5;
@@ -1082,6 +991,15 @@ input[type=submit].btn {
     line-height: 1;
     @include border-radius(3px 3px 0 0);
     border-bottom:1px solid #eee;
+  }
+  .content {
+    background-color: $white;
+    padding: 14px;
+    @include border-radius(0 0 3px 3px);
+    @include background-clip(padding-box);
+    p, ul, ol {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -1096,14 +1014,14 @@ input[type=submit].btn {
 // Map Infoboxes
 // -------------
 
-.geoloqi-infobox, .geoloqi-infobox-large {
+.geoloqi-infobox {
   padding: 5px;
-  width:310px;
+  width:270px;
   background-color: $grayLighter;
   @include border-radius(3px);
   $shadow: 0 2px 14px rgba(0,0,0,0.4), 0 1px 0px rgba(0,0,0,.05);
   @include box-shadow($shadow);
-  > .arrow {
+  .arrow {
     position: absolute;
     width: 0;
     height: 0;
@@ -1114,172 +1032,41 @@ input[type=submit].btn {
     border-top: 5px solid $grayLighter;
     bottom:-5px;
   }
-  > .infobox-content {
+  .content {
     background-color: $white;
     padding: 9px;
     @include border-radius(3px);
     @include background-clip(padding-box);
-    &.with-header-footer {
-      border:1px solid $grayLight;
-      padding:0;
-      
-      > .infobox-content{
-        padding:8px;
-      }
-      
-      header, footer {
-        padding:4px 8px;
-        background: $whiteOff;
-      }
-
-      > header {
-          @include border-radius(3px 3px 0 0);
-          @include background-clip(padding-box);
-          border-bottom: 1px solid $grayLight;
-          @include box-shadow(0 1px 0 rgba(255,255,255,.5));
-      }
-
-      > footer {
-        @include border-radius(0 0 3px 3px);
-        @include background-clip(padding-box);
-        border-top: 1px solid $grayLight;
-        @include box-shadow(0 -1px 0 rgba(255,255,255,.5));
-      }
-    } 
-  }
-}
-
-.geoloqi-infobox-large {
-  width:580px;
-}
-
-// Itemized Lists
-// --------------
-ul.items {
-  list-style:none;
-  margin:0;
-
-  li {
-    border:none;
-    padding:1em;
   }
 
-  li + li {
-    border-top:1px solid $grayLight;
-  }
-}
-
-
-ul.action-menu li {
-  padding:0;
-  a {
-    display: block;
-    width:100%;
-    padding:1em;
-  }
 }
 
 // Helper Classes
 // --------------
-/** Push Pull **/
-.push-up-double { 
-  margin-top:$baseline;
- }
-.push-down { 
-  margin-bottom:$baseline;
- }
-.push-left { 
-  margin-left:$baseline;
- }
-.push-right { 
-  margin-right:$baseline;
- }
-.pull-up { 
-  margin-top:-($baseline);
- }
-.pull-down { 
-  margin-bottom:-($baseline);
- }
-.pull-left { 
-  margin-left:-($baseline);
- }
-.pull-right { 
-  margin-right:-($baseline);
- }
 
-.push-up-double { 
-  margin-top:$baseline/2;
- }
-.push-down-double { 
-  margin-bottom:$baseline*2;
- }
-.push-left-double { 
-  margin-left:$baseline*2;
- }
-.push-right-double { 
-  margin-right:$baseline*2;
- }
-.pull-up-double { 
-  margin-top:-($baseline*2);
- }
-.pull-down-double { 
-  margin-bottom:-($baseline*2);
- }
-.pull-left-double { 
-  margin-left:-($baseline*2);
- }
-.pull-right-double { 
-  margin-right:-($baseline*2);
- }
+  /** Floats **/
+  .left{ float: left; }
 
-.push-up-half { 
-  margin-top:$baseline/2;
- }
-.push-down-half { 
-  margin-bottom:$baseline/2;
- }
-.push-left-half { 
-  margin-left:$baseline/2;
- }
-.push-right-half { 
-  margin-right:$baseline/2;
- }
-.pull-up-half { 
-  margin-top:-($baseline/2);
- }
-.pull-down-half { 
-  margin-bottom:-($baseline/2);
- }
-.pull-left-half { 
-  margin-left:-($baseline/2);
- }
-.pull-right-half { 
-  margin-right:-($baseline/2);
- }
+  .right{ float: right; }
 
-/** Floats **/
-.left{ float: left; }
+  .clear{ clear: both; }
 
-.right{ float: right; }
+  /** Hiders **/
+  .ir { display:block; text-indent:-9999em; overflow:hidden; background-repeat: no-repeat; }
 
-.clear{ clear: both; }
+  .hide { display:none !important; visibility:hidden; } 
 
-/** Hiders **/
-.ir { display:block; text-indent:-9999em; overflow:hidden; background-repeat: no-repeat; }
+  .visually-hide {
+  position:absolute !important;    
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  }
 
-.hide { display:none !important; visibility:hidden; } 
+  .invisible { visibility: hidden; }
 
-.visually-hide {
-position:absolute !important;    
-clip: rect(1px 1px 1px 1px);
-clip: rect(1px, 1px, 1px, 1px);
-}
+  /** Clearfix **/
+  .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 
-.invisible { visibility: hidden; }
+  .clearfix { display: inline-block; }
 
-/** Clearfix **/
-.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-
-.clearfix { display: inline-block; }
-
-.clearfix { display: block; }
+  .clearfix { display: block; }

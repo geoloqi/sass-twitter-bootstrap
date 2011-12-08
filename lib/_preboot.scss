@@ -1,3 +1,7 @@
+/* Preboot.scss
+ * Variables and mixins to pre-ignite any new web development project
+ * ------------------------------------------------------------------ */
+
 // THEME
 // -----
 
@@ -21,7 +25,7 @@ $greenDark:         #80B441;
 
 $red:               #df002a;
 $redLight:          #FACDCD;
-$redDark:           #E46464;
+$redDark:           #FF8DA2;
 
 $orange:            #efb470;
 $orangeLight:       #ffc994;
@@ -45,7 +49,7 @@ $linkColorHover:    darken($linkColor, 10);
 $linkUnderline:     false;
 
 //Forms
-$focusColor:        #80B441;
+$focusColor:        #D4E7B4;
 $errorBgColor:      lighten($redLight, 5%);
 $errorTextColor:    $red;
 
@@ -59,21 +63,15 @@ $baseline:          18px;
 //Background Color
 $backgroundColor:   #f8f8f8;
 
-// Header and Footer Bars
-$barBackground: #333333;
-$barDivider: #676767;
+//Header and Footer Accent Colors
 $barAccent: $greenLight;
-$barLinkTextColor: $grayLight;
-$barLinkBackgroundCurrent: #222222;
-$barLinkBackgroundHover: #444444;
-$barLinkTextColorHover: $white;
-$barFormDark: true;
 
 //Layout
 $fixedHeader:       true;
-$fixedFooter:       false;
+$fixedFooter:       true;
 
 // Grid
+
 $fluidSidebarWidth: 400px;
 $fluidSidebarPadding: 40px;
 $fluidMaxWidth : 100%;
@@ -105,7 +103,7 @@ $actionDark: $orangeDark;
 $codeBackground: $orangeLight;
 
 //Fonts
-$sansSerif: 'Lucida Grande', 'Seoge UI', Arial, Tahoma, Verdana, sans-serif ;
+$sansSerif: 'Lucida Grande', Arial, Tahoma, Verdana, sans-serif ;
 $serif: "Georgia", Times New Roman, Times, serif ;
 $mono: "Monaco", Courier New, monospace;
 
@@ -299,13 +297,6 @@ $twoThirds:         ($oneThird*2)+$gridGutterWidth;
   -webkit-background-clip: $clip;
      -moz-background-clip: $clip;
           background-clip: $clip;
-}
-
-// Background clipping
-@mixin box-sizing($size) {
-  -webkit-box-sizing: $size;
-     -moz-box-sizing: $size;
-          box-sizing: $size;
 }
 
 // CSS3 Content Columns
