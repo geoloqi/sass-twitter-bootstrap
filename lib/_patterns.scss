@@ -58,7 +58,7 @@
     color: $barLinkTextColorHover;
     text-decoration: none;
   }
-
+  
   // Website name
   h3 {
     position:relative;
@@ -213,6 +213,7 @@
         background-color: $barLinkBackgroundCurrent;
         a.dropdown-toggle {
           
+        }
         a.menu,
         a:hover {
           background-color: $barLinkBackgroundHover;
