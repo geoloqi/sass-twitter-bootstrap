@@ -27,7 +27,7 @@ table {
     padding: 13px 10px 11px;
     font-weight: bold;
     font-size:14px;
-    border-bottom: 2px solid $grayLight;
+    border-bottom: 1px solid $gray;
   }
   &.with-caption {
     margin-bottom:0;
@@ -45,7 +45,7 @@ table {
   padding:$baseline/2 $baseline/2 1px;
   @include border-radius(0 0 3px 3px);
   border: 1px solid $grayLight;
-  border-top:2px solid $grayLight;
+  border-top:1px solid $grayLight;
   @include box-shadow(0 1px 0px rgba(0,0,0,.1));
   margin-bottom: $baseline;
 }
