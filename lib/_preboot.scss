@@ -1,4 +1,4 @@
-// THEME
+ // THEME
 // -----
 
 // Grays
@@ -28,8 +28,8 @@ $orangeLight:       #ffc994;
 $orangeDark:        #e89252;
 
 $yellow:            #ffc40d;
-$yellowLight:       darken($yellow, 10);
-$yellowDark:        lighten($yellow, 10);
+$yellowLight:       #F5F2B8;
+$yellowDark:        #CFC72F;
 
 $pink:              #c3325f;
 $pinkLight:         darken($pink, 10);
@@ -40,7 +40,7 @@ $purpleLight:       darken($purple, 10);
 $purpleDark:        lighten($purple, 10);
 
 // Links
-$linkColor:         $greenDark;
+$linkColor:         $blue;
 $linkColorHover:    darken($linkColor, 10);
 $linkUnderline:     false;
 
@@ -50,7 +50,7 @@ $errorBgColor:      lighten($redLight, 5%);
 $errorTextColor:    $red;
 
 //Pills
-$pillActive: $green;
+$pillActive: $orangeLight;
 
 // Baseline grid
 $basefont:          12px;
@@ -62,8 +62,9 @@ $backgroundColor:   #f8f8f8;
 // Header and Footer Bars
 $barBackground: #333333;
 $barDivider: #676767;
-$barAccent: $greenLight;
-$barLinkTextColor: $grayLight;
+$barAccent: #e37b2e;
+$barHoverAccent: $blueLight;
+$barLinkTextColor: $whiteOff;
 $barLinkBackgroundCurrent: #222222;
 $barLinkBackgroundHover: #444444;
 $barLinkTextColorHover: $white;
@@ -83,11 +84,11 @@ $gridColumnWidth:   40px;
 $gridGutterWidth:   20px;
 
 //Buttons and Notifications
-$primaryLight: $greenLight;
-$primaryDark: $greenDark;
-
 $defaultLight: $whiteOff;
 $defaultDark: $grayLight;
+
+$primaryLight: $orangeLight;
+$primaryDark: $orangeDark;
 
 $infoLight: $blueLight;
 $infoDark: $blueDark;
@@ -98,14 +99,15 @@ $successDark: $greenDark;
 $dangerLight: $redLight;
 $dangerDark: $redDark;
 
-$actionLight: $orangeLight;
-$actionDark: $orangeDark;
+$actionLight: $blueLight;
+$actionDark: $blueDark;
 
 //Type
-$codeBackground: $orangeLight;
+$codeBackground: $grayLight;
 
 //Fonts
 $sansSerif: 'Lucida Grande', 'Seoge UI', Arial, Tahoma, Verdana, sans-serif ;
+$fontFace: PTSans, 'Lucida Grande', 'Seoge UI', Arial, Tahoma, Verdana, sans-serif ;
 $serif: "Georgia", Times New Roman, Times, serif ;
 $mono: "Monaco", Courier New, monospace;
 
@@ -125,6 +127,7 @@ $extraSpace:        $gridGutterWidth*2;
 $siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
 $oneThird:          (($siteWidth+$gridGutterWidth)/3)-$gridGutterWidth;
 $twoThirds:         ($oneThird*2)+$gridGutterWidth;
+$oneFifth:          (($siteWidth+$gridGutterWidth)/5)-$gridGutterWidth;
 
 // MIXINS
 // ------
