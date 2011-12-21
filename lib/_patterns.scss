@@ -8,7 +8,6 @@
 
 // Topbar for Branding and Nav
 .topbar, .bar {
-  height: 40px;
   overflow: visible;
   
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
@@ -18,7 +17,7 @@
 
   &.top {
     border-top:3px solid $barAccent; 
-    @include box-shadow(0 1px 3px rgba(0,0,0,0.2));
+    @include box-shadow(0 1px 3px rgba(0,0,0,0.199));
     @if $fixedHeader == true {
       position:fixed;
       top:0;
@@ -60,17 +59,21 @@
   }
   
   // Website name
-  h3 {
+  h1, h3 {
     position:relative;
     a {
       float: left;
       display: block;
-      padding: 8px 20px 12px;
-      margin-left: -20px; // negative indent to left-align the text down the page
-      color: $white;
+      color: $whiteOff;
       font-size: 20px;
       font-weight: 200;
-      line-height: 1;
+      line-height: 43px;
+      margin-right:20px;
+      margin-left:20px;
+      text-shadow:0 0 1px rgba(0,0,0,.85);
+    }
+    em {
+      font-weight:bold;
     }
   }
 
@@ -86,7 +89,7 @@
       font-size:11px;
       display:block;
       float:left;
-        padding-right:2em;
+      padding-right:2em;
     }
   }
 
@@ -146,16 +149,16 @@
       }
     }
   }
-  > ul li{
+  > ul.nav li{
     border-right:1px solid $barDivider;
   }
   // Navigation
-  ul {
+  ul.nav {
     display: block;
     float: left;
     margin: 0 10px 0 0;
     position: relative;
-    border-left:1px solid $barDivider;
+    //border-left:1px solid $barDivider;
     &.secondary-nav {
       float: right;
       margin-left: 10px;
@@ -165,11 +168,11 @@
       display: block;
       float: left;
       font-size: 13px;
-      border-right:1px solid $barDivider;
       a {
+        //border-right:1px solid $barDivider;
         display: block;
         float: none;
-        padding: 11px 20px 10px;
+        padding: 13px 20px 11px;
         line-height: 19px;
         text-decoration: none;
         &:hover {
@@ -177,11 +180,23 @@
           text-decoration: none;
         }
       }
+
       &.active a {
         background-color: $barLinkBackgroundCurrent;
-        $shadow: inset -1px 0 2px rgba(0,0,0,0.6), inset 1px 0 2px rgba(0,0,0,0.6);
+        $shadow: inset -1px 0 3px rgba(0,0,0,0.7), inset 1px 0 30pxpx rgba(0,0,0,0.7);
         @include box-shadow($shadow);
       }
+
+    }
+
+    > li.active {
+      border-top:5px solid $barHoverAccent;
+      margin-top:-5px;
+    }
+
+    > li:hover {
+      border-top:5px solid $barHoverAccent;
+      margin-top:-5px;
     }
 
     // Dropdowns
@@ -246,15 +261,13 @@
       float: left;
       display: none;
       position: absolute;
-      top: 40px;
+      top: 43px;
       width:153px;
       _width: 180px;
-      margin-left: -1px;
+      margin-left: 0;
       margin-right: 0;
       padding: 0;
       text-align: left;
-      border-right:1px solid $barDivider;
-      border-left:1px solid $barDivider;
       zoom: 1;
       @include box-shadow(0 1px 3px rgba(0,0,0,0.25));
       li {
@@ -367,33 +380,38 @@ section footer {
 }
 
 .alert-message{
-  &.primary, {
-    @include btnColor(lighten($primaryLight, 20%), $primaryLight);
+
+  &.left-text {
+    text-align:left;  
+  }
+  
+  &.primary {
+    @include btnColor(lighten($primaryLight, 8%), darken($primaryDark, 5%));
   }
 
   &.success {
-    @include btnColor(lighten($successLight, 20%), $successLight)
+    @include btnColor(lighten($successLight, 8%), darken($successDark, 5%));
   }
 
   // Danger and error appear as red
   &.danger,
   &.error,
   &.warning {
-   @include btnColor(lighten($dangerLight, 5%), $dangerLight);
-   a{
-     color:$grayDark;
-     text-decoration:underline;
-   }
+    @include btnColor(lighten($dangerLight, 4%), darken($dangerDark, 5%));
+    a{
+      color:$grayDark;
+      text-decoration:underline;
+    }
   }
 
   // Info appears as a neutral blue
   &.info {
-   @include btnColor(lighten($infoLight, 10%), $infoLight)
+    @include btnColor(lighten($infoLight, 6%), darken($infoDark, 5%));
   }
 
   //Actions Appear as Oragne
   &.action {
-   @include btnColor(lighten($actionLight, 10%), $actionLight)
+    @include btnColor(lighten($actionLight, 8%), darken($actionDark,5%));
   }
 }
 
@@ -403,7 +421,7 @@ section footer {
   outline:none;
   cursor: pointer;
   display: inline-block;
-  padding:.65em 1em;
+  padding:.65em 1.35em;
   font-size: 13px;
   font-weight:700;
   line-height: normal;
@@ -416,35 +434,40 @@ section footer {
     padding-right:0;
     @include box-sizing(border-box);
   }
-  @include btnColor(lighten($defaultLight, 5%), darken($defaultDark, 5%));
-  @include vertical-gradient(lighten($defaultLight,8%),$defaultLight);
+  
+  @include btnColor(lighten($defaultLight, 9%), darken($defaultDark, 5%));
+  @include vertical-gradient(lighten($defaultLight,9%),lighten($defaultLight,1%));
 
   &.primary {
-    @include btnColor(lighten($primaryLight, 5%), darken($primaryDark, 5%));
+    @include btnColor(lighten($primaryLight, 8%), darken($primaryDark, 5%));
     @include vertical-gradient(lighten($primaryLight,8%),$primaryLight);
   }
 
   &.success {
-    @include btnColor(lighten($successLight, 5%), darken($successDark, 5%));
+    @include btnColor(lighten($primaryLight, 8%), darken($primaryDark, 5%));
     @include vertical-gradient(lighten($successLight,8%),$successLight);
   }
 
   // Danger and error appear as red
-  &.danger {
-    @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%));
+  &.danger, &.cancel  {
+    @include btnColor(lighten($dangerLight, 4%), darken($dangerDark, 5%));
     @include vertical-gradient(lighten($dangerLight,4%),$dangerLight);
   }
 
   // Info appears as a neutral blue
   &.info {
-    @include btnColor(lighten($infoLight, 5%), darken($infoDark, 5%));
-    @include vertical-gradient(lighten($infoLight,8%),$infoDark);
+    @include btnColor(lighten($infoLight, 6%), darken($infoDark, 5%));
+    @include vertical-gradient(lighten($infoLight,6%),$infoLight);
   }
 
   //Actions Appear as Oragne
   &.action {
-   @include btnColor(lighten($actionLight, 5%), darken($actionDark,5%));
-   @include vertical-gradient(lighten($actionLight,8%),$actionLight);
+    @include btnColor(lighten($actionLight, 8%), darken($actionDark,5%));
+    @include vertical-gradient(lighten($actionLight,8%),$actionLight);
+    //@include btnColor(lighten($orange, 5%), darken($actionDark,8%));
+    //@include vertical-gradient(darken($actionLight,9%),darken($orange,14%));
+    //color:lighten($actionLight, 27%);
+    //text-shadow:0 1px 0 rgba(0,0,0,.25);
   }
 
   &:hover {
@@ -461,7 +484,7 @@ section footer {
     }
 
     // Danger and error appear as red
-    &.danger {
+    &.danger, &.cancel {
       @include btnColor(lighten($dangerLight, 5%), darken($dangerDark, 5%));
     }
 
@@ -488,13 +511,31 @@ section footer {
   //  Sizes
   &.large {
     font-size: 16px;
+    font-family: $fontFace;
   }
 
   &.small {
     font-size: 11px;
   }
 
-    // Active and Disabled states
+  &.x-large {
+    font-size: 22px;
+    line-height:.9em;
+    font-family: $fontFace;
+  }
+
+  small {
+    font-size:11px;
+    font-family:$sansSerif;
+    font-weight:700;
+  }
+
+  &.x-small {
+    font-size: 11px;
+    padding:.25em;
+  }
+
+  // Active and Disabled states
   &.disabled {
     cursor: default;
     @include opacity(65);
@@ -669,23 +710,19 @@ input[type=submit].btn {
 .pills {
   margin-bottom:$baseline/2;
   li {
+    
     a {
-      margin: 0 3px 0 0;
-      padding: 0 15px;
-      text-shadow: 0 1px 1px #fff;
-      line-height: 30px;
-      @include border-radius(15px);
-      &:hover {
-        background: $grayLighter;
-        color:$linkColorHover;
-        text-shadow: 0 1px 1px rgba(255,255,255,.25);
-        text-decoration: none;
-      }
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-right:15px;
+      @include border-radius(17px);
+      @extend .btn;
+      @include btnColor($infoLight, $infoDark);
     }
     &.active a {
-      background: $pillActive;
-      color:$grayDark;
-      text-shadow: 0 1px 1px rgba(255,255,255,.25);
+      @include border-radius(17px);
+      @extend .btn;
+      @include btnColor($primaryLight, $primaryDark);
     }
   }
 }
@@ -1177,7 +1214,7 @@ ul.action-menu li {
 // Helper Classes
 // --------------
 /** Push Pull **/
-.push-up-double { 
+.push-up { 
   margin-top:$baseline;
  }
 .push-down { 
@@ -1203,7 +1240,7 @@ ul.action-menu li {
  }
 
 .push-up-double { 
-  margin-top:$baseline/2;
+  margin-top:$baseline*2;
  }
 .push-down-double { 
   margin-bottom:$baseline*2;
@@ -1251,6 +1288,10 @@ ul.action-menu li {
 .pull-right-half { 
   margin-right:-($baseline/2);
  }
+
+.center-text {
+  text-align:center;  
+}
 
 /** Floats **/
 .left{ float: left; }
