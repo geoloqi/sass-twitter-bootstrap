@@ -29,7 +29,9 @@
   > .span15,
   > .span16,
   > .span-one-third,
-  > .span-two-thirds {
+  > .span-two-thirds,
+  > .span-one-fifth,
+  > .span-one-sixth {
     display: inline;
     float: left;
     margin-left: 20px;
@@ -77,6 +79,9 @@
 
   .span-one-third.well {width: $oneThird - 40;}
   .span-two-thirds.well {width: $twoThirds - 40;}
+  .span-one-sixth {width: ($oneThird/2) - ($gridGutterWidth/2)}
+
+  .span-one-fifth {width: $oneFifth;}
 
   // Offset column options
   .offset1   { @include offset(1); }
