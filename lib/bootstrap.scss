@@ -17,6 +17,9 @@
 // CSS Reset
 @import "reset.scss";
 
+// Load PT Sans
+@import "_ptsans.scss";
+
 // Core
 @import "_preboot.scss";
 @import "_scaffolding.scss";

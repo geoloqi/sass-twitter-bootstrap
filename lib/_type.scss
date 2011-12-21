@@ -23,17 +23,23 @@ p {
 // --------
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: PTSans, serif;
   font-weight: bold;
   color: $grayDark;
   small {
     color: $grayLight;
   }
+  
 }
 h1, h2 {
   font-size: 24px;
   line-height: $baseline * 2;
   small {
     font-size: 13px;
+  }
+  &.larger {
+    font-size:28px;
+    font-weight:500;
   }
 }
 h3, h4, h5, h6 {
@@ -47,19 +53,35 @@ h3 {
   small {
     font-size: 11px;
   }
+  &.larger {
+    font-size:24px;
+    font-weight:500;
+  }
 }
 h4 {
   font-size: 16px;
   small {
     font-size: 10px;
   }
+  &.larger {
+    font-size:18px;
+    font-weight:500;
+  }
 }
 h5 {
   font-size: 14px;
+  &.larger {
+    font-size:16px;
+    font-weight:500;
+  }
 }
 h6 {
   font-size: 13px;
   color: $gray;
+  &.larger {
+    font-size:16px;
+    font-weight:500;
+  }
 }
 
 hgroup {
@@ -69,6 +91,8 @@ hgroup {
     line-height:1.25em;
   }
 }
+
+
 
 // COLORS
 // ------
