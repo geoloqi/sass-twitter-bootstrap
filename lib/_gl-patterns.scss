@@ -2,21 +2,21 @@
  * Repeatable UI elements outside the base styles provided from the scaffolding
  * ---------------------------------------------------------------------------- */
 
-
 // TOPBAR
 // ------
 
 // Topbar for Branding and Nav
 .topbar, .bar {
   overflow: visible;
-  
+
   // gradient is applied to it's own element because overflow visible is not honored by ie when filter is present
   .topbar-inner, .fill, .inner {
-    @include vertical-gradient(#444, #000);
+    @include vertical-gradient(#333, #000);
   }
 
   &.top {
     border-top:3px solid $barAccent; 
+    border-bottom:1px solid #333;
     @include box-shadow(0 1px 3px rgba(0,0,0,0.199));
     @if $fixedHeader == true {
       position:fixed;
@@ -35,6 +35,7 @@
 
   &.bottom {
     @include box-shadow(0 -1px 3px rgba(0,0,0,0.1));
+    border-top:1px solid #333;
     @if $fixedFooter == true {
       position:fixed;
       bottom:0;
@@ -56,6 +57,8 @@
     background-color: rgba(255,255,255,.05);
     color: $barLinkTextColorHover;
     text-decoration: none;
+    border-right:1px solid #222;
+    border-left:1px solid #222;
   }
   
   // Website name
@@ -65,15 +68,15 @@
       float: left;
       display: block;
       color: $whiteOff;
-      font-size: 20px;
-      font-weight: 200;
+      font-size: 24px;
       line-height: 43px;
       margin-right:20px;
       margin-left:20px;
       text-shadow:0 0 1px rgba(0,0,0,.85);
-    }
-    em {
-      font-weight:bold;
+      span{
+        font-weight:500;
+        color:$grayLighter;
+      }
     }
   }
 
@@ -149,10 +152,12 @@
       }
     }
   }
+  
   > ul.nav li{
     border-right:1px solid $barDivider;
   }
-  // Navigation
+  
+    // Navigation
   ul.nav {
     display: block;
     float: left;
@@ -258,16 +263,13 @@
     }
     li ul {
       background-color: $barLinkBackgroundCurrent;
-      float: left;
       display: none;
       position: absolute;
       top: 43px;
-      width:153px;
-      _width: 180px;
-      margin-left: 0;
-      margin-right: 0;
+      width:100%;
+      min-width:150px;
+      margin:0;
       padding: 0;
-      text-align: left;
       zoom: 1;
       @include box-shadow(0 1px 3px rgba(0,0,0,0.25));
       li {
@@ -278,6 +280,9 @@
         font-size: 12px;
         border:none;
         border-bottom:1px solid $barDivider;
+        &:last-of-type {
+          border-bottom:none;
+        }
         a {
           display: block;
           padding: 12px 20px;
@@ -317,33 +322,267 @@
   }
 }
 
-
-// PAGE HEADERS
-// ------------
-
-.hero-unit, .landing {
-  @include well();
-  margin-top: 0;
-  margin-bottom: 30px;
-  padding: 60px;
-  h1 {
-    margin-bottom: 0;
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-  p {
-    font-size: 18px;
-    font-weight: 200;
-    line-height: $baseline * 1.5;
-  }
-}
-
-
 section footer {
   margin-top: $baseline - 1;
   padding-top: $baseline - 1;
   border-top: 1px solid #eee;
+}
+
+//Sidebar
+#sidebar {
+  margin:0px;
+  padding:0 0 0 39px;
+  margin:40px 0 0 39px;
+  border-left:1px solid #ddd;
+  position:relative;
+}
+
+#sidebar:after {
+  content:"&nbsp;";
+  width:1px;
+  height:130px;
+  display:block;
+  text-indent:-9999em;
+  position:absolute;
+  background: url("/img/sidebar-fade.png") no-repeat 0 0;
+  bottom:-80px;
+  left:-1px;
+}
+
+//Sidebar Navigation
+#sidebar nav ul {
+  font-size:12px;
+  list-style:none;
+  margin:0;
+}
+
+#sidebar nav ul li {
+  margin: .5em 0 .9em;
+  line-height: 1.25em;
+}
+
+#sidebar nav ul li a{
+  display: block;
+}
+
+#sidebar nav ul li a:hover {
+
+}
+
+#sidebar nav ul li.active {
+  margin: 0 0 0 -43px;
+  padding:0 0 0 30px;
+  position: relative;
+  z-index: 100;
+}
+
+#sidebar nav ul li.active:before {
+  content: " ";
+  position: absolute;
+  background: url('/img/common-sprite.png?2') no-repeat 0 0;
+  width:14px;
+  height:25px;
+  left:-7px;
+  top:-1px;
+}
+
+#sidebar nav ul li.active a {
+  color: #666;
+  font-weight:700;
+}
+
+//Form loaders
+.loader {
+  display: none;
+  width: 20px;
+  height: 20px;
+  background: url('/img/ajax-loader-small.gif') no-repeat;
+  z-index: 100;
+  margin:0 0 0 6px;
+  position:relative;
+  top:6px;
+}
+
+#load-more .loader, footer .loader, .actions .loader {
+  background: url('/img/ajax-loader-small-on-darker.gif') no-repeat;
+}
+
+form.disabled .loader, .loader.active, .form-disabled .loader {
+  display:inline-block;
+}
+
+
+//Actions on list items
+.item-actions {
+  width:56px;
+  margin:0 0 0 16px;
+  float:right;
+  padding:0;
+  background:tranparent;
+  &.wide {
+    width:213px;
+    margin:0;
+    float:right;    
+    a {
+      margin:0 0 0 15px;
+      float:right;
+    }
+  }
+  a, a:visited {
+    @include square(54px); 
+    text-align:center;
+    display:block;
+    border:1px solid #E5E5E5;
+    margin-bottom:15px;
+    background:#f8f8f8 url('/img/action-buttons.png?1') no-repeat 0 0;
+    line-height:89px;
+    color:#B3B3B3;
+    text-shadow:0 1px 0 #fff;
+    font-size:.8em;
+    @include border-radius(3px);
+    $shadow: 0 1px 1px #e2e2e2, inset 0 1px 0 #fff;
+    @include box-shadow($shadow);
+    
+    &:hover {
+      color:$orangeDark;
+    }
+
+    &.delete {
+      background-position:0 0;
+      &:hover {
+        background-position:0 -54px;
+      }
+    }
+
+    &.edit {
+      background-position:-54px 0;
+      &:hover {
+        background-position:-54px -54px;
+      }
+    }
+
+    &.embed {
+      background-position:-54*2px 0;
+      &:hover {
+        background-position:-54*2px -54px;
+      }
+    }
+
+    &.activate {
+      background-position:-54*3px 0;
+      &:hover {
+        background-position:-54*3px -54px;
+      }
+    }
+
+    &.deactivate {
+      background-position:-54*4px 0;
+      &:hover {
+        background-position:-54*4px -54px;
+      }
+    }
+    
+    &.stats {
+      background-position:-54*5px 0;
+      &:hover {
+        background-position:-54*5px -54px;
+      }
+    }
+
+    &.watch {
+      background-position:-54*6px 0;
+      &:hover {
+        background-position:-54*6px -54px;
+      }
+    }
+
+    &.usage {
+      background-position:-54*7px 0;
+      &:hover {
+        background-position:-54*7px -54px;
+      }
+    }
+
+  }
+} 
+
+html.ie8 .item-actions a{
+ color:#999999 !important; /* ie8 doesnt calculate specificity correctly */
+}
+
+//Dark, Light and Orange, Patterned Ribbons
+.ribbon {
+  padding-bottom:2em;
+  padding-top:2em;
+  overflow:hidden;
+  p {
+    position: relative;
+    z-index:1;
+  }
+  &.dark {
+    background:#170e07 url('/img/bg/softdark.png');
+    color:$whiteOff;
+  }
+  &.icons {
+    background:#170e07 url("/img/bg/iconbg.png") center center;
+    color:$whiteOff; 
+  }
+  &.dark, &.icons {
+    .well {
+      background:$blackOff;
+      border-color: $black;
+      text-shadow:0 1px 0 rgba(0,0,0,.5);
+      box-shadow:inset 0 1px 1px rgba(0,0,0,.25), 0 1px 0px rgba(255,255,255, .1);
+    }
+  }
+
+  &.orange{
+    background:#f49546 url("/img/bg/softorange.png");
+    box-shadow: 0 3px 12px rgba(0,0,0,.05), 0 -3px 12px rgba(0,0,0,.05), inset 0 3px 12px rgba(255,255,255,.10), inset 0 -3px 12px rgba(255,255,255,.10);
+    color: #F9f9f9;
+    .well, pre {
+      background: #e89252;
+      border-color: #E67A2E;
+      text-shadow:0 1px 0 rgba(0,0,0,.5);
+      box-shadow:inset 0 1px 1px rgba(0,0,0,.25), 0 1px 0px rgba(255,255,255, .1);
+    }
+
+    pre code {
+      color:#fff;
+      font-size:14px;
+    }
+
+    h4 a {
+      color:#fff;
+    }
+
+    h2 {
+      font-weight:700;
+      color:#fff;
+      text-shadow:0 1px 0 rgba(0,0,0,.5);
+    }
+  }
+  
+  &.light {
+  border-bottom:1px solid #EBEBEB;
+  background:#f9f9f9; 
+    &.bg {
+      background:url("/img/bg/softlight.png");
+    }
+  }
+
+  &.top {
+    margin-top:-14px;
+  }
+
+  &.push {
+    margin-bottom:2em;
+  }
+
+  &.border-top {
+    border-top:1px solid #ddd;
+    border-bottom:none;
+  }
 }
 
 // PATTERN ANIMATIONS
@@ -390,7 +629,11 @@ section footer {
   }
 
   &.success {
-    @include btnColor(lighten($successLight, 8%), darken($successDark, 5%));
+    @include btnColor(lighten($infoLight, 8%), darken($infoLight, 5%));
+  }
+
+  &.active {
+   @include btnColor(lighten($greenLight, 20%), darken($greenLight, 2%)); 
   }
 
   // Danger and error appear as red
@@ -402,6 +645,10 @@ section footer {
       color:$grayDark;
       text-decoration:underline;
     }
+  }
+
+  &.minor {
+    @include btnColor(lighten($yellowLight, 4%), darken($yellowDark, 5%));
   }
 
   // Info appears as a neutral blue
@@ -444,7 +691,7 @@ section footer {
   }
 
   &.success {
-    @include btnColor(lighten($primaryLight, 8%), darken($primaryDark, 5%));
+    @include btnColor(lighten($successLight, 8%), darken($successDark, 5%));
     @include vertical-gradient(lighten($successLight,8%),$successLight);
   }
 
@@ -507,15 +754,14 @@ section footer {
   //Transitions
   //@include transition(.1s linear all);
 
-
   //  Sizes
-  &.large {
-    font-size: 16px;
-    font-family: $fontFace;
-  }
-
   &.small {
     font-size: 11px;
+  }
+
+  &.x-small {
+    font-size: 11px;
+    padding:.25em;
   }
 
   &.x-large {
@@ -524,15 +770,15 @@ section footer {
     font-family: $fontFace;
   }
 
+  &.large {
+    font-size: 16px;
+    font-family: $fontFace;
+  }
+
   small {
     font-size:11px;
     font-family:$sansSerif;
     font-weight:700;
-  }
-
-  &.x-small {
-    font-size: 11px;
-    padding:.25em;
   }
 
   // Active and Disabled states
@@ -613,7 +859,6 @@ input[type=submit].btn {
 
 // ERROR STYLES
 // ------------
-
 .close {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   float: right;
@@ -644,14 +889,10 @@ input[type=submit].btn {
   p {
     margin-bottom: 0;
   }
-  div {
-    margin-top: 5px;
-    margin-bottom: 2px;
-    line-height: 28px;
-  }
   
   &.block-message {
     padding: 14px;
+    text-align:left;
 
     p {
       margin-right: 30px;
@@ -684,6 +925,9 @@ input[type=submit].btn {
 .tabs {
   width: 100%;
   border-bottom: 1px solid $grayLighter;
+  &.on-well {
+    border-bottom: none;  
+  }
   li {
     a {
       margin-bottom: -1px;
@@ -736,7 +980,9 @@ input[type=submit].btn {
     padding: 12px 0;
     min-height: 20px;
     //@include well();
-    //@include border-radius(0 0 3px 3px);
+    &.well {
+      @include border-radius(0 0 3px 3px);
+    }
 
   }
   > * {
@@ -759,7 +1005,6 @@ input[type=submit].btn {
 
 // MEDIA GRIDS
 // -----------
-
 .media-grid {
   margin-left: -20px;
   margin-bottom: 0;
@@ -783,66 +1028,10 @@ input[type=submit].btn {
   }
 }
 
-// BREADCRUMBS
-// -----------
 
-.breadcrumb {
-  margin: 0;
-  @include clearfix;
-  li {
-    display: inline;
-    text-shadow: 0 1px 0 $white;
-  }
-  .divider {
-    padding: 0 5px;
-    color: $grayLight;
-  }
-  a {
-  }
-  .active a {
-    color: $grayDark;
-  }
-}
-
-
-// PAGINATION
-// ----------
-
-.pagination {
-  height: $baseline * 2;
-  margin: $baseline 0;
-  ul {
-    float: left;
-    margin: 0;
-    @include well();
-    li {
-      display: inline;
-      a {
-        float: left;
-        padding: 0 14px;
-        line-height: ($baseline * 2) - 2;
-        border-right: 1px solid #ddd;
-        text-decoration: none;
-      }
-      a:hover,
-      &.active a {
-        background-color: lighten($linkColor, 35%);
-      }
-      &.disabled a,
-      &.disabled a:hover {
-        background-color: transparent;
-        color: $grayLight;
-      }
-      &.next a {
-        border: 0;
-      }
-    }
-  }
-}
 
 // WELLS
 // -----
-
 .well {
   margin-bottom: 16px;
   padding: 16px;
@@ -1117,73 +1306,7 @@ input[type=submit].btn {
   }
 }
 
-.show-grid div {
-  text-align:center;
-  margin-top: $baseline;
-  margin-bottom: $baseline;
-  background: $grayLighter;
-}
 
-
-// Map Infoboxes
-// -------------
-
-.geoloqi-infobox, .geoloqi-infobox-large {
-  padding: 5px;
-  width:310px;
-  background-color: $grayLighter;
-  @include border-radius(3px);
-  $shadow: 0 2px 14px rgba(0,0,0,0.4), 0 1px 0px rgba(0,0,0,.05);
-  @include box-shadow($shadow);
-  > .arrow {
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 50%;
-    margin-left: 5px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid $grayLighter;
-    bottom:-5px;
-  }
-  > .infobox-content {
-    background-color: $white;
-    padding: 9px;
-    @include border-radius(3px);
-    @include background-clip(padding-box);
-    &.with-header-footer {
-      border:1px solid $grayLight;
-      padding:0;
-      
-      > .infobox-content{
-        padding:8px;
-      }
-      
-      header, footer {
-        padding:4px 8px;
-        background: $whiteOff;
-      }
-
-      > header {
-          @include border-radius(3px 3px 0 0);
-          @include background-clip(padding-box);
-          border-bottom: 1px solid $grayLight;
-          @include box-shadow(0 1px 0 rgba(255,255,255,.5));
-      }
-
-      > footer {
-        @include border-radius(0 0 3px 3px);
-        @include background-clip(padding-box);
-        border-top: 1px solid $grayLight;
-        @include box-shadow(0 -1px 0 rgba(255,255,255,.5));
-      }
-    } 
-  }
-}
-
-.geoloqi-infobox-large {
-  width:580px;
-}
 
 // Itemized Lists
 // --------------
@@ -1201,7 +1324,6 @@ ul.items {
   }
 }
 
-
 ul.action-menu li {
   padding:0;
   a {
@@ -1209,6 +1331,36 @@ ul.action-menu li {
     width:100%;
     padding:1em;
   }
+}
+
+//Article List (Places, Trips, Timeline)
+.article-list {
+  padding-top:16px;
+  padding-left:0;
+  padding-right:0;
+}
+
+.article-list .alert-message {
+  margin:0 18px 18px;
+}
+
+.article-list article {
+  padding: 0 16px 0;
+  margin-bottom:16px;
+}
+
+.article-list article ~ article {
+  padding:16px 16px 0;
+  margin-top:0;
+  border-top:1px solid #e5e5e5;
+}
+
+.article-list article address {
+  margin-bottom:9px;
+}
+
+.article-list article:last-child {
+  margin-bottom:0;
 }
 
 // Helper Classes
@@ -1319,3 +1471,70 @@ clip: rect(1px, 1px, 1px, 1px);
 .clearfix { display: inline-block; }
 
 .clearfix { display: block; }
+
+//Site Switcher
+#header .container {
+  position:relative;
+}
+
+.logo-menu {
+  float:left;
+  height:43px;
+  &:hover {
+    div {
+      display:block;
+      opacity: 1;
+    }
+  }
+  div { 
+    @include transition(opacity .25s linear);
+    opacity: 0;
+    display:none;
+    position:relative;
+    height:60px;
+    top:43px;
+    .arrow {
+      position:absolute;
+      top:5px;
+      left: 50%;
+      margin-left:-5px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #222;
+      @include size(0, 0);
+    }
+    ul { 
+      @extend ul.dropdown;
+      background-color: $barLinkBackgroundCurrent;
+      position:absolute;
+      top:10px;
+      padding:0;
+      margin:0 0 0 -70px;
+      left:50%;
+      list-style:none;
+      width:140px;
+      li {
+        border-bottom:1px solid $barDivider;
+        &:last-of-type {
+          border-bottom:none;
+        }
+        a {
+          background-color: transparent;
+          font-weight: normal;
+          padding: 13px 20px 11px;
+          display:block;
+          &:hover {
+            background-color: rgba(255,255,255,.1);
+            *background-color: $barBackground; /* IE6-7 */
+            color: $barLinkTextColorHover;
+          }
+        }
+        &.active a {
+          background-color: rgba(255,255,255,.1);
+          font-weight: bold;
+        }
+      
+      }
+    }
+  }
+}

@@ -10,30 +10,30 @@ end
 require 'rake'
 
 VERSION = "1.2.3"
-BOOTSTRAP_CSS = "bootstrap-#{VERSION}.css"
-BOOTSTRAP_MIN_CSS = "bootstrap-#{VERSION}.min.css"
-BOOTSTRAP_LATEST = "bootstrap-latest.css"
-BOOTSTRAP_MIN_LATEST = "bootstrap-latest.min.css"
+BOOTSTRAP_CSS = "gl-bootstrap-#{VERSION}.css"
+BOOTSTRAP_MIN_CSS = "gl-bootstrap-#{VERSION}.min.css"
+BOOTSTRAP_LATEST = "gl-bootstrap-latest.css"
+BOOTSTRAP_MIN_LATEST = "gl-bootstrap-latest.min.css"
 
 SASS_COMMAND = "sass --load-path lib --style"
 
 task BOOTSTRAP_CSS do |target|
-  sh "#{SASS_COMMAND} expanded lib/bootstrap.scss:#{target}"
+  sh "#{SASS_COMMAND} expanded lib/gl-bootstrap.scss:#{target}"
   css = IO.read(target.to_s)
   css.gsub!('@DATE', `date`.strip)
   File.open(target.to_s, 'w+') { |f| f.write(css) }
 end
 
 task BOOTSTRAP_MIN_CSS do |target|
-  sh "#{SASS_COMMAND} compressed lib/bootstrap.scss:#{target}"
+  sh "#{SASS_COMMAND} compressed lib/gl-bootstrap.scss:#{target}"
 end
 
 task BOOTSTRAP_MIN_LATEST do |target|
-  sh "#{SASS_COMMAND} compressed lib/bootstrap.scss:#{target}"
+  sh "#{SASS_COMMAND} compressed lib/gl-bootstrap.scss:#{target}"
 end
 
 task BOOTSTRAP_LATEST do |target|
-  sh "#{SASS_COMMAND} expanded lib/bootstrap.scss:#{target}"
+  sh "#{SASS_COMMAND} expanded lib/gl-bootstrap.scss:#{target}"
 end
 
 desc "build regular and compresed versions of bootstrap"

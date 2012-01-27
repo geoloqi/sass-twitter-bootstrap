@@ -12,26 +12,26 @@
     margin-left: -20px;
   }
   // Default columns
-  > .span1,
-  > .span2,
-  > .span3,
-  > .span4,
-  > .span5,
-  > .span6,
-  > .span7,
-  > .span8,
-  > .span9,
-  > .span10,
-  > .span11,
-  > .span12,
-  > .span13,
-  > .span14,
-  > .span15,
-  > .span16,
-  > .span-one-third,
-  > .span-two-thirds,
-  > .span-one-fifth,
-  > .span-one-sixth {
+  .span1,
+  .span2,
+  .span3,
+  .span4,
+  .span5,
+  .span6,
+  .span7,
+  .span8,
+  .span9,
+  .span10,
+  .span11,
+  .span12,
+  .span13,
+  .span14,
+  .span15,
+  .span16,
+  .span-one-third,
+  .span-two-thirds,
+  .span-one-fifth,
+  .span-one-sixth {
     display: inline;
     float: left;
     margin-left: 20px;
@@ -56,22 +56,22 @@
   .span16    { @include columns(16); }
 
    // Default columns
-  .span1.well     { @include well-columns(1); }
-  .span2.well    { @include well-columns(2); }
-  .span3.well    { @include well-columns(3); }
-  .span4.well    { @include well-columns(4); }
-  .span5.well    { @include well-columns(5); }
-  .span6.well    { @include well-columns(6); }
-  .span7.well    { @include well-columns(7); }
-  .span8.well    { @include well-columns(8); }
-  .span9.well    { @include well-columns(9); }
-  .span10.well    { @include well-columns(10); }
-  .span11.well    { @include well-columns(11); }
-  .span12.well    { @include well-columns(12); }
-  .span13.well    { @include well-columns(13); }
-  .span14.well    { @include well-columns(14); }
-  .span15.well    { @include well-columns(15); }
-  .span16.well    { @include well-columns(16); }
+  //.span1.well     { @include well-columns(1); }
+  //.span2.well    { @include well-columns(2); }
+  //.span3.well    { @include well-columns(3); }
+  //.span4.well    { @include well-columns(4); }
+  //.span5.well    { @include well-columns(5); }
+  //.span6.well    { @include well-columns(6); }
+  //.span7.well    { @include well-columns(7); }
+  //.span8.well    { @include well-columns(8); }
+  //.span9.well    { @include well-columns(9); }
+  //.span10.well    { @include well-columns(10); }
+  //.span11.well    { @include well-columns(11); }
+  //.span12.well    { @include well-columns(12); }
+  //.span13.well    { @include well-columns(13); }
+  //.span14.well    { @include well-columns(14); }
+  //.span15.well    { @include well-columns(15); }
+  //.span16.well    { @include well-columns(16); }
 
   // 1/3 2/3 Columns
   .span-one-third {width: $oneThird;}
@@ -81,7 +81,8 @@
   .span-two-thirds.well {width: $twoThirds - 40;}
   .span-one-sixth {width: ($oneThird/2) - ($gridGutterWidth/2)}
 
-  .span-one-fifth {width: $oneFifth;}
+  //.span-one-fifth {width: $oneFifth;}
+  .span-one-fifth {width: 172px;}
 
   // Offset column options
   .offset1   { @include offset(1); }
@@ -109,7 +110,7 @@ html, body {
 }
 
 body {
-  background: #F5F3EE url("/img/bg/soft_wallpaper_2.png");
+  background: #f9f9f9 url("/img/bg/softlight.png");
   margin: 0;
   @include sans-serif-font(normal,$basefont,$baseline);
   color: $grayDark;
@@ -140,10 +141,6 @@ body {
 
   .inner, .fill {
     height: 40px;
-    background:#333;
-    @include vertical-gradient(#333, #323232);
-    $shadow: 0 -1px 4px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,.1);
-    @include box-shadow($shadow);
   }
 }
 

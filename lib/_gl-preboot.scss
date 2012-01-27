@@ -3,6 +3,7 @@
 
 // Grays
 $black:             #000000;
+$blackOff:          #262626;
 $grayDark:          #444444;
 $gray:              #777777;
 $grayLight:         #BFBFBF;
@@ -45,7 +46,7 @@ $linkColorHover:    darken($linkColor, 10);
 $linkUnderline:     false;
 
 //Forms
-$focusColor:        #80B441;
+$focusColor:        $orange;
 $errorBgColor:      lighten($redLight, 5%);
 $errorTextColor:    $red;
 
@@ -53,11 +54,15 @@ $errorTextColor:    $red;
 $pillActive: $orangeLight;
 
 // Baseline grid
-$basefont:          12px;
-$baseline:          18px;
+$basefont:          13px;
+$baseline:          21px;
 
 //Background Color
 $backgroundColor:   #f8f8f8;
+
+// Image Path
+$imagePathPrefix : '';
+$fontPathPathPrefix : '';
 
 // Header and Footer Bars
 $barBackground: #333333;
@@ -106,10 +111,10 @@ $actionDark: $blueDark;
 $codeBackground: $grayLight;
 
 //Fonts
-$sansSerif: 'Lucida Grande', 'Seoge UI', Arial, Tahoma, Verdana, sans-serif ;
-$fontFace: PTSans, 'Lucida Grande', 'Seoge UI', Arial, Tahoma, Verdana, sans-serif ;
-$serif: "Georgia", Times New Roman, Times, serif ;
-$mono: "Monaco", Courier New, monospace;
+$sansSerif: 'Lucida Grande', 'Segoe UI', Arial,  Verdana, sans-serif;
+$fontFace: PTSans, 'Lucida Grande', 'Seoge UI', Arial, Verdana, sans-serif ;
+$serif: Georgia, 'Times New Roman', Times, serif ;
+$mono: Monaco, 'Courier New', monospace;
 
 //Labels
 
@@ -124,8 +129,8 @@ $successLabel: $green;
 // END THEME
 
 $extraSpace:        $gridGutterWidth*2;
-$siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
-$oneThird:          (($siteWidth+$gridGutterWidth)/3)-$gridGutterWidth;
+$siteWidth:         960px;
+$oneThird:          ($siteWidth/3)-$gridGutterWidth;
 $twoThirds:         ($oneThird*2)+$gridGutterWidth;
 $oneFifth:          (($siteWidth+$gridGutterWidth)/5)-$gridGutterWidth;
 
@@ -212,8 +217,16 @@ $oneFifth:          (($siteWidth+$gridGutterWidth)/5)-$gridGutterWidth;
   margin: 0 auto;
 }
 
+//Clip Text at a certain width
+@mixin cutoff-text ($width) {
+  width: $width;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space:pre;
+}
+
 // Sizing shortcuts
-@mixin size($height: 5px, $width: 5px) {
+@mixin size($width: 5px, $height: 5px) {
   height: $height;
   width: $width;
 }
@@ -258,7 +271,7 @@ $oneFifth:          (($siteWidth+$gridGutterWidth)/5)-$gridGutterWidth;
 
 // Grid System
 @mixin container {
-  width: $siteWidth;
+  width: 960px;
   margin: 0 auto;
   @include clearfix();
 }
@@ -281,6 +294,16 @@ $oneFifth:          (($siteWidth+$gridGutterWidth)/5)-$gridGutterWidth;
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
           border-radius: $radius;
+}
+
+// Border Radius
+@mixin mixed-border-radius($tl: 5px, $tr: 5px, $br: 5px, $bl: 5px) {
+  -moz-border-radius-topleft: $tl;
+  -moz-border-radius-topright: $tr;
+  -moz-border-radius-bottomright: $br;
+  -moz-border-radius-bottomleft: $bl;
+  -webkit-border-radius: $tl $tr $br $bl;
+  border-radius: $tl $tr $br $bl;
 }
 
 // Drop shadows
@@ -328,4 +351,64 @@ $oneFifth:          (($siteWidth+$gridGutterWidth)/5)-$gridGutterWidth;
 @mixin translucent-border($color: $white, $alpha: 1) {
   border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
   background-clip: padding-box;
+}
+
+//Helper Mixins for Adding Arrows
+@mixin arrow-base ($size, $color, $background: transparent){
+  position:relative;
+  &:after {
+    @include square(0);
+    content:"&nbsp";
+    text-indent:-9999em;
+    display:block;
+    position:absolute;
+  }
+}
+
+@mixin arrow-up ($size, $color, $background: transparent) {
+  @include arrow-base($size, $color, $background);
+  &:after {
+    top: -($size);
+    left:50%;
+    margin-left:-($size);
+    border-left: $size solid $background;
+    border-right: $size solid $background;
+    border-bottom: $size solid $color;
+  } 
+}
+
+@mixin arrow-down ($size, $color, $background: transparent) {
+  @include arrow-base($size, $color, $background);
+  &:after {
+    bottom: -($size);
+    left:50%;
+    margin-left:-($size);
+    border-left: $size solid $background;
+    border-right: $size solid $background;
+    border-top: $size solid $color;
+  } 
+}
+
+@mixin arrow-left ($size, $color, $background: transparent) {
+  @include arrow-base($size, $color, $background);
+  &:after {
+    right: -($size);
+    top:50%;
+    margin-top:-($size);
+    border-top: $size solid $background;
+    border-left: $size solid $color;
+    border-bottom: $size solid $background;
+  } 
+}
+
+@mixin arrow-right ($size, $color, $background: transparent) {
+  @include arrow-base($size, $color, $background);
+  &:after {
+    left: -($size);
+    top:50%;
+    margin-top:-($size);
+    border-top: $size solid $background;
+    border-right: $size solid $color;
+    border-bottom: $size solid $background;
+  } 
 }

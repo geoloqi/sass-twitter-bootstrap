@@ -15,17 +15,17 @@
  */
 
 // CSS Reset
-@import "reset.scss";
+@import "_gl-reset.scss";
 
 // Load PT Sans
-@import "_ptsans.scss";
+@import "_gl-ptsans.scss";
 
 // Core
-@import "_preboot.scss";
-@import "_scaffolding.scss";
+@import "_gl-preboot.scss";
+@import "_gl-scaffolding.scss";
 
 // Styled patterns and elements
-@import "_type.scss";
-@import "_forms.scss";
-@import "_tables.scss";
-@import "_patterns.scss";
+@import "_gl-type.scss";
+@import "_gl-forms.scss";
+@import "_gl-tables.scss";
+@import "_gl-patterns.scss";
